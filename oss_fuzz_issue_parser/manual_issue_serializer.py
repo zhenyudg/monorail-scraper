@@ -21,3 +21,4 @@ if __name__ == '__main__':
                      "Select everything from the Issue number in the header to the last comment,"
                      "copy, then paste into stdin.\n")
 
+    #todo: feed raw text into issue_parser.py's functions, then serialize to json
