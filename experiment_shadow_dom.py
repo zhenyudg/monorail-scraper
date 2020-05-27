@@ -7,6 +7,8 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium import webdriver
 
 
+# todo: check if the assumptions about the issue page's layout holds true for other issues other than #20000
+
 def expand_shadow_root_elem(driver: WebDriver, elem: WebElement) -> WebElement:
     # derived from https://www.seleniumeasy.com/selenium-tutorials/accessing-shadow-dom-elements-with-webdriver
     shadow_root = driver.execute_script('return arguments[0].shadowRoot', elem)
