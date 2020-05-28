@@ -52,6 +52,10 @@ class IssueScraper:
         self.driver.close()
 
     def scrape(self, url: str) -> Issue:
+        """
+        :param url: The page of the issue report to scrape from
+        :return: the scraped Issue
+        """
         raise NotImplementedError('todo') # todo implement
 
     def _get_shadow_root(self, elem: WebElement) -> WebElement:
@@ -59,9 +63,9 @@ class IssueScraper:
         shadow_root = self.driver.execute_script('return arguments[0].shadowRoot', elem)
         return shadow_root
 
-    def _get_issue(self, url: str) -> WebElement:
+    def _get_issue_elem(self, url: str) -> WebElement:
         """
-        :param url:
+        :param url: the page of the issue report to scrape from
         :return: the element that contains everything between (and excluding) the top white bar
         (the one w/ the search bar) and the bottom row of links (starting w/ "About Monorail")
         """
@@ -76,12 +80,12 @@ class IssueScraper:
         # sometimes (nondeterministically) the issue element is not ready/otherwise missing
         # current solution is to wait a second before retrying, and try at most 5 times
         # there's probably a more clever solution w/ WebDriverWait, but this works for now
-        issue: WebElement
+        issue_elem: WebElement
         issue_elem_is_found = False
         num_attempts_to_get_issue_elem = 0
         while not issue_elem_is_found:
             try:
-                issue = mr_issue_page_shadow.find_element_by_id('issue')
+                issue_elem = mr_issue_page_shadow.find_element_by_id('issue')
                 issue_elem_is_found = True
             except NoSuchElementException:
                 time.sleep(1)
@@ -90,4 +94,5 @@ class IssueScraper:
                 if num_attempts_to_get_issue_elem > 5:
                     ScrapeException('Unable to get the issue element.')
 
-        return issue
+        return issue_elem
+

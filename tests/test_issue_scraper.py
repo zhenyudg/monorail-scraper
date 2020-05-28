@@ -13,7 +13,7 @@ class TestIssueScraper(TestCase):
     def setUpClass(cls):
         cls.scraper = IssueScraper()
 
-    def test_get_issue(self):
+    def test_get_issue_elem(self):
         # this is a smoke test
-        issue = self.scraper._get_issue(test_url_1)
-        assert issue is not None and len(issue.text) > 0
+        issue_elem = self.scraper._get_issue_elem(test_url_1)
+        assert issue_elem is not None and len(issue_elem.text) > 0
