@@ -1,19 +1,22 @@
 import datetime
 import time
 from dataclasses import dataclass
-from typing import List, Dict, Optional, Tuple, Collection, NewType
+from typing import List, Dict, Optional, Tuple, Collection, NewType, Iterator
 
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium import webdriver
 
+import regex_util
+from regex_util import capture
+
 
 @dataclass
 class Comment:
     index: int
     author: str
-    author_role: Optional[str]
+    author_roles: List[str]
     published: datetime.datetime
     issue_diff: Optional[Dict[str, str]]
     body: str
@@ -25,7 +28,7 @@ class Issue:
     id: int
     summary: str # summary = title
     author: str
-    author_role: Optional[str]
+    author_roles: List[str]
     published: datetime.datetime
     stars: int
     metadata: Dict[str, str]
@@ -40,7 +43,9 @@ class ScrapeException(Exception):
 
 IssueWebElement = NewType('IssueWebElement', WebElement)
 LeftColumnWebElement = NewType('LeftColumnWebElement', WebElement)
-
+RightColumnWebElement = NewType('RightColumnWebElement', WebElement)
+HeaderWebElement = NewType('HeaderWebElement', WebElement)
+IssueDetailsWebElement = NewType('IssueDetailsWebElement', WebElement)
 
 class IssueScraper:
     """
@@ -113,9 +118,145 @@ class IssueScraper:
 
     def _get_num_stars(self, left_column: LeftColumnWebElement) -> int:
         """
-        :param left_column:
+        :param left_column: output of self._get_left_column
         :return: number of stars
         """
-        star_line = left_column.find_element_by_class_name('star-line')
+        star_line_elem = left_column.find_element_by_class_name('star-line')
+        star_line_text = star_line_elem.text
+        num_stars = int(regex_util.capture(star_line_text, r'Starred by ([0-9]+) users?')) # r'users?' matches user or users
+        return num_stars
 
+    @staticmethod
+    def _get_text_if_possible(web_elem: Optional[WebElement]) -> str:
+        """
+        :param web_elem: A possibly null WebElement
+        :return: Empty string if web_elem is null; web_elem.text otherwise
+        """
+        if web_elem is None:
+            return ''
+        else:
+            return web_elem.text
+
+
+    def _get_metadata(self, left_column: LeftColumnWebElement) -> Dict[str, str]:
+        """
+        :param left_column: output of self._get_left_column
+        :return: dict of metadata header -> data (e.g: 'Modified' -> 'Feb 10, 2020')
+        """
+        mr_metadata = left_column.find_element_by_tag_name('mr-metadata')
+        mr_metadata_shadow = self._get_shadow_root(mr_metadata)
+
+        table_rows = mr_metadata_shadow.find_elements_by_tag_name('tr')
+
+        # get rid of cue-availability_msgs
+        table_rows = [tr for tr in table_rows if tr.get_attribute('class') != 'cue-availability_msgs']
+
+        table_header_elems: Iterator[Optional[WebElement]] = map(lambda tr: tr.find_element_by_tag_name('th'), table_rows)
+        table_data_elems: Iterator[Optional[WebElement]] = map(lambda tr: tr.find_element_by_tag_name('td'), table_rows)
+
+        table_headers: Iterator[str] = map(lambda th: self._get_text_if_possible(th), table_header_elems)
+        table_data: Iterator[str] = map(lambda td: self._get_text_if_possible(td), table_data_elems)
+
+        #delete colons from headers
+        table_headers = map(lambda header: header.replace(':', ''), table_headers)
+
+        metadata_table = dict(zip(table_headers, table_data))
+        return metadata_table
+
+    def _get_labels(self, left_column: LeftColumnWebElement) -> List[str]:
+        """
+        :param left_column:
+        :return:
+        """
+        labels_container = left_column.find_element_by_class_name('labels-container')
+        label_elems = labels_container.find_elements_by_class_name('label')
+
+        labels: Iterator[str] = map(lambda label_elem: label_elem.text, label_elems)
+        return list(labels)
+
+    def _get_right_column(self, issue_elem: IssueWebElement) -> RightColumnWebElement:
+        container_issue = issue_elem.find_element_by_class_name('container-issue')
+        return RightColumnWebElement(container_issue)
+
+    def _get_header(self, right_column: RightColumnWebElement) -> HeaderWebElement:
+        issue_header_container = right_column.find_element_by_class_name('issue-header-container')
+        mr_issue_header = issue_header_container.find_element_by_tag_name('mr-issue-header')
+        mr_issue_header_shadow = self._get_shadow_root(mr_issue_header)
+        main_text = mr_issue_header_shadow.find_element_by_class_name('main-text')
+        return HeaderWebElement(main_text)
+
+    def _get_id(self, header: HeaderWebElement) -> int:
+        header_text = header.text
+        return int(capture(header_text, r'Issue ([0-9]+?):'))
+
+    def _get_summary(self, header: HeaderWebElement) -> str:
+        header_text = header.text
+        return capture(header_text, r'Issue [0-9]+?: (.+?)[\n$]')
+
+    def _get_author(self, header: HeaderWebElement) -> str:
+        mr_user_link = header.find_element_by_tag_name('mr-user-link')
+        return mr_user_link.text
+
+    def _get_author_roles(self, header: HeaderWebElement) -> List[str]:
+        role_label_elems = header.find_elements_by_class_name('role-label')
+        role_labels: Iterator[str] = map(lambda elem: elem.text, role_label_elems)
+        return list(role_labels)
+
+    def _get_published(self, header: HeaderWebElement) -> str:
+        chops_timestamp = header.find_element_by_tag_name('chops-timestamp')
+        time_published = chops_timestamp.get_attribute('title')
+        return time_published
+
+    def _get_issue_details(self, right_column: RightColumnWebElement) -> IssueDetailsWebElement:
+        container_issue_content = right_column.find_element_by_class_name('container-issue-content')
+        mr_issue_details = container_issue_content.find_element_by_tag_name('mr-issue-details')
+        mr_issue_details_shadow = self._get_shadow_root(mr_issue_details)
+        return IssueDetailsWebElement(mr_issue_details_shadow)
+
+    def _get_description(self, issue_details: IssueDetailsWebElement):
+        description_elem = issue_details.find_element_by_tag_name('mr-description')
+        return description_elem.text
+
+    def _get_comments(self, issue_details: IssueDetailsWebElement) -> List[Comment]:
+        mr_comment_list = issue_details.find_element_by_tag_name('mr-comment-list')
+        mr_comment_list_shadow = self._get_shadow_root(mr_comment_list)
+
+        mr_comment_elems = mr_comment_list_shadow.find_elements_by_tag_name('mr-comment')
+        comments: Iterator[Comment] = map(lambda elem: self._get_comment(elem), mr_comment_elems)
+        return list(comments)
+
+    def _get_comment(self, mr_comment: WebElement) -> Comment:
+        mr_comment_shadow = self._get_shadow_root(mr_comment)
+        comment_header = mr_comment_shadow.find_element_by_class_name('comment-header')
+        div_under_comment_header = comment_header.find_element_by_tag_name('div')
+
+        # todo: consider refactoring into 6 smaller subroutines
+
+        # Comment index
+        comment_link = div_under_comment_header.find_element_by_class_name('comment-link')
+        index = int(capture(comment_link.text, r'Comment ([0-9]+)'))
+
+        # Comment author
+        mr_user_link = div_under_comment_header.find_element_by_tag_name('mr-user-link')
+        author = mr_user_link.text
+
+        # Comment author roles
+        role_label_elems: List[WebElement] = div_under_comment_header.find_elements_by_class_name('role-label')
+        role_labels = list(map(lambda elem: elem.text, role_label_elems))
+
+        # Comment published datetime
+        chops_timestamp = div_under_comment_header.find_element_by_tag_name('chops-timestamp')
+        time_published = chops_timestamp.get_attribute('title')
+
+        # Issue diff
+        issue_diff_elem = mr_comment_shadow.find_element_by_class_name('issue-diff')
+        issue_diff = issue_diff_elem.text
+
+        # Comment body
+        comment_body_elem = mr_comment_shadow.find_element_by_class_name('comment-body')
+        comment_body = comment_body_elem.text
+
+        comment = Comment(index=index, author=author, author_roles=role_labels, published=time_published,
+                          issue_diff=issue_diff, body=comment_body)
+        return comment
 

@@ -1,18 +1,11 @@
 from unittest import TestCase
 
+from issue_scraper import get_issue_num, get_title
 from oss_fuzz_issue_parser.issue_parser import *
 from tests.oss_fuzz_issue_parser.test_issue_parser_inputs import *
 
 
 class TestIssueParser(TestCase):
-
-    def test_get_issue_num(self):
-        issue_num = get_issue_num(test_input_22076)
-        assert issue_num == 22076
-
-    def test_get_title(self):
-        title = get_title(test_input_22076)
-        assert title == 'llvm:clang-fuzzer: Stack-overflow in GetFullTypeForDeclarator'
 
     def test_get_proj(self):
         proj = get_project(test_input_22076, 22076)

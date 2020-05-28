@@ -33,14 +33,6 @@ class OSSFuzzIssue(Issue):
     testcase_url: str
 
 
-def get_issue_num(raw_text: str) -> int:
-    return int(capture(raw_text, r'Issue ([0-9]+?):'))
-
-
-def get_title(raw_text: str) -> str:
-    return capture(raw_text, r'Issue [0-9]+?: (.+?)[\n$]')
-
-
 def get_project(raw_text: str, issue_num: int) -> str:
     if issue_num <= 135:
         # todo: parse projects from "Job Type: " or title
