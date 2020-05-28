@@ -14,6 +14,7 @@ from issue_scraper import Issue
 # Reason to keep parsing functions as 'top-level' functions:
 # There's a high chance that we'll repurpose them to parse data from shadow DOMs.
 # In that case, the raw_text argument won't all be the same.
+from regex_util import capture
 
 
 @dataclass # essentially a struct
@@ -30,13 +31,6 @@ class OSSFuzzIssue(Issue):
     regressed_commits_url: str
     fixed_commits_url: str
     testcase_url: str
-
-
-def capture(input: str, regex: str, pattern_flags: int = 0, groupnum: int = 1) -> str:
-    pattern = re.compile(regex, pattern_flags)
-    match = pattern.search(input)
-    captured_text = match.group(groupnum)
-    return captured_text
 
 
 def get_issue_num(raw_text: str) -> int:

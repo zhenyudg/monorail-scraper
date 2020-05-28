@@ -1,7 +1,7 @@
 import datetime
 import time
 from dataclasses import dataclass
-from typing import List, Dict, Optional, Tuple, Collection
+from typing import List, Dict, Optional, Tuple, Collection, NewType
 
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.remote.webdriver import WebDriver
@@ -38,6 +38,10 @@ class ScrapeException(Exception):
     pass # todo: add message asking people to report an issue
 
 
+IssueWebElement = NewType('IssueWebElement', WebElement)
+LeftColumnWebElement = NewType('LeftColumnWebElement', WebElement)
+
+
 class IssueScraper:
     """
     Uses Chrome to web scrape Monorail issues.
@@ -63,7 +67,7 @@ class IssueScraper:
         shadow_root = self.driver.execute_script('return arguments[0].shadowRoot', elem)
         return shadow_root
 
-    def _get_issue_elem(self, url: str) -> WebElement:
+    def _get_issue_elem(self, url: str) -> IssueWebElement:
         """
         :param url: the page of the issue report to scrape from
         :return: the element that contains everything between (and excluding) the top white bar
@@ -94,5 +98,24 @@ class IssueScraper:
                 if num_attempts_to_get_issue_elem > 5:
                     ScrapeException('Unable to get the issue element.')
 
-        return issue_elem
+        return IssueWebElement(issue_elem)
+
+    def _get_left_column(self, issue_elem: IssueWebElement) -> LeftColumnWebElement:
+        """
+        :param issue_elem: output of self._get_issue_elem
+        :return: the (shadow) element that contains the left column, which contains stars, metadata, and labels
+        """
+        metadata_container = issue_elem.find_element_by_class_name('metadata-container')
+        mr_issue_metadata = metadata_container.find_element_by_tag_name('mr-issue-metadata')
+        mr_issue_metadata_shadow = self._get_shadow_root(mr_issue_metadata)
+
+        return LeftColumnWebElement(mr_issue_metadata_shadow)
+
+    def _get_num_stars(self, left_column: LeftColumnWebElement) -> int:
+        """
+        :param left_column:
+        :return: number of stars
+        """
+        star_line = left_column.find_element_by_class_name('star-line')
+
 
