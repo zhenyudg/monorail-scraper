@@ -38,8 +38,7 @@ class ScrapeException(Exception):
     pass # todo: add message asking people to report an issue
 
 
-# todo: rename to IssueScraper to distinguish from future non-Issue scrapers (e.g: listings scraper)
-class MonorailScraper:
+class IssueScraper:
     """
     Uses Chrome to web scrape Monorail issues.
     """

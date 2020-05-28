@@ -1,16 +1,17 @@
 from unittest import TestCase
 
-from scraper import MonorailScraper
+from issue_scraper import IssueScraper
 
 test_url_1 = 'https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=20000'
 
-class TestScraper(TestCase):
 
-    scraper: MonorailScraper
+class TestIssueScraper(TestCase):
+
+    scraper: IssueScraper
 
     @classmethod
     def setUpClass(cls):
-        cls.scraper = MonorailScraper()
+        cls.scraper = IssueScraper()
 
     def test_get_issue(self):
         # this is a smoke test

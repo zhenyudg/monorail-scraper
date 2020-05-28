@@ -3,7 +3,7 @@ from typing import Tuple
 import re
 from dataclasses import dataclass
 
-from scraper import Issue
+from issue_scraper import Issue
 
 # minimum issue number: 5 (anything lower is not publically accessible)
 # maximum issue number at time of writing: 22411
