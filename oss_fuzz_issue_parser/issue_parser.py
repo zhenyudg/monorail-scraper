@@ -1,6 +1,9 @@
+from typing import Tuple
+
 import re
 from dataclasses import dataclass
-from typing import Tuple
+
+from scraper import Issue
 
 # minimum issue number: 5 (anything lower is not publically accessible)
 # maximum issue number at time of writing: 22411
@@ -14,9 +17,7 @@ from typing import Tuple
 
 
 @dataclass # essentially a struct
-class Issue:
-    issue_num: int
-    title: str
+class OSSFuzzIssue(Issue):
     project: str
     fuzzing_engine: str
     fuzz_target_binary: str
@@ -145,5 +146,3 @@ def get_testcase_url(raw_text: str, issue_num: int) -> str:
 
 def get_report_date(raw_text: str) -> str:
     return capture(raw_text, r'Reported by ClusterFuzz-External on (.+?) Project Member [\n$]')
-
-# todo: extract comments

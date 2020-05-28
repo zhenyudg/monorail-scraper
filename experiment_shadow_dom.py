@@ -41,6 +41,8 @@ def scrape_comment(driver: WebDriver, mr_comment: WebElement):
     LIST_role_label = div_under_comment_header.find_elements_by_class_name('role-label')
     # print(*[role_label.text for role_label in LIST_role_label])
 
+    # todo: get the comment text itself
+
 
 def get_text_if_possible(web_elem: Optional[WebElement]) -> Optional[str]:
     if web_elem is None:
