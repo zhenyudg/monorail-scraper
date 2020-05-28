@@ -7,8 +7,6 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium import webdriver
 
 
-# todo: check if the assumptions about the issue page's layout holds true for other issues other than #20000
-
 def expand_shadow_root_elem(driver: WebDriver, elem: WebElement) -> WebElement:
     # derived from https://www.seleniumeasy.com/selenium-tutorials/accessing-shadow-dom-elements-with-webdriver
     shadow_root = driver.execute_script('return arguments[0].shadowRoot', elem)
@@ -63,8 +61,15 @@ def scrape_metadata(mr_metadata_shadow: WebElement):
     metadata_rows: List[Tuple[Optional[str], Optional[str]]] \
         = map(lambda PAIR_th_td: (get_text_if_possible(PAIR_th_td[0]), get_text_if_possible(PAIR_th_td[1])), LIST_th_td)
 
-    for row in metadata_rows:
-        print(*row)
+    # for row in metadata_rows: print(*row)
+
+
+def scrape_labels(mr_issue_metadata_shadow: WebElement):
+    labels_container = mr_issue_metadata_shadow.find_element_by_class_name('labels-container')
+    LIST_label = labels_container.find_elements_by_class_name('label')
+
+    labels: List[str] = map(lambda label_elem: label_elem.text, LIST_label)
+    # print(*labels)
 
 
 if __name__ == '__main__':
@@ -109,7 +114,7 @@ if __name__ == '__main__':
     mr_metadata_shadow = expand_shadow_root_elem(driver, mr_metadata)
     scrape_metadata(mr_metadata_shadow)
 
-    # todo get tags
+    scrape_labels(mr_issue_metadata_shadow)
 
     # right column containing the issue title, main text and comments
     container_issue = issue.find_element_by_class_name('container-issue')
