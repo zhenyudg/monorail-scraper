@@ -1,5 +1,5 @@
 import time
-from typing import List
+from typing import List, Dict, Optional, Tuple
 
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.remote.webdriver import WebDriver
@@ -44,6 +44,29 @@ def scrape_comment(driver: WebDriver, mr_comment: WebElement):
     # print(*[role_label.text for role_label in LIST_role_label])
 
 
+def get_text_if_possible(web_elem: Optional[WebElement]) -> Optional[str]:
+    if web_elem is None:
+        return None
+    else:
+        return web_elem.text
+
+
+def scrape_metadata(mr_metadata_shadow: WebElement):
+    LIST_tr = mr_metadata_shadow.find_elements_by_tag_name('tr')
+
+    # get rid of cue-availability_msgs
+    LIST_tr = [tr for tr in LIST_tr if tr.get_attribute('class') != 'cue-availability_msgs']
+
+    LIST_th_td: List[Tuple[Optional[WebElement], Optional[WebElement]]] \
+        = map(lambda tr: (tr.find_element_by_tag_name('th'), tr.find_element_by_tag_name('td')), LIST_tr)
+
+    metadata_rows: List[Tuple[Optional[str], Optional[str]]] \
+        = map(lambda PAIR_th_td: (get_text_if_possible(PAIR_th_td[0]), get_text_if_possible(PAIR_th_td[1])), LIST_th_td)
+
+    for row in metadata_rows:
+        print(*row)
+
+
 if __name__ == '__main__':
     # requirement: chromedriver is in PATH
     driver = webdriver.Chrome()
@@ -77,27 +100,16 @@ if __name__ == '__main__':
     mr_issue_metadata = metadata_container.find_element_by_tag_name('mr-issue-metadata')
     mr_issue_metadata_shadow = expand_shadow_root_elem(driver, mr_issue_metadata)
     assert mr_issue_metadata_shadow is not None
+
     star_line = mr_issue_metadata_shadow.find_element_by_class_name('star-line')
     # print(star_line.text) # todo: parse # of stars with r'Starred by ([0-9]+) users?' (maybe)
 
     # central block of metadata in left column: Owner -> Type
     mr_metadata = mr_issue_metadata_shadow.find_element_by_tag_name('mr-metadata')
     mr_metadata_shadow = expand_shadow_root_elem(driver, mr_metadata)
-    row_owner = mr_metadata_shadow.find_element_by_class_name('row-owner')
-    row_cc = mr_metadata_shadow.find_element_by_class_name('row-cc')
-    row_status = mr_metadata_shadow.find_element_by_class_name('row-status')
-    row_components = mr_metadata_shadow.find_element_by_class_name('row-components')
-    row_modified = mr_metadata_shadow.find_element_by_class_name('row-modified')
-    # there's no row_type class for some reason; todo: scrape the Type (probably by getting all tr elems under mr_metadata_shadow)
-    owner: str = row_owner.find_element_by_tag_name('td').text # todo you probably want a function for extracting the RHS value of a single row
-    cc: List[str] #todo scrape the cc emails
-    status: str = row_status.find_element_by_tag_name('td').text
-    components: str = row_components.find_element_by_tag_name('td').text
-    modified: str = row_modified.find_element_by_tag_name('td')\
-        .find_element_by_tag_name('chops-timestamp')\
-        .get_attribute('title')
-    # todo get the type
-    # print(owner, status, components, modified)
+    scrape_metadata(mr_metadata_shadow)
+
+    # todo get tags
 
     # right column containing the issue title, main text and comments
     container_issue = issue.find_element_by_class_name('container-issue')
