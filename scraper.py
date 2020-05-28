@@ -34,10 +34,15 @@ class Issue:
     comments: List[Comment]
 
 
+class ScrapeException(Exception):
+    pass # todo: add message asking people to report an issue
+
+
+# todo: rename to IssueScraper to distinguish from future non-Issue scrapers (e.g: listings scraper)
 class MonorailScraper:
-    '''
+    """
     Uses Chrome to web scrape Monorail issues.
-    '''
+    """
 
     driver: WebDriver
 
@@ -47,5 +52,43 @@ class MonorailScraper:
     def __del__(self):
         self.driver.close()
 
-    def scrape(self, url: str):
+    def scrape(self, url: str) -> Issue:
         raise NotImplementedError('todo') # todo implement
+
+    def _get_shadow_root(self, elem: WebElement) -> WebElement:
+        # derived from https://www.seleniumeasy.com/selenium-tutorials/accessing-shadow-dom-elements-with-webdriver
+        shadow_root = self.driver.execute_script('return arguments[0].shadowRoot', elem)
+        return shadow_root
+
+    def _get_issue(self, url: str) -> WebElement:
+        """
+        :param url:
+        :return: the element that contains everything between (and excluding) the top white bar
+        (the one w/ the search bar) and the bottom row of links (starting w/ "About Monorail")
+        """
+        self.driver.get(url)
+
+        mr_app = self.driver.find_element_by_tag_name('mr-app')
+        mr_app_shadow = self._get_shadow_root(mr_app)
+        main = mr_app_shadow.find_element_by_tag_name('main')
+        mr_issue_page = main.find_element_by_tag_name('mr-issue-page')
+        mr_issue_page_shadow = self._get_shadow_root(mr_issue_page)
+
+        # sometimes (nondeterministically) the issue element is not ready/otherwise missing
+        # current solution is to wait a second before retrying, and try at most 5 times
+        # there's probably a more clever solution w/ WebDriverWait, but this works for now
+        issue: WebElement
+        issue_elem_is_found = False
+        num_attempts_to_get_issue_elem = 0
+        while not issue_elem_is_found:
+            try:
+                issue = mr_issue_page_shadow.find_element_by_id('issue')
+                issue_elem_is_found = True
+            except NoSuchElementException:
+                time.sleep(1)
+                num_attempts_to_get_issue_elem += 1
+
+                if num_attempts_to_get_issue_elem > 5:
+                    ScrapeException('Unable to get the issue element.')
+
+        return issue
