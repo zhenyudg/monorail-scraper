@@ -48,6 +48,7 @@ RightColumnWebElement = NewType('RightColumnWebElement', WebElement)
 HeaderWebElement = NewType('HeaderWebElement', WebElement)
 IssueDetailsWebElement = NewType('IssueDetailsWebElement', WebElement)
 
+
 class IssueScraper:
     """
     Uses Chrome to web scrape Monorail issues.
@@ -66,7 +67,31 @@ class IssueScraper:
         :param url: The page of the issue report to scrape from
         :return: the scraped Issue
         """
-        raise NotImplementedError('todo') # todo implement
+        issue_elem = self._get_issue_elem(url)
+
+        left_col = self._get_left_column(issue_elem)
+        num_stars = self._get_num_stars(left_col)
+        metadata = self._get_metadata(left_col)
+        labels = self._get_labels(left_col)
+
+        right_col = self._get_right_column(issue_elem)
+        header = self._get_header(right_col)
+        id = self._get_id(header)
+        summary = self._get_summary(header)
+        author = self._get_author(header)
+        author_roles = self._get_author_roles(header)
+        published = self._get_published(header)
+        issue_details = self._get_issue_details(right_col)
+        description = self._get_description(issue_details)
+        comments = self._get_comments(issue_details)
+
+        retrieved = datetime.datetime.now()
+
+        scraped_issue = Issue(retrieved=retrieved, id=id, summary=summary, author=author, author_roles=author_roles,
+                              published=published, stars=num_stars, metadata=metadata, labels=labels,
+                              description=description, comments=comments)
+
+        return scraped_issue
 
     def _get_shadow_root(self, elem: WebElement) -> WebElement:
         # derived from https://www.seleniumeasy.com/selenium-tutorials/accessing-shadow-dom-elements-with-webdriver
@@ -144,7 +169,6 @@ class IssueScraper:
             return ''
         else:
             return web_elem.text
-
 
     def _get_metadata(self, left_column: LeftColumnWebElement) -> Dict[str, str]:
         """
