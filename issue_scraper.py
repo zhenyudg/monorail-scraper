@@ -1,5 +1,6 @@
 import datetime
 import time
+import datefinder
 from dataclasses import dataclass
 from typing import List, Dict, Optional, Tuple, Collection, NewType, Iterator
 
@@ -71,6 +72,13 @@ class IssueScraper:
         # derived from https://www.seleniumeasy.com/selenium-tutorials/accessing-shadow-dom-elements-with-webdriver
         shadow_root = self.driver.execute_script('return arguments[0].shadowRoot', elem)
         return shadow_root
+
+    @staticmethod
+    def _get_datetime(datetime_str: str) -> datetime.datetime:
+        matches = list(datefinder.find_dates(datetime_str))
+        assert len(matches) == 1
+        match = matches[0]
+        return match
 
     def _get_issue_elem(self, url: str) -> IssueWebElement:
         """
@@ -202,9 +210,10 @@ class IssueScraper:
         role_labels: Iterator[str] = map(lambda elem: elem.text, role_label_elems)
         return list(role_labels)
 
-    def _get_published(self, header: HeaderWebElement) -> str:
+    def _get_published(self, header: HeaderWebElement) -> datetime.datetime:
         chops_timestamp = header.find_element_by_tag_name('chops-timestamp')
-        time_published = chops_timestamp.get_attribute('title')
+        time_published_str = chops_timestamp.get_attribute('title')
+        time_published = self._get_datetime(time_published_str)
         return time_published
 
     def _get_issue_details(self, right_column: RightColumnWebElement) -> IssueDetailsWebElement:
@@ -246,7 +255,8 @@ class IssueScraper:
 
         # Comment published datetime
         chops_timestamp = div_under_comment_header.find_element_by_tag_name('chops-timestamp')
-        time_published = chops_timestamp.get_attribute('title')
+        time_published_str = chops_timestamp.get_attribute('title')
+        time_published = self._get_datetime(time_published_str)
 
         # Issue diff
         issue_diff_elem = mr_comment_shadow.find_element_by_class_name('issue-diff')

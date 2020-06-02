@@ -100,7 +100,9 @@ class TestIssueScraper(TestCase):
         right_col_1 = self.scraper._get_right_column(issue_elem_1)
         header_1 = self.scraper._get_header(right_col_1)
         published_1 = self.scraper._get_published(header_1)
-        self.assertIn('Jan 10, 2020', published_1) # times may change due to time zones
+        self.assertEqual(published_1.year, 2020)
+        self.assertEqual(published_1.month, 1)
+        # todo implement time-zone dependent day, hour and minute checks
 
     def test_get_issue_details(self):
         # smoke test
@@ -115,7 +117,6 @@ class TestIssueScraper(TestCase):
         issue_details_1 = self.scraper._get_issue_details(right_col_1)
         description_1 = self.scraper._get_description(issue_details_1)
         # instead of checking against the whole text, just check the beginning, middle, and end.
-        print(description_1)
         self.assertIn('Detailed', description_1)
         self.assertIn('Reproducer', description_1)
         self.assertIn('public.', description_1)
@@ -131,7 +132,9 @@ class TestIssueScraper(TestCase):
         self.assertEqual(comment_1.author, 'ClusterFuzz-External')
         self.assertEqual(len(comment_1.author_roles), 1)
         self.assertIn('Project Member', comment_1.author_roles)
-        self.assertIn('Sat, Jan 11, 2020', comment_1.published) # times may change due to time zones
+        self.assertEqual(comment_1.published.year, 2020)
+        self.assertEqual(comment_1.published.month, 1)
+        # todo implement time-zone dependent day, hour and minute checks
 
         # instead of checking against the whole text, just check the beginning, middle, and end.
         self.assertIn('Status:', comment_1.issue_diff)
