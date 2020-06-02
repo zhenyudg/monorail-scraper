@@ -108,7 +108,6 @@ class TestIssueScraper(TestCase):
         right_col_1 = self.scraper._get_right_column(issue_elem_1)
         issue_details_1 = self.scraper._get_issue_details(right_col_1)
         self.assertIsNotNone(issue_details_1)
-        self.assertGreater(len(issue_details_1.text), 0)
 
     def test_get_description(self):
         issue_elem_1 = self.scraper._get_issue_elem(test_url_1)
