@@ -1,6 +1,5 @@
 from unittest import TestCase
 
-from issue_scraper import get_issue_num, get_title
 from oss_fuzz_issue_parser.issue_parser import *
 from tests.oss_fuzz_issue_parser.test_issue_parser_inputs import *
 
