@@ -19,7 +19,7 @@ class Comment:
     author: str
     author_roles: List[str]
     published: datetime.datetime
-    issue_diff: Optional[Dict[str, str]]
+    issue_diff: Optional[str]
     body: str
 
 
@@ -282,9 +282,16 @@ class IssueScraper:
         time_published_str = chops_timestamp.get_attribute('title')
         time_published = self._get_datetime(time_published_str)
 
-        # Issue diff
-        issue_diff_elem = mr_comment_shadow.find_element_by_class_name('issue-diff')
-        issue_diff = issue_diff_elem.text
+        # Issue diff (optional, doesn't exist on every comment)
+        issue_diff: str
+        issue_diff_elem_list = mr_comment_shadow.find_elements_by_class_name('issue-diff')
+        if len(issue_diff_elem_list) == 0: #there's no issue diff
+            issue_diff = None
+        elif len(issue_diff_elem_list) == 1: #there's an issue diff
+            issue_diff_elem = issue_diff_elem_list[0]
+            issue_diff = issue_diff_elem.text
+        else:
+            raise ScrapeException('More than one issue-diff found in a comment.')
 
         # Comment body
         comment_body_elem = mr_comment_shadow.find_element_by_class_name('comment-body')
