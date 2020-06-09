@@ -141,7 +141,6 @@ def get_regressed_commits_url(description: str) -> str:
 
 
 def get_fixed_commits_url(comments: Collection[Comment], id: int) -> Optional[str]:
-    # todo test this function (this is also a good time to change the test input formats, which are now anachronistic"
     if id <= 14834:
         regex = r'Fixed: (.+?)[\n$]'
     else: # id >= 14835
