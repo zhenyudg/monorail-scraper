@@ -26,7 +26,7 @@ class OSSFuzzIssueDetails:
     platform_id: str
     crash_type: str
     crash_addr: str
-    crash_state: Tuple[str]
+    crash_state: Tuple[str, ...]
     sanitizer: str
     regressed_commits_url: str
     fixed_commits_url: str
