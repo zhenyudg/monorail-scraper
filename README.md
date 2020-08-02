@@ -1,6 +1,6 @@
 # Monorail Scraper
 
-This project is under active development.
+This project is under active development (scheduled to resume in September).
 
 Monorail Scraper is a tool to scrape and retrieve data from 
 [Monorail](https://bugs.chromium.org/p/monorail/adminIntro), an 
