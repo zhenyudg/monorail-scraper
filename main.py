@@ -6,7 +6,7 @@ def get_args() -> Tuple[str, int]:
 
     parser = argparse.ArgumentParser(description='A web scraping tool for Monorail issue reports.')
     parser.add_argument('-p', '--project',  required=True, type=str,
-                        help='The parent project of the issue to scrape. A list of projects is available at https://bugs.chromium.org/hosting/')
+                        help='The parent project of the issue to scrape. A list of projects is available at https://bugs.chromium.org//')
     parser.add_argument('-i', '--issue-id', required=True, type=int,
                         help='The ID of the issue to scrape.')
 
