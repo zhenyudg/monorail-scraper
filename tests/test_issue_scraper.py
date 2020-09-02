@@ -19,6 +19,14 @@ class TestIssueScraper(TestCase):
         self.assertIsNotNone(issue)
         print(issue)
 
+    def test_get_project(self):
+        project_1 = self.scraper._get_project(test_url_1)
+        self.assertEqual(project_1, 'oss-fuzz')
+
+        projzero_url = 'https://bugs.chromium.org/p/project-zero/issues/detail?id=2050&q=&can=1&sort=-id'
+        project_projzero_url = self.scraper._get_project(projzero_url)
+        self.assertEqual(project_projzero_url, 'project-zero')
+
     def test_get_issue_elem(self):
         # smoke test
         issue_elem_1 = self.scraper._get_issue_elem(test_url_1)

@@ -4,7 +4,7 @@ from typing import Tuple
 
 @dataclass # essentially a struct
 class OSSFuzzIssueDetails:
-    project: str
+    project: str # software project in which a bug was found, not the same as Issue.project
     fuzzing_engine: str
     fuzz_target_binary: str
     job_type: str

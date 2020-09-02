@@ -18,6 +18,7 @@ class Comment:
 @dataclass # essentially a struct
 class Issue:
     retrieved: datetime.datetime # time when the issue was scraped
+    project: str
     id: int
     summary: str # summary = title
     author: str

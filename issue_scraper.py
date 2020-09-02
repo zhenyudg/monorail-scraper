@@ -36,12 +36,14 @@ class IssueScraper:
     def __del__(self):
         self.driver.close()
 
-    def scrape(self, url: str) -> Issue:
+    def scrape(self, issue_url: str) -> Issue:
         """
-        :param url: The page of the issue report to scrape from
+        :param issue_url: The page of the issue report to scrape from
         :return: the scraped Issue
         """
-        issue_elem = self._get_issue_elem(url)
+        project = self._get_project(issue_url)
+
+        issue_elem = self._get_issue_elem(issue_url)
 
         left_col = self._get_left_column(issue_elem)
         num_stars = self._get_num_stars(left_col)
@@ -61,11 +63,16 @@ class IssueScraper:
 
         retrieved = datetime.datetime.now()
 
-        scraped_issue = Issue(retrieved=retrieved, id=id, summary=summary, author=author, author_roles=author_roles,
+        scraped_issue = Issue(retrieved=retrieved, project=project,
+                              id=id, summary=summary, author=author, author_roles=author_roles,
                               published=published, stars=num_stars, metadata=metadata, labels=labels,
                               description=description, comments=comments)
 
         return scraped_issue
+
+    @staticmethod
+    def _get_project(issue_url):
+        return capture(issue_url, r'/p/(.+)/issues')
 
     def _get_shadow_root(self, elem: WebElement) -> WebElement:
         # derived from https://www.seleniumeasy.com/selenium-tutorials/accessing-shadow-dom-elements-with-webdriver
