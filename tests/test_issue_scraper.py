@@ -43,7 +43,10 @@ class TestIssueScraper(TestCase):
         metadata = self.scraper._get_metadata(left_col_1)
         self.assertEqual(len(metadata), 6)
         self.assertEqual(metadata['Owner'], '----')
-        self.assertEqual(metadata['CC'], 'amo...@gmail.com\nbug-binu...@gnu.org\np.anto...@catenacyber.fr\nnickc@redhat.com')
+        self.assertIn('amo...@gmail.com', metadata['CC'])
+        self.assertIn('bug-binu...@gnu.org', metadata['CC'])
+        self.assertIn('p.anto...@catenacyber.fr', metadata['CC'])
+        self.assertIn('nickc@redhat.com', metadata['CC'])
         self.assertIsNotNone(metadata['Status']) # may change over time
         self.assertEqual(metadata['Components'], '----')
         self.assertIsNotNone(metadata['Modified']) # may change over time
