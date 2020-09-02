@@ -1,9 +1,8 @@
 from typing import Tuple, Collection, Optional
 
 import re
-from dataclasses import dataclass
 
-from issue_scraper import Issue, Comment
+from issue import Comment, Issue
 
 # minimum issue number: 5 (anything lower is not publically accessible)
 # maximum issue number at time of writing: 22411
@@ -12,24 +11,9 @@ from issue_scraper import Issue, Comment
 # Use [\n$] when possible for forwards compatibility if & when we switch to shadow DOM parsing
 
 # Reason to keep parsing functions as 'top-level' functions:
-# None (consider a refactor)
+# None (todo: consider a refactor)
+from oss_fuzz.oss_fuzz_issue_details import OSSFuzzIssueDetails
 from regex_util import capture
-
-
-@dataclass # essentially a struct
-class OSSFuzzIssueDetails:
-    project: str
-    fuzzing_engine: str
-    fuzz_target_binary: str
-    job_type: str
-    platform_id: str
-    crash_type: str
-    crash_addr: str
-    crash_state: Tuple[str, ...]
-    sanitizer: str
-    regressed_commits_url: str
-    fixed_commits_url: str
-    testcase_url: str
 
 
 def parse_oss_fuzz_issue_details(issue: Issue) -> OSSFuzzIssueDetails:

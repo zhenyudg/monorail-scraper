@@ -1,8 +1,7 @@
 import datetime
 import time
 import datefinder
-from dataclasses import dataclass
-from typing import List, Dict, Optional, Tuple, Collection, NewType, Iterator, Any
+from typing import List, Dict, Optional, NewType, Iterator
 
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.remote.webdriver import WebDriver
@@ -10,34 +9,8 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium import webdriver
 
 import regex_util
+from issue import Comment, Issue
 from regex_util import capture
-
-
-@dataclass
-class Comment:
-    index: int
-    author: str
-    author_roles: List[str]
-    published: datetime.datetime
-    issue_diff: Optional[str]
-    body: str
-
-
-@dataclass # essentially a struct
-class Issue:
-    retrieved: datetime.datetime # time when the issue was scraped
-    id: int
-    summary: str # summary = title
-    author: str
-    author_roles: List[str]
-    published: datetime.datetime
-    stars: int
-    metadata: Dict[str, str]
-    labels: List[str]
-    description: str # description = main text
-    comments: List[Comment]
-    additional_info: Optional[Any] = None # currently used for OSSFuzzIssueDetails
-
 
 class ScrapeException(Exception):
     pass # todo: add message asking people to report an issue
