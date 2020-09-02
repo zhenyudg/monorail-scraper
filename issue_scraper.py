@@ -2,7 +2,7 @@ import datetime
 import time
 import datefinder
 from dataclasses import dataclass
-from typing import List, Dict, Optional, Tuple, Collection, NewType, Iterator
+from typing import List, Dict, Optional, Tuple, Collection, NewType, Iterator, Any
 
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.remote.webdriver import WebDriver
@@ -36,6 +36,7 @@ class Issue:
     labels: List[str]
     description: str # description = main text
     comments: List[Comment]
+    additional_info: Optional[Any] = None # currently used for OSSFuzzIssueDetails
 
 
 class ScrapeException(Exception):
