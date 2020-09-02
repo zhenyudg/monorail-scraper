@@ -1,6 +1,8 @@
 import datetime
 from dataclasses import dataclass
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Dict, Union
+
+from oss_fuzz.oss_fuzz_issue_details import OSSFuzzIssueDetails
 
 
 @dataclass
@@ -26,4 +28,4 @@ class Issue:
     labels: List[str]
     description: str # description = main text
     comments: List[Comment]
-    additional_info: Optional[Any] = None # currently used for OSSFuzzIssueDetails
+    additional_info: Union[None, OSSFuzzIssueDetails] = None
