@@ -12,8 +12,7 @@ from issue_scraper import Issue, Comment
 # Use [\n$] when possible for forwards compatibility if & when we switch to shadow DOM parsing
 
 # Reason to keep parsing functions as 'top-level' functions:
-# There's a high chance that we'll repurpose them to parse data from shadow DOMs.
-# In that case, the raw_text argument won't all be the same.
+# None (consider a refactor)
 from regex_util import capture
 
 
