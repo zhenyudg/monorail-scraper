@@ -12,11 +12,11 @@ from issue import Comment, Issue
 
 # Reason to keep parsing functions as 'top-level' functions:
 # None (todo: consider a refactor)
-from oss_fuzz.oss_fuzz_issue_details import OSSFuzzIssueDetails
+from oss_fuzz.oss_fuzz_bug_report import OSSFuzzBugReport
 from string_util import capture
 
 
-def parse_oss_fuzz_issue_details(issue: Issue) -> OSSFuzzIssueDetails:
+def parse_oss_fuzz_issue_details(issue: Issue) -> OSSFuzzBugReport:
     id = issue.id
     description = issue.description
     comments = issue.comments
@@ -34,12 +34,12 @@ def parse_oss_fuzz_issue_details(issue: Issue) -> OSSFuzzIssueDetails:
     fixed_commits_url = get_fixed_commits_url(comments, id)
     testcase_url = get_testcase_url(description, id)
 
-    oss_fuzz_issue_details = OSSFuzzIssueDetails(project=project, fuzzing_engine=fuzzing_engine,
-                                                 fuzz_target_binary=fuzz_target_binary, job_type=job_type,
-                                                 platform_id=platform_id, crash_type=crash_type, crash_addr=crash_addr,
-                                                 crash_state=crash_state, sanitizer=sanitizer,
-                                                 regressed_commits_url=regressed_commits_url,
-                                                 fixed_commits_url=fixed_commits_url, testcase_url=testcase_url)
+    oss_fuzz_issue_details = OSSFuzzBugReport(project=project, fuzzing_engine=fuzzing_engine,
+                                              fuzz_target_binary=fuzz_target_binary, job_type=job_type,
+                                              platform_id=platform_id, crash_type=crash_type, crash_addr=crash_addr,
+                                              crash_state=crash_state, sanitizer=sanitizer,
+                                              regressed_commits_url=regressed_commits_url,
+                                              fixed_commits_url=fixed_commits_url, testcase_url=testcase_url)
 
     return oss_fuzz_issue_details
 

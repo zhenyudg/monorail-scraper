@@ -1,8 +1,8 @@
 from unittest import TestCase
 
 from issue_scraper import IssueScraper
-from oss_fuzz.oss_fuzz_issue_parser import *
-from tests.oss_fuzz_issue_parser.test_oss_fuzz_issue_parser_inputs import *
+from oss_fuzz.oss_fuzz_bug_report_parser import *
+from tests.oss_fuzz.oss_fuzz_bug_reports import *
 
 
 class TestIssueParser(TestCase):

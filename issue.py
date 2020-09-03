@@ -4,7 +4,7 @@ from typing import List, Optional, Dict, Union
 
 from dataclasses_json import dataclass_json
 
-from oss_fuzz.oss_fuzz_issue_details import OSSFuzzIssueDetails
+from oss_fuzz.oss_fuzz_bug_report import OSSFuzzBugReport
 
 
 @dataclass_json
@@ -33,4 +33,4 @@ class Issue:
     labels: List[str]
     description: str # description = main text
     comments: List[Comment]
-    additional_info: Union[None, OSSFuzzIssueDetails] = None
+    additional_info: Union[None, OSSFuzzBugReport] = None
