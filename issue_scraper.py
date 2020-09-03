@@ -8,9 +8,9 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium import webdriver
 
-import regex_util
+import string_util
 from issue import Comment, Issue
-from regex_util import capture
+from string_util import capture
 
 class ScrapeException(Exception):
     pass # todo: add message asking people to report an issue
@@ -137,7 +137,7 @@ class IssueScraper:
         """
         star_line_elem = left_column.find_element_by_class_name('star-line')
         star_line_text = star_line_elem.text
-        num_stars = int(regex_util.capture(star_line_text, r'Starred by ([0-9]+) users?')) # r'users?' matches user or users
+        num_stars = int(string_util.capture(star_line_text, r'Starred by ([0-9]+) users?')) # r'users?' matches user or users
         return num_stars
 
     @staticmethod

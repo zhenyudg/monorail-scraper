@@ -13,7 +13,7 @@ from issue import Comment, Issue
 # Reason to keep parsing functions as 'top-level' functions:
 # None (todo: consider a refactor)
 from oss_fuzz.oss_fuzz_issue_details import OSSFuzzIssueDetails
-from regex_util import capture
+from string_util import capture
 
 
 def parse_oss_fuzz_issue_details(issue: Issue) -> OSSFuzzIssueDetails:
