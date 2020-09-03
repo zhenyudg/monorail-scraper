@@ -11,7 +11,7 @@ class TestIssueParser(TestCase):
         scraper = IssueScraper()
         url_22076 = 'https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=22076'
         issue_22076 = scraper.scrape(url_22076)
-        oss_fuzz_issue_details_22076 = parse_oss_fuzz_issue_details(issue_22076)
+        oss_fuzz_issue_details_22076 = parse_oss_fuzz_bug_report_details(issue_22076)
         self.assertEqual(oss_fuzz_issue_details_22076.project, 'llvm')
         self.assertEqual(oss_fuzz_issue_details_22076.fuzzing_engine, 'libFuzzer')
         self.assertEqual(oss_fuzz_issue_details_22076.fuzz_target_binary, 'clang-fuzzer')

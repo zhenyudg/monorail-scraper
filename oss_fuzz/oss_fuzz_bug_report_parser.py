@@ -16,7 +16,7 @@ from oss_fuzz.oss_fuzz_bug_report import OSSFuzzBugReport
 from string_util import capture
 
 
-def parse_oss_fuzz_issue_details(issue: Issue) -> OSSFuzzBugReport:
+def parse_oss_fuzz_bug_report_details(issue: Issue) -> OSSFuzzBugReport:
     id = issue.id
     description = issue.description
     comments = issue.comments
