@@ -56,9 +56,17 @@ def get_project(description: str, id: int) -> str:
 
 def get_fuzzing_engine(description: str, id: int) -> str:
     if id <= 16307:
-        # todo: heuristically figure out the fuzzing engine by checking for known fuzz engines in the text
-        # todo: it's probably in the "Fuzzer: " field
-        raise NotImplementedError("Issues <= 16307 not supported")
+        jobtype = capture(description, r'Job Type: (.+?)[\n$]')
+        if jobtype.startswith('afl'):
+            return 'afl'
+        elif jobtype.startswith('libfuzzer'):
+            return 'libFuzzer'
+        elif jobtype.startswith('honggfuzz'):
+            # there aren't any issues w/ id <= 16307 that featured honggfuzz
+            return 'honggfuzz'
+        else:
+            # any fuzz engines that I missed
+            return jobtype.split('_')[0]
     elif id >= 16308:
         return capture(description, r'Fuzzing Engine: (.+?)[\n$]')
 

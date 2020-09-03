@@ -35,8 +35,13 @@ class TestIssueParser(TestCase):
         assert proj == 'llvm'
 
     def test_get_fuzzing_engine(self):
-        fzeng = get_fuzzing_engine(test_input_22076, 22076)
-        assert fzeng == 'libFuzzer'
+        fzeng_5 = get_fuzzing_engine(test_input_5, 5)
+        self.assertEqual(fzeng_5, 'libFuzzer')
+        fzeng_16307 = get_fuzzing_engine(test_input_16307, 16307)
+        self.assertEqual(fzeng_16307, 'afl')
+        fzeng_22076 = get_fuzzing_engine(test_input_22076, 22076)
+        self.assertEqual(fzeng_22076, 'libFuzzer')
+
 
     def test_get_fuzz_target_binary(self):
         fztgt_22076 = get_fuzz_target_binary(test_input_22076, 22076)
