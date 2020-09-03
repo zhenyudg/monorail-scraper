@@ -27,9 +27,8 @@ def main():
     issue_scraper = IssueScraper()
     issue = issue_scraper.scrape(issue_url)
 
-    output = issue.to_json()
+    output = issue.to_json(sort_keys=True, indent=4)
     print(output)
-
 
 
 if __name__ == '__main__':
