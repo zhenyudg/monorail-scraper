@@ -2,9 +2,12 @@ import datetime
 from dataclasses import dataclass
 from typing import List, Optional, Dict, Union
 
+from dataclasses_json import dataclass_json
+
 from oss_fuzz.oss_fuzz_issue_details import OSSFuzzIssueDetails
 
 
+@dataclass_json
 @dataclass
 class Comment:
     index: int
@@ -15,7 +18,8 @@ class Comment:
     body: str
 
 
-@dataclass # essentially a struct
+@dataclass_json
+@dataclass
 class Issue:
     retrieved: datetime.datetime # time when the issue was scraped
     project: str

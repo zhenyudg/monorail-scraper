@@ -1,5 +1,7 @@
 from typing import Tuple
 
+from issue_scraper import IssueScraper
+
 
 def get_args() -> Tuple[str, int]:
     import argparse
@@ -22,6 +24,12 @@ def get_issue_url(project: str, issue_id: int) -> str:
 def main():
     project, issue_id = get_args()
     issue_url = get_issue_url(project, issue_id)
+    issue_scraper = IssueScraper()
+    issue = issue_scraper.scrape(issue_url)
+
+    output = issue.to_json()
+    print(output)
+
 
 
 if __name__ == '__main__':

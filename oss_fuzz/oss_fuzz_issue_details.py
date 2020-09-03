@@ -1,7 +1,10 @@
 from dataclasses import dataclass
 from typing import Tuple
 
+from dataclasses_json import dataclass_json
 
+
+@dataclass_json
 @dataclass # essentially a struct
 class OSSFuzzIssueDetails:
     project: str # software project in which a bug was found, not the same as Issue.project
