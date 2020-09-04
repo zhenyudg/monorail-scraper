@@ -245,6 +245,7 @@ class IssueScraper:
         div_under_comment_header = comment_header.find_element_by_tag_name('div')
 
         # todo: consider refactoring into 6 smaller subroutines
+        # fixme: crashes with deleted comments (e.g.: project-zero Issue #1)
 
         # Comment index
         comment_link = div_under_comment_header.find_element_by_class_name('comment-link')
