@@ -3,7 +3,7 @@
 This project is under active development.
 
 Monorail Scraper is a tool to scrape and retrieve data from 
-[Monorail](https://bugs.chromium.org/p/monorail/adminIntro), an 
+[Monorail](https://bugs.chromium.org/), an 
 issue tracking tool.
 
 Monorail Scraper includes a tool specifically for scraping 
