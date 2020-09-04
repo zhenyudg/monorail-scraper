@@ -236,26 +236,38 @@ class IssueScraper:
         mr_comment_list_shadow = self._get_shadow_root(mr_comment_list)
 
         mr_comment_elems = mr_comment_list_shadow.find_elements_by_tag_name('mr-comment')
-        comments: Iterator[Comment] = map(lambda elem: self._get_comment(elem), mr_comment_elems)
+
+        comments = list()
+        for mr_comment in mr_comment_elems:
+            comment = self._get_comment(mr_comment)
+            if comment is not None:
+                comments.append(comment)
+
         return list(comments)
 
-    def _get_comment(self, mr_comment: WebElement) -> Comment:
+    def _get_comment(self, mr_comment: WebElement) -> Optional[Comment]:
         mr_comment_shadow = self._get_shadow_root(mr_comment)
         comment_header = mr_comment_shadow.find_element_by_class_name('comment-header')
         div_under_comment_header = comment_header.find_element_by_tag_name('div')
 
-        # fixme: crashes with deleted comments (e.g.: project-zero Issue #1)
+        if self._is_deleted_comment(div_under_comment_header):
+            comment = None
+        else:
+            index = self._get_comment_index(div_under_comment_header)
+            author = self._get_comment_author(div_under_comment_header)
+            role_labels = self._get_comment_author_roles(div_under_comment_header)
+            time_published = self._get_comment_published_datetime(div_under_comment_header)
+            issue_diff = self._get_comment_issue_diff(mr_comment_shadow)
+            comment_body = self._get_comment_body(mr_comment_shadow)
 
-        index = self._get_comment_index(div_under_comment_header)
-        author = self._get_comment_author(div_under_comment_header)
-        role_labels = self._get_comment_author_roles(div_under_comment_header)
-        time_published = self._get_comment_published_datetime(div_under_comment_header)
-        issue_diff = self._get_comment_issue_diff(mr_comment_shadow)
-        comment_body = self._get_comment_body(mr_comment_shadow)
+            comment = Comment(index=index, author=author, author_roles=role_labels, published=time_published,
+                              issue_diff=issue_diff, body=comment_body)
 
-        comment = Comment(index=index, author=author, author_roles=role_labels, published=time_published,
-                          issue_diff=issue_diff, body=comment_body)
         return comment
+
+    def _is_deleted_comment(self, div_under_comment_header: WebElement) -> bool:
+        deleted_comment_notices = div_under_comment_header.find_elements_by_class_name('deleted-comment-notice')
+        return len(deleted_comment_notices) > 0
 
     def _get_comment_index(self, div_under_comment_header: WebElement) -> int:
         comment_link = div_under_comment_header.find_element_by_class_name('comment-link')

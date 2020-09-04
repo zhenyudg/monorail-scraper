@@ -139,6 +139,8 @@ class TestIssueScraper(TestCase):
         self.assertIn('public.', description_1)
 
     def test_get_comments(self):
+        # todo test for deleted comments
+
         issue_elem_1 = self.scraper._get_issue_elem(test_url_1)
         right_col_1 = self.scraper._get_right_column(issue_elem_1)
         issue_details_1 = self.scraper._get_issue_details(right_col_1)
