@@ -31,18 +31,18 @@ def parse_oss_fuzz_bug_report_details(issue: Issue) -> OSSFuzzBugReport:
     description = issue.description
     comments = issue.comments
 
-    project = get_project(description, id)
-    fuzzing_engine = get_fuzzing_engine(description, id)
-    fuzz_target_binary = get_fuzz_target_binary(description, id)
-    job_type = get_job_type(description)
-    platform_id = get_platform_id(description)
-    crash_type = get_crash_type(description)
-    crash_addr = get_crash_address(description)
-    crash_state = get_crash_state(description)
-    sanitizer = get_sanitizer(description, id)
-    regressed_commits_url = get_regressed_commits_url(description)
-    fixed_commits_url = get_fixed_commits_url(comments, id)
-    testcase_url = get_testcase_url(description, id)
+    project = _get_project(description, id)
+    fuzzing_engine = _get_fuzzing_engine(description, id)
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+    job_type = _get_job_type(description)
+    platform_id = _get_platform_id(description)
+    crash_type = _get_crash_type(description)
+    crash_addr = _get_crash_address(description)
+    crash_state = _get_crash_state(description)
+    sanitizer = _get_sanitizer(description, id)
+    regressed_commits_url = _get_regressed_commits_url(description)
+    fixed_commits_url = _get_fixed_commits_url(comments, id)
+    testcase_url = _get_testcase_url(description, id)
 
     oss_fuzz_issue_details = OSSFuzzBugReport(project=project, fuzzing_engine=fuzzing_engine,
                                               fuzz_target_binary=fuzz_target_binary, job_type=job_type,
@@ -54,7 +54,7 @@ def parse_oss_fuzz_bug_report_details(issue: Issue) -> OSSFuzzBugReport:
     return oss_fuzz_issue_details
 
 
-def get_project(description: str, id: int) -> str:
+def _get_project(description: str, id: int) -> str:
     if id <= 135:
         # todo: parse projects from "Job Type: " or title
         raise NotImplementedError("Issues <= 135 not supported")
@@ -64,7 +64,7 @@ def get_project(description: str, id: int) -> str:
         return capture(description, r'Project: (.+?)[\n$]')
 
 
-def get_fuzzing_engine(description: str, id: int) -> str:
+def _get_fuzzing_engine(description: str, id: int) -> str:
     if id <= 16307:
         jobtype = capture(description, r'Job Type: (.+?)[\n$]')
         if jobtype.startswith('afl'):
@@ -81,7 +81,7 @@ def get_fuzzing_engine(description: str, id: int) -> str:
         return capture(description, r'Fuzzing Engine: (.+?)[\n$]')
 
 
-def get_fuzz_target_binary(description: str, id: int) -> str:
+def _get_fuzz_target_binary(description: str, id: int) -> str:
     if id <= 251:
         # todo: heuristically find fz tgt by stripping the fuzz engine prefix off of the "Fuzzer: " field
         raise NotImplementedError("Issues <= 251 not supported")
@@ -91,24 +91,24 @@ def get_fuzz_target_binary(description: str, id: int) -> str:
         return capture(description, r'Fuzz Target: (.+?)[\n$]')
 
 
-def get_job_type(description: str) -> str:
+def _get_job_type(description: str) -> str:
     return capture(description, r'Job Type: (.+?)[\n$]')
 
 
-def get_platform_id(description: str) -> str:
+def _get_platform_id(description: str) -> str:
     return capture(description, r'Platform Id: (.+?)[\n$]')
 
 
-def get_crash_type(description: str) -> str:
+def _get_crash_type(description: str) -> str:
     return capture(description, r'Crash Type: (.+?)[\n$]')
 
 
-def get_crash_address(description: str) -> str:
+def _get_crash_address(description: str) -> str:
     # There might not be the address; in that case, capture the empty string
     return capture(description, r'Crash Address: (.*?)[\n$]')
 
 
-def get_crash_state(description: str) -> Tuple[str]:
+def _get_crash_state(description: str) -> Tuple[str]:
     # The . qualifier doesn't match \n by default
     raw_crash_state = capture(description, r'Crash State:\n(.*?)\n  \n', pattern_flags=re.DOTALL)
 
@@ -122,7 +122,7 @@ def get_crash_state(description: str) -> Tuple[str]:
     return tuple(crash_state)
 
 
-def get_sanitizer(description: str, id: int) -> str:
+def _get_sanitizer(description: str, id: int) -> str:
     if id <= 383:
         #todo: parse from job type
         raise NotImplementedError("Issues <= 383 not supported")
@@ -130,7 +130,7 @@ def get_sanitizer(description: str, id: int) -> str:
         return capture(description, r'Sanitizer: (.+?)[\n$]')
 
 
-def get_regressed_commits_url(description: str) -> str:
+def _get_regressed_commits_url(description: str) -> str:
     # almost all issues have urls to regression commits, except a handful of extremely old issues
     pattern = re.compile(r'Regressed: (.+?)[\n$]')
     match = pattern.search(description)
@@ -141,7 +141,7 @@ def get_regressed_commits_url(description: str) -> str:
     return regressed
 
 
-def get_fixed_commits_url(comments: Collection[Comment], id: int) -> Optional[str]:
+def _get_fixed_commits_url(comments: Collection[Comment], id: int) -> Optional[str]:
     if id <= 14834:
         regex = r'Fixed: (.+?)[\n$]'
     else: # id >= 14835
@@ -163,7 +163,7 @@ def get_fixed_commits_url(comments: Collection[Comment], id: int) -> Optional[st
     return fixed_commits_url
 
 
-def get_testcase_url(description: str, id: int) -> str:
+def _get_testcase_url(description: str, id: int) -> str:
     if id <= 125:
         return capture(description, r'Download: (.+?)[\n$]')
     elif 126 <= id <= 500:
@@ -172,5 +172,5 @@ def get_testcase_url(description: str, id: int) -> str:
         return capture(description, r'Reproducer Testcase: (.+?)[\n$]')
 
 
-def get_report_date(raw_text: str) -> str:
+def _get_report_date(raw_text: str) -> str:
     return capture(raw_text, r'Reported by ClusterFuzz-External on (.+?) Project Member [\n$]')
