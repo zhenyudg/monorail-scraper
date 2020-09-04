@@ -281,4 +281,3 @@ class IssueScraper:
         comment = Comment(index=index, author=author, author_roles=role_labels, published=time_published,
                           issue_diff=issue_diff, body=comment_body)
         return comment
-
