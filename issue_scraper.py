@@ -244,28 +244,41 @@ class IssueScraper:
         comment_header = mr_comment_shadow.find_element_by_class_name('comment-header')
         div_under_comment_header = comment_header.find_element_by_tag_name('div')
 
-        # todo: consider refactoring into 6 smaller subroutines
         # fixme: crashes with deleted comments (e.g.: project-zero Issue #1)
 
-        # Comment index
+        index = self._get_comment_index(div_under_comment_header)
+        author = self._get_comment_author(div_under_comment_header)
+        role_labels = self._get_comment_author_roles(div_under_comment_header)
+        time_published = self._get_comment_published_datetime(div_under_comment_header)
+        issue_diff = self._get_comment_issue_diff(mr_comment_shadow)
+        comment_body = self._get_comment_body(mr_comment_shadow)
+
+        comment = Comment(index=index, author=author, author_roles=role_labels, published=time_published,
+                          issue_diff=issue_diff, body=comment_body)
+        return comment
+
+    def _get_comment_index(self, div_under_comment_header: WebElement) -> int:
         comment_link = div_under_comment_header.find_element_by_class_name('comment-link')
         index = int(capture(comment_link.text, r'Comment ([0-9]+)'))
+        return index
 
-        # Comment author
+    def _get_comment_author(self, div_under_comment_header: WebElement) -> str:
         mr_user_link = div_under_comment_header.find_element_by_tag_name('mr-user-link')
         author = mr_user_link.text
+        return author
 
-        # Comment author roles
+    def _get_comment_author_roles(self, div_under_comment_header: WebElement) -> List[str]:
         role_label_elems: List[WebElement] = div_under_comment_header.find_elements_by_class_name('role-label')
         role_labels = list(map(lambda elem: elem.text, role_label_elems))
+        return role_labels
 
-        # Comment published datetime
+    def _get_comment_published_datetime(self, div_under_comment_header: WebElement) -> datetime.datetime:
         chops_timestamp = div_under_comment_header.find_element_by_tag_name('chops-timestamp')
         time_published_str = chops_timestamp.get_attribute('title')
         time_published = self._get_datetime(time_published_str)
+        return time_published
 
-        # Issue diff (optional, doesn't exist on every comment)
-        issue_diff: str
+    def _get_comment_issue_diff(self, mr_comment_shadow: WebElement) -> Optional[str]:
         issue_diff_elem_list = mr_comment_shadow.find_elements_by_class_name('issue-diff')
         if len(issue_diff_elem_list) == 0: #there's no issue diff
             issue_diff = None
@@ -275,10 +288,9 @@ class IssueScraper:
         else:
             raise ScrapeException('More than one issue-diff found in a comment.')
 
-        # Comment body
+        return issue_diff
+
+    def _get_comment_body(self, mr_comment_shadow: WebElement) -> str:
         comment_body_elem = mr_comment_shadow.find_element_by_class_name('comment-body')
         comment_body = comment_body_elem.text
-
-        comment = Comment(index=index, author=author, author_roles=role_labels, published=time_published,
-                          issue_diff=issue_diff, body=comment_body)
-        return comment
+        return comment_body
