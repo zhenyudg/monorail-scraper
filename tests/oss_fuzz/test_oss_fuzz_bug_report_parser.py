@@ -7,6 +7,23 @@ from tests.oss_fuzz.oss_fuzz_bug_reports import *
 
 class TestIssueParser(TestCase):
 
+    def test_is_oss_fuzz_bug_report(self):
+        scraper = IssueScraper()
+        url_22076 = 'https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=22076'
+        issue_22076 = scraper.scrape(url_22076) # bug report
+
+        url_25371 = 'https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=25371'
+        issue_25371 = scraper.scrape(url_25371) # build failure
+
+        url_projzero = 'https://bugs.chromium.org/p/project-zero/issues/detail?id=9&q=&can=1'
+        issue_projzero = scraper.scrape(url_projzero)
+
+
+        self.assertTrue(is_oss_fuzz_bug_report(issue_22076))
+        self.assertFalse(is_oss_fuzz_bug_report(issue_25371))
+        self.assertFalse(is_oss_fuzz_bug_report(issue_projzero))
+
+
     def test_parse_oss_fuzz_issue_details(self):
         scraper = IssueScraper()
         url_22076 = 'https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=22076'

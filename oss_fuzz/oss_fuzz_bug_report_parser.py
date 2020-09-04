@@ -13,7 +13,17 @@ from issue import Comment, Issue
 # Reason to keep parsing functions as 'top-level' functions:
 # None (todo: consider a refactor)
 from oss_fuzz.oss_fuzz_bug_report import OSSFuzzBugReport
-from string_util import capture
+from string_util import *
+
+
+def is_oss_fuzz_bug_report(issue: Issue) -> bool:
+    is_oss_fuzz = almost_equal("oss-fuzz", issue.project)
+    if not is_oss_fuzz:
+        return False
+    else:
+        is_nonsecurity_bug_report = almost_equal("Bug", issue.metadata['Type'])
+        is_security_bug_report = almost_equal("Bug-Security", issue.metadata['Type'])
+        return is_nonsecurity_bug_report or is_security_bug_report
 
 
 def parse_oss_fuzz_bug_report_details(issue: Issue) -> OSSFuzzBugReport:
