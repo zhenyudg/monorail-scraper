@@ -1,6 +1,7 @@
 from typing import Tuple
 
 from issue_scraper import IssueScraper
+from oss_fuzz.oss_fuzz_bug_report_parser import attach_oss_fuzz_bug_report
 
 
 def get_args() -> Tuple[str, int]:
@@ -26,6 +27,8 @@ def main():
     issue_url = get_issue_url(project, issue_id)
     issue_scraper = IssueScraper()
     issue = issue_scraper.scrape(issue_url)
+
+    attach_oss_fuzz_bug_report(issue)
 
     output = issue.to_json(sort_keys=True, indent=4)
     print(output)

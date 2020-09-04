@@ -7,6 +7,17 @@ from tests.oss_fuzz.oss_fuzz_bug_reports import *
 
 class TestIssueParser(TestCase):
 
+    def test_attach_oss_fuzz_bug_report(self):
+        # smoke test
+        scraper = IssueScraper()
+        url_22076 = 'https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=22076'
+        issue_22076 = scraper.scrape(url_22076) # bug report
+
+        successful = attach_oss_fuzz_bug_report(issue_22076)
+        self.assertTrue(successful)
+        self.assertIsNotNone(issue_22076.oss_fuzz_bug_report)
+
+
     def test_is_oss_fuzz_bug_report(self):
         scraper = IssueScraper()
         url_22076 = 'https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=22076'

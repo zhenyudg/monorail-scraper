@@ -16,6 +16,24 @@ from oss_fuzz.oss_fuzz_bug_report import OSSFuzzBugReport
 from string_util import *
 
 
+def attach_oss_fuzz_bug_report(issue: Issue) -> bool:
+    """
+    Attaches an OSS-Fuzz bug report to an issue if the issue indeed contains an
+    OSS-Fuzz bug report (checked with is_oss_fuzz_bug_report()).
+
+    :param issue: The issue to attach an OSSFuzzBugReport to. Will be modified in-place --- the
+    Issue.oss_fuzz_bug_report will be filled.
+    :return: whether an OSSFuzzBugReport was successfully attached to issue. If True, then
+    issue was modified in-place. If False, then issue was unchanged.
+    """
+    if not is_oss_fuzz_bug_report(issue):
+        return False
+    else:
+        report = parse_oss_fuzz_bug_report_details(issue)
+        issue.oss_fuzz_bug_report = report
+        return True
+
+
 def is_oss_fuzz_bug_report(issue: Issue) -> bool:
     is_oss_fuzz = almost_equal("oss-fuzz", issue.project)
     if not is_oss_fuzz:
