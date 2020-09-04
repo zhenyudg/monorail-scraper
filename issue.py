@@ -1,6 +1,6 @@
 import datetime
 from dataclasses import dataclass
-from typing import List, Optional, Dict, Union
+from typing import List, Optional, Dict
 
 from dataclasses_json import dataclass_json
 
@@ -33,4 +33,5 @@ class Issue:
     labels: List[str]
     description: str # description = main text
     comments: List[Comment]
-    additional_info: Union[None, OSSFuzzBugReport] = None
+
+    oss_fuzz_bug_report: Optional[OSSFuzzBugReport] = None
