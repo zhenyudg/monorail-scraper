@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from issue_scraper import IssueScraper
+from issue_scraper import IssueScraper, ScrapeException
 
 test_url_1 = 'https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=20000'
 
@@ -18,6 +18,11 @@ class TestIssueScraper(TestCase):
         issue = self.scraper.scrape(test_url_1)
         self.assertIsNotNone(issue)
         print(issue)
+
+    def test_scrape_nonexisting_issue(self):
+        nonexisting_issue_url = 'https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=0'
+        with self.assertRaises(ScrapeException):
+            self.scraper.scrape(nonexisting_issue_url)
 
     def test_get_project(self):
         project_1 = self.scraper._get_project(test_url_1)

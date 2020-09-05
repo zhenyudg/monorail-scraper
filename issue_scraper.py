@@ -13,7 +13,11 @@ from issue import Comment, Issue
 from string_util import capture
 
 class ScrapeException(Exception):
-    pass # todo: add message asking people to report an issue
+    def __init__(self, value):
+        self.value = value
+
+    def __str__(self):
+        return repr(self.value)
 
 
 def get_issue_url(project: str, issue_id: int) -> str:
@@ -114,12 +118,13 @@ class IssueScraper:
             try:
                 issue_elem = mr_issue_page_shadow.find_element_by_id('issue')
                 issue_elem_is_found = True
-            except NoSuchElementException:
+                break
+            except NoSuchElementException as e:
                 time.sleep(1)
                 num_attempts_to_get_issue_elem += 1
 
                 if num_attempts_to_get_issue_elem > 5:
-                    ScrapeException('Unable to get the issue element.')
+                    raise ScrapeException('Unable to get the issue element. Check whether the issue exists.') from e
 
         return IssueWebElement(issue_elem)
 
