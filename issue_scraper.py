@@ -16,6 +16,10 @@ class ScrapeException(Exception):
     pass # todo: add message asking people to report an issue
 
 
+def get_issue_url(project: str, issue_id: int) -> str:
+    return 'https://bugs.chromium.org/p/{}/issues/detail?id={}'.format(project, issue_id)
+
+
 IssueWebElement = NewType('IssueWebElement', WebElement)
 LeftColumnWebElement = NewType('LeftColumnWebElement', WebElement)
 RightColumnWebElement = NewType('RightColumnWebElement', WebElement)

@@ -1,6 +1,6 @@
 from typing import Tuple
 
-from issue_scraper import IssueScraper
+from issue_scraper import IssueScraper, get_issue_url
 from oss_fuzz.oss_fuzz_bug_report_parser import attach_oss_fuzz_bug_report
 
 
@@ -16,10 +16,6 @@ def get_args() -> Tuple[str, int]:
     args = parser.parse_args()
 
     return args.project, args.issue_id
-
-
-def get_issue_url(project: str, issue_id: int) -> str:
-    return 'https://bugs.chromium.org/p/{}/issues/detail?id={}'.format(project, issue_id)
 
 
 def main():
