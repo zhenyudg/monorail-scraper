@@ -126,7 +126,7 @@ class IssueScraper:
                 time.sleep(1)
                 num_attempts_to_get_issue_elem += 1
 
-                if num_attempts_to_get_issue_elem > 5:
+                if num_attempts_to_get_issue_elem > 3:
                     raise ScrapeException('Unable to scrape. Check whether the issue exists.') from e
 
         return IssueWebElement(issue_elem)
