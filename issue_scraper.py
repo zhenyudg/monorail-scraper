@@ -3,7 +3,7 @@ import time
 import datefinder
 from typing import List, Dict, Optional, NewType, Iterator
 
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium import webdriver
@@ -102,11 +102,14 @@ class IssueScraper:
         """
         self.driver.get(url)
 
-        mr_app = self.driver.find_element_by_tag_name('mr-app')
-        mr_app_shadow = self._get_shadow_root(mr_app)
-        main = mr_app_shadow.find_element_by_tag_name('main')
-        mr_issue_page = main.find_element_by_tag_name('mr-issue-page')
-        mr_issue_page_shadow = self._get_shadow_root(mr_issue_page)
+        try:
+            mr_app = self.driver.find_element_by_tag_name('mr-app')
+            mr_app_shadow = self._get_shadow_root(mr_app)
+            main = mr_app_shadow.find_element_by_tag_name('main')
+            mr_issue_page = main.find_element_by_tag_name('mr-issue-page')
+            mr_issue_page_shadow = self._get_shadow_root(mr_issue_page)
+        except (NoSuchElementException, StaleElementReferenceException) as e:
+            raise ScrapeException("Unable to scrape. Check whether the issue is accessible.") from e
 
         # sometimes (nondeterministically) the issue element is not ready/otherwise missing
         # current solution is to wait a second before retrying, and try at most 5 times
@@ -124,7 +127,7 @@ class IssueScraper:
                 num_attempts_to_get_issue_elem += 1
 
                 if num_attempts_to_get_issue_elem > 5:
-                    raise ScrapeException('Unable to get the issue element. Check whether the issue exists.') from e
+                    raise ScrapeException('Unable to scrape. Check whether the issue exists.') from e
 
         return IssueWebElement(issue_elem)
 
