@@ -52,7 +52,11 @@ class IssueScraper:
         """
         project = self._get_project(issue_url)
 
-        issue_elem = self._get_issue_elem(issue_url)
+        try:
+            issue_elem = self._get_issue_elem(issue_url)
+        except (NoSuchElementException, StaleElementReferenceException) as e:
+            raise ScrapeException(f"Unable to scrape issue at f{issue_url}. "
+                                  "Check whether issue exists and is publically available.") from e
 
         left_col = self._get_left_column(issue_elem)
         num_stars = self._get_num_stars(left_col)
@@ -103,14 +107,11 @@ class IssueScraper:
         """
         self.driver.get(url)
 
-        try:
-            mr_app = self.driver.find_element_by_tag_name('mr-app')
-            mr_app_shadow = self._get_shadow_root(mr_app)
-            main = mr_app_shadow.find_element_by_tag_name('main')
-            mr_issue_page = main.find_element_by_tag_name('mr-issue-page')
-            mr_issue_page_shadow = self._get_shadow_root(mr_issue_page)
-        except (NoSuchElementException, StaleElementReferenceException) as e:
-            raise ScrapeException("Unable to scrape. Check whether the issue is accessible.") from e
+        mr_app = self.driver.find_element_by_tag_name('mr-app')
+        mr_app_shadow = self._get_shadow_root(mr_app)
+        main = mr_app_shadow.find_element_by_tag_name('main')
+        mr_issue_page = main.find_element_by_tag_name('mr-issue-page')
+        mr_issue_page_shadow = self._get_shadow_root(mr_issue_page)
 
         # sometimes (nondeterministically) the issue element is not ready/otherwise missing
         # current solution is to wait a second before retrying, and try at most 5 times
@@ -128,7 +129,7 @@ class IssueScraper:
                 num_attempts_to_get_issue_elem += 1
 
                 if num_attempts_to_get_issue_elem > 3:
-                    raise ScrapeException('Unable to scrape. Check whether the issue exists.') from e
+                    raise e
 
         return IssueWebElement(issue_elem)
 
