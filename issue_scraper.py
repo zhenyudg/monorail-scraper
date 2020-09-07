@@ -36,13 +36,14 @@ class IssueScraper:
     Uses Chrome to web scrape Monorail issues.
     """
 
-    driver: WebDriver
+    driver: WebDriver = None
 
     def __init__(self):
         self.driver = webdriver.Chrome()
 
     def __del__(self):
-        self.driver.close()
+        if self.driver is not None:
+            self.driver.close()
 
     def scrape(self, issue_url: str) -> Issue:
         """
