@@ -55,7 +55,7 @@ class IssueScraper:
         try:
             issue_elem = self._get_issue_elem(issue_url)
         except (NoSuchElementException, StaleElementReferenceException) as e:
-            raise ScrapeException(f"Unable to scrape issue at f{issue_url}. "
+            raise ScrapeException(f"Unable to scrape issue at {issue_url}. "
                                   "Check whether issue exists and is publically available.") from e
 
         left_col = self._get_left_column(issue_elem)
