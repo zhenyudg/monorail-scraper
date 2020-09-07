@@ -45,15 +45,16 @@ class IssueScraper:
         if self.driver is not None:
             self.driver.close()
 
-    def scrape(self, issue_url: str) -> Issue:
+    def scrape(self, issue_url: str, loading_delay: float = 1) -> Issue:
         """
         :param issue_url: The page of the issue report to scrape from
+        :param loading_delay: The amount of time to wait for the issue page to load before attempting to scrape.
         :return: the scraped Issue
         """
         project = self._get_project(issue_url)
 
         try:
-            issue_elem = self._get_issue_elem(issue_url)
+            issue_elem = self._get_issue_elem(issue_url, loading_delay)
         except (NoSuchElementException, StaleElementReferenceException) as e:
             raise ScrapeException(f"Unable to scrape issue at {issue_url}. "
                                   "Check whether issue exists and is publically available.") from e
@@ -99,13 +100,16 @@ class IssueScraper:
         match = matches[0]
         return match
 
-    def _get_issue_elem(self, url: str) -> IssueWebElement:
+    def _get_issue_elem(self, url: str, loading_delay: float = 1) -> IssueWebElement:
         """
         :param url: the page of the issue report to scrape from
+        :param loading_delay: The amount of time to wait for the issue page to load before attempting to scrape.
         :return: the element that contains everything between (and excluding) the top white bar
         (the one w/ the search bar) and the bottom row of links (starting w/ "About Monorail")
         """
         self.driver.get(url)
+
+        time.sleep(loading_delay)
 
         mr_app = self.driver.find_element_by_tag_name('mr-app')
         mr_app_shadow = self._get_shadow_root(mr_app)
@@ -128,7 +132,7 @@ class IssueScraper:
                 time.sleep(1)
                 num_attempts_to_get_issue_elem += 1
 
-                if num_attempts_to_get_issue_elem > 3:
+                if num_attempts_to_get_issue_elem > 5:
                     raise e
 
         return IssueWebElement(issue_elem)
