@@ -26,7 +26,7 @@ def main():
 
     attach_oss_fuzz_bug_report(issue)
 
-    output = issue.to_json(sort_keys=True, indent=4)
+    output = issue.to_json(indent=4)
     print(output)
 
 
