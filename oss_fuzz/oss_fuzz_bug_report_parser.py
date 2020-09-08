@@ -72,9 +72,13 @@ def parse_oss_fuzz_bug_report_details(issue: Issue) -> OSSFuzzBugReport:
     return oss_fuzz_issue_details
 
 
+def _get_jobtype(description: str) -> str:
+    return capture(description, r'Job Type: (.+?)[\n$]')
+
+
 def _get_project(description: str, id: int) -> str:
     if id <= 135:
-        jobtype = capture(description, r'Job Type: (.+?)[\n$]')
+        jobtype = _get_jobtype(description)
         project = jobtype.strip().split('_')[-1]
         return project
     elif 135 <= id <= 212:
@@ -85,7 +89,7 @@ def _get_project(description: str, id: int) -> str:
 
 def _get_fuzzing_engine(description: str, id: int) -> str:
     if id <= 16307:
-        jobtype = capture(description, r'Job Type: (.+?)[\n$]')
+        jobtype = _get_jobtype(description)
         if jobtype.startswith('afl'):
             return 'afl'
         elif jobtype.startswith('libfuzzer'):
