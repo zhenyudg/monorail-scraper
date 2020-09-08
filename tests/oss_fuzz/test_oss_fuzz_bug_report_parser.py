@@ -2,6 +2,9 @@ from unittest import TestCase
 
 from issue_scraper import IssueScraper
 from oss_fuzz.oss_fuzz_bug_report_parser import *
+from oss_fuzz.oss_fuzz_bug_report_parser import _get_project, _get_fuzzing_engine, _get_fuzz_target_binary, \
+    _get_job_type, _get_platform_id, _get_crash_type, _get_crash_address, _get_crash_state, _get_sanitizer, \
+    _get_regressed_commits_url, _get_fixed_commits_url, _get_testcase_url
 from tests.oss_fuzz.oss_fuzz_bug_reports import *
 
 
@@ -59,8 +62,10 @@ class TestIssueParser(TestCase):
                          'https://oss-fuzz.com/download?testcase_id=5196721950031872')
 
     def test_get_proj(self):
-        proj = _get_project(test_input_22076, 22076)
-        assert proj == 'llvm'
+        proj_5 = _get_project(test_input_5, 5)
+        self.assertEqual(proj_5, 'libarchive')
+        proj_22076 = _get_project(test_input_22076, 22076)
+        self.assertEqual(proj_22076, 'llvm')
 
     def test_get_fuzzing_engine(self):
         fzeng_5 = _get_fuzzing_engine(test_input_5, 5)

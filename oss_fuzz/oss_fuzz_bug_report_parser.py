@@ -74,8 +74,9 @@ def parse_oss_fuzz_bug_report_details(issue: Issue) -> OSSFuzzBugReport:
 
 def _get_project(description: str, id: int) -> str:
     if id <= 135:
-        # todo: parse projects from "Job Type: " or title
-        raise NotImplementedError("Issues <= 135 not supported")
+        jobtype = capture(description, r'Job Type: (.+?)[\n$]')
+        project = jobtype.strip().split('_')[-1]
+        return project
     elif 135 <= id <= 212:
         return capture(description, r'Target: (.+?)[\n$]')
     else: # issue_num >= 213
