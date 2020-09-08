@@ -106,8 +106,9 @@ def _get_fuzzing_engine(description: str, id: int) -> str:
 
 def _get_fuzz_target_binary(description: str, id: int) -> str:
     if id <= 251:
-        # todo: heuristically find fz tgt by stripping the fuzz engine prefix off of the "Fuzzer: " field
-        raise NotImplementedError("Issues <= 251 not supported")
+        fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+        fuzz_target_binary = fuzzer.split('_', maxsplit=1)[1]
+        return fuzz_target_binary
     elif 252 <= id <= 16307:
         return capture(description, r'Fuzz target binary: (.+?)[\n$]')
     elif id >= 16308:

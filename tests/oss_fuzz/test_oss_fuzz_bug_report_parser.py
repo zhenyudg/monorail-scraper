@@ -77,10 +77,12 @@ class TestIssueParser(TestCase):
 
 
     def test_get_fuzz_target_binary(self):
-        fztgt_22076 = _get_fuzz_target_binary(test_input_22076, 22076)
-        assert fztgt_22076 == 'clang-fuzzer'
+        fztgt_5 = _get_fuzz_target_binary(test_input_5, 5)
+        self.assertEqual(fztgt_5, 'libarchive_fuzzer')
         fztgt_16307 = _get_fuzz_target_binary(test_input_16307, 16307)
-        assert fztgt_16307 == 'compress_fuzzer'
+        self.assertEqual(fztgt_16307, 'compress_fuzzer')
+        fztgt_22076 = _get_fuzz_target_binary(test_input_22076, 22076)
+        self.assertEqual(fztgt_22076, 'clang-fuzzer')
 
     def test_get_job_type(self):
         jobtype = _get_job_type(test_input_22076)
