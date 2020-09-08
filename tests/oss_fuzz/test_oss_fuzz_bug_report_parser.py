@@ -107,8 +107,10 @@ class TestIssueParser(TestCase):
         assert crashstate == ('GetFullTypeForDeclarator', 'clang::Sema::GetTypeForDeclarator', 'clang::Sema::ActOnBlockArguments')
 
     def test_get_sanitizer(self):
-        sanitizer = _get_sanitizer(test_input_22076, 22076)
-        assert sanitizer == 'address (ASAN)'
+        sanitizer_5 = _get_sanitizer(test_input_5, 5)
+        self.assertEqual(sanitizer_5, 'address (ASAN)')
+        sanitizer_22076 = _get_sanitizer(test_input_22076, 22076)
+        self.assertEqual(sanitizer_22076, 'address (ASAN)')
 
     def test_get_regressed_commits_url(self):
         regressed_5 = _get_regressed_commits_url(test_input_5)

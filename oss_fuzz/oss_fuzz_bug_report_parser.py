@@ -148,10 +148,28 @@ def _get_crash_state(description: str) -> Tuple[str]:
 
 def _get_sanitizer(description: str, id: int) -> str:
     if id <= 383:
-        #todo: parse from job type
-        raise NotImplementedError("Issues <= 383 not supported")
+        jobtype = capture(description, r'Job Type: (.+?)[\n$]')
+        return _get_sanitizer_from_jobtype(jobtype)
     elif id >= 384:
         return capture(description, r'Sanitizer: (.+?)[\n$]')
+
+
+def _get_sanitizer_from_jobtype(jobtype: str) -> str:
+    jobtype_words = jobtype.split('_')
+    for word in jobtype_words:
+        if almost_equal(word, 'asan'):
+            return "address (ASAN)"
+        elif almost_equal(word, 'ubsan'):
+            return "undefined (UBSAN)"
+        elif almost_equal(word, 'msan'):
+            return "memory (MSAN)"
+        elif almost_equal(word, 'tsan'):
+            return "thread (TSAN)"
+        elif almost_equal(word, 'lsan'):
+            return "leak (LSAN)"
+
+    # no sanitizer found
+    return ''
 
 
 def _get_regressed_commits_url(description: str) -> Optional[str]:
