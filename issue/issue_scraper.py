@@ -8,9 +8,9 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium import webdriver
 
-import string_util
-from issue import Comment, Issue
-from string_util import capture
+from utils import string_util
+from issue.issue import Comment, Issue
+from utils.string_util import capture
 
 class ScrapeException(Exception):
     def __init__(self, value):

@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from issue_scraper import IssueScraper
+from issue.issue_scraper import IssueScraper
 from oss_fuzz.oss_fuzz_bug_report_parser import *
 from oss_fuzz.oss_fuzz_bug_report_parser import _get_project, _get_fuzzing_engine, _get_fuzz_target_binary, \
     _get_job_type, _get_platform_id, _get_crash_type, _get_crash_address, _get_crash_state, _get_sanitizer, \

@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from issue_scraper import IssueScraper, ScrapeException
+from issue.issue_scraper import IssueScraper, ScrapeException
 
 test_url_1 = 'https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=20000'
 

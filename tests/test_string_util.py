@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from string_util import *
+from utils.string_util import *
 
 
 class Test(TestCase):

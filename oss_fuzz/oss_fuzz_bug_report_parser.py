@@ -1,8 +1,6 @@
 from typing import Tuple, Collection, Optional
 
-import re
-
-from issue import Comment, Issue
+from issue.issue import Comment, Issue
 
 # minimum issue number: 5 (anything lower is not publically accessible)
 # maximum issue number at time of writing: 22411
@@ -13,7 +11,7 @@ from issue import Comment, Issue
 # Reason to keep parsing functions as 'top-level' functions:
 # None (todo: consider a refactor)
 from oss_fuzz.oss_fuzz_bug_report import OSSFuzzBugReport
-from string_util import *
+from utils.string_util import *
 
 
 def attach_oss_fuzz_bug_report(issue: Issue) -> bool:
