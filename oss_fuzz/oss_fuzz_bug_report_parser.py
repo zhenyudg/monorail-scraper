@@ -153,7 +153,7 @@ def _get_sanitizer(description: str, id: int) -> str:
         return capture(description, r'Sanitizer: (.+?)[\n$]')
 
 
-def _get_regressed_commits_url(description: str) -> str:
+def _get_regressed_commits_url(description: str) -> Optional[str]:
     # almost all issues have urls to regression commits, except a handful of extremely old issues
     pattern = re.compile(r'Regressed: (.+?)[\n$]')
     match = pattern.search(description)
