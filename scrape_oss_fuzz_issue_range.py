@@ -44,7 +44,7 @@ def main():
             serialized_issue_i = issue_i.to_json(indent=4)
             serialized_issue_i = textwrap.indent(serialized_issue_i, 4 * ' ') # indent entire serialization by 4 spaces
 
-            print(',')
+            if i > start: print(',')
             print(serialized_issue_i)
         except Exception as e:
             # won't catch KeyboardInterrupt or SystemExit
