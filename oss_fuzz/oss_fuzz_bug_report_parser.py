@@ -204,6 +204,7 @@ def _get_fixed_commits_url(comments: Collection[Comment], id: int) -> Optional[s
 
 
 def _get_testcase_url(description: str, id: int) -> str:
+    # fixme Issues <=125 are not always consistant; some have Download, others have Minimized Test Case
     if id <= 125:
         return capture(description, r'Download: (.+?)[\n$]')
     elif 126 <= id <= 500:
