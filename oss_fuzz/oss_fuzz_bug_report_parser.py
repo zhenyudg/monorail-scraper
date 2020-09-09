@@ -34,13 +34,11 @@ def attach_oss_fuzz_bug_report(issue: Issue) -> bool:
 
 def is_oss_fuzz_bug_report(issue: Issue) -> bool:
     is_oss_fuzz = almost_equal("oss-fuzz", issue.project)
-    if not is_oss_fuzz:
-        return False
-    else:
-        is_nonsecurity_bug_report = almost_equal("Bug", issue.metadata['Type'])
-        is_security_bug_report = almost_equal("Bug-Security", issue.metadata['Type'])
-        return is_nonsecurity_bug_report or is_security_bug_report
+    authored_by_clusterfuzz = almost_equal("ClusterFuzz-External", issue.author)
+    is_nonsecurity_bug_report = almost_equal("Bug", issue.metadata.get('Type', ''))
+    is_security_bug_report = almost_equal("Bug-Security", issue.metadata.get('Type', ''))
 
+    return is_oss_fuzz and authored_by_clusterfuzz and (is_nonsecurity_bug_report or is_security_bug_report)
 
 def parse_oss_fuzz_bug_report_details(issue: Issue) -> OSSFuzzBugReport:
     id = issue.id
