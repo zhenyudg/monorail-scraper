@@ -46,6 +46,8 @@ class IssueScraper:
             self.driver.close()
 
     def scrape(self, issue_url: str, loading_delay: float = 1) -> Issue:
+        # Default value of loading_delay specified here is intended for user-facing scripts.
+
         """
         :param issue_url: The page of the issue report to scrape from
         :param loading_delay: The amount of time to wait for the issue page to load before attempting to scrape.
@@ -101,6 +103,8 @@ class IssueScraper:
         return match
 
     def _get_issue_elem(self, url: str, loading_delay: float = 1) -> IssueWebElement:
+        # Default value of loading_delay specified here is intended for unit tests
+
         """
         :param url: the page of the issue report to scrape from
         :param loading_delay: The amount of time to wait for the issue page to load before attempting to scrape.
