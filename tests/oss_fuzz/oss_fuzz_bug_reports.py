@@ -97,6 +97,64 @@ This bug is subject to a 90 day disclosure deadline. If 90 days elapse
 without an upstream patch, then the bug report will automatically
 become visible to the public."""
 
+# 19429 ###############################################################################################
+
+test_input_19429 = """Issue 19429: irssi:theme-load-fuzz: Stack-overflow with empty stacktrace
+Reported by ClusterFuzz-External on Fri, Dec 13, 2019, 3:43 AM EST Project Member
+link
+Code
+
+more_vert
+Detailed Report: https://oss-fuzz.com/testcase?key=5706035654557696
+
+Project: irssi
+Fuzzing Engine: libFuzzer
+Fuzz Target: theme-load-fuzz
+Job Type: libfuzzer_asan_irssi
+Platform Id: linux
+
+Crash Type: Stack-overflow
+Crash Address: 0x7ffe43f22ff8
+Crash State:
+  NULL
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=libfuzzer_asan_irssi&range=201912110235:201912111653
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5706035654557696
+
+Issue filed automatically.
+
+See https://google.github.io/oss-fuzz/advanced-topics/reproducing for instructions to reproduce this bug locally.
+When you fix this bug, please
+  * mention the fix revision(s).
+  * state whether the bug was a short-lived regression or an old bug in any stable releases.
+  * add any other useful information.
+This information can help downstream consumers.
+
+If you need to contact the OSS-Fuzz team with a question, concern, or any other feedback, please file an issue at https://github.com/google/oss-fuzz/issues. Comments on individual Monorail issues are not monitored.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public.
+Comment 1 by ClusterFuzz-External on Fri, Dec 13, 2019, 10:38 AM EST Project Member
+
+more_vert
+Status: Verified (was: New)
+Labels: ClusterFuzz-Verified
+
+ClusterFuzz testcase 5706035654557696 is verified as fixed in https://oss-fuzz.com/revisions?job=libfuzzer_asan_irssi&range=201912120349:201912130345
+
+If this is incorrect, please file a bug on https://github.com/google/oss-fuzz/issues/new
+Comment 2 by sheriffbot@chromium.org on Sun, Jan 12, 2020, 11:38 AM EST Project Member
+
+more_vert
+Labels: -restrict-view-commit
+
+This bug has been fixed for 30 days. It has been opened to the public.
+
+- Your friendly Sheriffbot"""
+
 # 22076 ###############################################################################################
 
 test_input_22076 = """Issue 22076: llvm:clang-fuzzer: Stack-overflow in GetFullTypeForDeclarator

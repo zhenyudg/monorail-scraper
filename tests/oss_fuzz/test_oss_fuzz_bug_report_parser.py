@@ -103,8 +103,11 @@ class TestIssueParser(TestCase):
         assert addr_22076 == '0x7ffeb72c0f48'
 
     def test_get_crash_state(self):
-        crashstate = _get_crash_state(test_input_22076)
-        assert crashstate == ('GetFullTypeForDeclarator', 'clang::Sema::GetTypeForDeclarator', 'clang::Sema::ActOnBlockArguments')
+        crashstate_19429 = _get_crash_state(test_input_19429)
+        self.assertEqual(crashstate_19429, ('NULL',))
+        crashstate_22076 = _get_crash_state(test_input_22076)
+        self.assertEqual(crashstate_22076,
+                         ('GetFullTypeForDeclarator', 'clang::Sema::GetTypeForDeclarator', 'clang::Sema::ActOnBlockArguments'))
 
     def test_get_sanitizer(self):
         sanitizer_5 = _get_sanitizer(test_input_5, 5)
