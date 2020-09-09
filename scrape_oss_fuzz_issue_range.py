@@ -1,6 +1,7 @@
 import argparse
 import logging
 import textwrap
+import traceback
 
 from typing import Tuple
 
@@ -45,8 +46,10 @@ def main():
 
             print(',')
             print(serialized_issue_i)
-        except ScrapeException as e:
-            logging.error(e)
+        except Exception as e:
+            # won't catch KeyboardInterrupt or SystemExit
+            logging.error(f"Exception encountered when parsing OSS-Fuzz issue {i}\n")
+            logging.error(traceback.format_exc())
 
     print(']')
 
