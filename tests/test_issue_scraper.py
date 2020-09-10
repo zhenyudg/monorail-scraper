@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from issue.issue_scraper import IssueScraper, ScrapeException
+from issue.issue_scraper import *
 
 test_url_1 = 'https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=20000'
 
@@ -21,8 +21,13 @@ class TestIssueScraper(TestCase):
 
     def test_scrape_nonexisting_issue(self):
         nonexisting_issue_url = 'https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=0'
-        with self.assertRaises(ScrapeException):
+        with self.assertRaises(IssueDoesNotExistException):
             self.scraper.scrape(nonexisting_issue_url)
+
+    def test_scrape_permission_denied_issue(self):
+        permission_denied_url = 'https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=1'
+        with self.assertRaises(IssuePermissionDeniedException):
+            self.scraper.scrape(permission_denied_url)
 
     def test_get_project(self):
         project_1 = self.scraper._get_project(test_url_1)

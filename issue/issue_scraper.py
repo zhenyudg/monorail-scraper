@@ -10,10 +10,24 @@ from selenium import webdriver
 
 from utils import string_util
 from issue.issue import Comment, Issue
-from utils.string_util import capture
+from utils.string_util import *
 
 class ScrapeException(Exception):
     def __init__(self, value):
+        self.value = value
+
+    def __str__(self):
+        return repr(self.value)
+
+class IssuePermissionDeniedException(Exception):
+    def __init__(self, value = 'Permission denied for accessing the issue.'):
+        self.value = value
+
+    def __str__(self):
+        return repr(self.value)
+
+class IssueDoesNotExistException(Exception):
+    def __init__(self, value = 'Issue does not exist.'):
         self.value = value
 
     def __str__(self):
@@ -63,7 +77,19 @@ class IssueScraper:
 
         left_col = self._get_left_column(issue_elem)
         num_stars = self._get_num_stars(left_col)
+
         metadata = self._get_metadata(left_col)
+        # for some reason, the "Type" field in metadata (present in OSS-Fuzz) can be slow to load
+        if almost_equal("oss-fuzz", project) and 'Type' not in metadata.keys():
+            num_retries = 0
+            max_retries = 3
+            while 'Type' not in metadata.keys() and num_retries < max_retries:
+                # wait, then try again
+                # if there's still no 'Type' info after 3 tries, assume that this issue simply has no 'Type'
+                time.sleep(1)
+                metadata = self._get_metadata(left_col)
+                num_retries += 1
+
         labels = self._get_labels(left_col)
 
         right_col = self._get_right_column(issue_elem)
@@ -115,11 +141,27 @@ class IssueScraper:
 
         time.sleep(loading_delay)
 
-        mr_app = self.driver.find_element_by_tag_name('mr-app')
-        mr_app_shadow = self._get_shadow_root(mr_app)
-        main = mr_app_shadow.find_element_by_tag_name('main')
-        mr_issue_page = main.find_element_by_tag_name('mr-issue-page')
-        mr_issue_page_shadow = self._get_shadow_root(mr_issue_page)
+        try:
+            mr_app = self.driver.find_element_by_tag_name('mr-app')
+            mr_app_shadow = self._get_shadow_root(mr_app)
+            main = mr_app_shadow.find_element_by_tag_name('main')
+            mr_issue_page = main.find_element_by_tag_name('mr-issue-page')
+            mr_issue_page_shadow = self._get_shadow_root(mr_issue_page)
+            # check for permission denied (not redirected) or issue doesn't exist
+            fetch_error_elems = mr_issue_page_shadow.find_elements_by_id('fetch-error')
+            if len(fetch_error_elems) > 0:
+                fetch_error = fetch_error_elems[0]
+                error_text = fetch_error.text
+                if almost_equal("Permission denied.", error_text):
+                    raise IssuePermissionDeniedException
+                elif almost_equal("The issue does not exist.", error_text):
+                    raise IssueDoesNotExistException
+        except (NoSuchElementException, StaleElementReferenceException) as e:
+            if 'accounts.google.com' in self.driver.current_url:
+                # issue page redirected to login screen => insufficient permissions
+                raise IssuePermissionDeniedException from e
+            else:
+                raise e
 
         # sometimes (nondeterministically) the issue element is not ready/otherwise missing
         # current solution is to wait a second before retrying, and try at most 5 times

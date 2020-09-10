@@ -1,3 +1,4 @@
+import traceback
 import unittest
 
 from issue.issue_scraper import IssueScraper, get_issue_url
@@ -10,16 +11,16 @@ class StressTest(unittest.TestCase):
         scraper = IssueScraper()
         url = get_issue_url('oss-fuzz', 24513)
 
-        iterations = 100
+        iterations = 200
         fails = 0
 
         for i in range(iterations):
             try:
-                issue = scraper.scrape(url)
+                issue = scraper.scrape(url, loading_delay=0)
                 attach_oss_fuzz_bug_report(issue)
             except Exception as e:
                 print(f"Iteration {i} failed:")
-                print(e)
+                print(traceback.format_exc())
                 fails += 1
 
         print(f"{fails} failed out of {iterations} iterations.")
