@@ -5,7 +5,8 @@ import traceback
 
 from typing import Tuple
 
-from issue.issue_scraper import get_issue_url, IssueScraper, ScrapeException
+from issue.issue_scraper import get_issue_url, IssueScraper, ScrapeException, IssuePermissionDeniedException, \
+    IssueDoesNotExistException
 from oss_fuzz.oss_fuzz_bug_report_parser import attach_oss_fuzz_bug_report
 
 
@@ -46,9 +47,13 @@ def main():
 
             if i > start: print(',')
             print(serialized_issue_i)
+        except IssuePermissionDeniedException:
+            logging.warning(f"Permission denied: issue {i}")
+        except IssueDoesNotExistException:
+            logging.warning(f"Does not exist: issue {i}")
         except Exception as e:
             # won't catch KeyboardInterrupt or SystemExit
-            logging.error(f"Exception encountered when parsing OSS-Fuzz issue {i}\n")
+            logging.error(f"Exception encountered when parsing OSS-Fuzz issue {i}")
             logging.error(traceback.format_exc())
 
     print(']')
