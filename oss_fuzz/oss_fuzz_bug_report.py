@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Tuple
+from typing import Tuple, Optional
 
 from dataclasses_json import dataclass_json
 
@@ -16,6 +16,6 @@ class OSSFuzzBugReport:
     crash_addr: str
     crash_state: Tuple[str, ...]
     sanitizer: str
-    regressed_commits_url: str
-    fixed_commits_url: str
+    regressed_commits_url: Optional[str]
+    fixed_commits_url: Optional[str]
     testcase_url: str
