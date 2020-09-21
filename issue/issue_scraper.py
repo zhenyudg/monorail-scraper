@@ -12,6 +12,7 @@ from utils import string_util
 from issue.issue import Comment, Issue
 from utils.string_util import *
 
+
 class ScrapeException(Exception):
     def __init__(self, value):
         self.value = value
@@ -19,12 +20,14 @@ class ScrapeException(Exception):
     def __str__(self):
         return repr(self.value)
 
+
 class IssuePermissionDeniedException(Exception):
     def __init__(self, value = 'Permission denied for accessing the issue.'):
         self.value = value
 
     def __str__(self):
         return repr(self.value)
+
 
 class IssueDoesNotExistException(Exception):
     def __init__(self, value = 'Issue does not exist.'):

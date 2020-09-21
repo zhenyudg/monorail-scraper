@@ -40,6 +40,7 @@ def is_oss_fuzz_bug_report(issue: Issue) -> bool:
 
     return is_oss_fuzz and authored_by_clusterfuzz and (is_nonsecurity_bug_report or is_security_bug_report)
 
+
 def parse_oss_fuzz_bug_report_details(issue: Issue) -> OSSFuzzBugReport:
     id = issue.id
     description = issue.description
