@@ -53,8 +53,27 @@ def main():
             logging.warning(f"Does not exist: issue {i}")
         except Exception as e:
             # won't catch KeyboardInterrupt or SystemExit
-            logging.error(f"Exception encountered when parsing OSS-Fuzz issue {i}")
-            logging.error(traceback.format_exc())
+            logging.warning(f"1st attempt failed: Exception encountered when parsing OSS-Fuzz issue {i}")
+            logging.warning(traceback.format_exc())
+
+            # try again, with a longer delay
+            try:
+                issue_i = issue_scraper.scrape(url_i, loading_delay=8)
+                attach_oss_fuzz_bug_report(issue_i)
+
+                serialized_issue_i = issue_i.to_json(indent=4)
+                serialized_issue_i = textwrap.indent(serialized_issue_i,
+                                                     4 * ' ')  # indent entire serialization by 4 spaces
+
+                if i > start: print(',')
+                print(serialized_issue_i)
+            except IssuePermissionDeniedException:
+                logging.warning(f"Permission denied: issue {i}")
+            except IssueDoesNotExistException:
+                logging.warning(f"Does not exist: issue {i}")
+            except Exception as e:
+                logging.error(f"2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue {i}")
+                logging.error(traceback.format_exc())
 
     print(']')
 
