@@ -38,42 +38,44 @@ def main():
 
     for i in range(start, end+1):
         url_i = get_issue_url(project='oss-fuzz', issue_id=i)
-        try:
-            issue_i = issue_scraper.scrape(url_i)
-            attach_oss_fuzz_bug_report(issue_i)
 
-            serialized_issue_i = issue_i.to_json(indent=4)
-            serialized_issue_i = textwrap.indent(serialized_issue_i, 4 * ' ') # indent entire serialization by 4 spaces
+        first_try, repeat_try = True, False
+        while first_try or repeat_try:
+            assert not (first_try and repeat_try)
 
-            if i > start: print(',')
-            print(serialized_issue_i)
-        except IssuePermissionDeniedException:
-            logging.warning(f"Permission denied: issue {i}")
-        except IssueDoesNotExistException:
-            logging.warning(f"Does not exist: issue {i}")
-        except Exception as e:
-            # won't catch KeyboardInterrupt or SystemExit
-            logging.warning(f"1st attempt failed: Exception encountered when parsing OSS-Fuzz issue {i}")
-            logging.warning(traceback.format_exc())
+            if first_try: page_loading_delay = 0.5
+            else: page_loading_delay = 8
 
-            # try again, with a longer delay
             try:
-                issue_i = issue_scraper.scrape(url_i, loading_delay=8)
+                issue_i = issue_scraper.scrape(url_i)
                 attach_oss_fuzz_bug_report(issue_i)
 
                 serialized_issue_i = issue_i.to_json(indent=4)
-                serialized_issue_i = textwrap.indent(serialized_issue_i,
-                                                     4 * ' ')  # indent entire serialization by 4 spaces
+                serialized_issue_i = textwrap.indent(serialized_issue_i, 4 * ' ') # indent entire serialization by 4 spaces
 
                 if i > start: print(',')
                 print(serialized_issue_i)
+
+                first_try, repeat_try = False, False # succeeded, don't try again
             except IssuePermissionDeniedException:
                 logging.warning(f"Permission denied: issue {i}")
+                first_try, repeat_try = False, False  # won't be successful, don't try again
             except IssueDoesNotExistException:
                 logging.warning(f"Does not exist: issue {i}")
+                first_try, repeat_try = False, False  # won't be successful, don't try again
             except Exception as e:
-                logging.error(f"2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue {i}")
-                logging.error(traceback.format_exc())
+                # won't catch KeyboardInterrupt or SystemExit
+                if first_try:
+                    logging.warning(f"1st attempt failed: Exception encountered when parsing OSS-Fuzz issue {i}")
+                    logging.warning(traceback.format_exc())
+
+                    first_try = False
+                    repeat_try = True # try again, with a longer loading delay
+                else:
+                    logging.warning(f"2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue {i}")
+                    logging.warning(traceback.format_exc())
+
+                    first_try, repeat_try = False, False # give up, don't try again
 
     print(']')
 
