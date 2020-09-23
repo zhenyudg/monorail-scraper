@@ -9,7 +9,7 @@ AllScrapedIssues = NewType('AllScrapedIssues', Collection[Issue])
 OSSFuzzBugReports = NewType('OSSFuzzBugReports', Collection[Issue])
 
 
-def get_all_scraped_issues(scraped_issues_dir: str = 'scraped_issues') -> AllScrapedIssues:
+def get_all_scraped_issues(scraped_issues_dir: str = '../scraped_issues') -> AllScrapedIssues:
     issues: List[Issue] = list()
 
     for issues_filepath_i in Path(scraped_issues_dir).rglob('*.json'):
