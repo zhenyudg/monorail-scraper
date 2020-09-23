@@ -1,9 +1,13 @@
 import re
 
 
-def capture(input: str, regex: str, pattern_flags: int = 0, groupnum: int = 1) -> str:
+def capture(input: str, regex: str, pattern_flags: int = 0, groupnum: int = 1, fail_gently: bool = False) -> str:
     pattern = re.compile(regex, pattern_flags)
     match = pattern.search(input)
+    if match is None:
+        if not fail_gently:
+            raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+        return None
     captured_text = match.group(groupnum)
     return captured_text
 
