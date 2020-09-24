@@ -42,3 +42,7 @@ def group_by(issues: Collection[Issue], fn_get_feature: Callable[[Issue], Featur
         categorization[feature].append(issue)
 
     return categorization
+
+
+def percent(n, d) -> str:
+    return f'{round(n/d * 100)}%'
