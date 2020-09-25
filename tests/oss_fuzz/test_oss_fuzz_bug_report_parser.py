@@ -117,9 +117,11 @@ class TestIssueParser(TestCase):
 
     def test_get_regressed_commits_url(self):
         regressed_5 = _get_regressed_commits_url(test_input_5)
-        assert regressed_5 is None
+        self.assertIsNone(regressed_5)
         regressed_22076 = _get_regressed_commits_url(test_input_22076)
-        assert regressed_22076 == 'https://oss-fuzz.com/revisions?job=libfuzzer_asan_llvm&range=202005030248:202005040645'
+        self.assertEqual(regressed_22076, 'https://oss-fuzz.com/revisions?job=libfuzzer_asan_llvm&range=202005030248:202005040645')
+        regressed_24163 = _get_regressed_commits_url(test_input_24163)
+        self.assertEqual(regressed_24163, 'https://oss-fuzz.com/revisions?job=libfuzzer_asan_i386_libevt&revision=202007150438')
 
     def test_get_fixed_commits_url(self):
         scraper = IssueScraper()

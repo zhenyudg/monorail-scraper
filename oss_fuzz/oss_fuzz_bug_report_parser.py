@@ -171,13 +171,13 @@ def _get_sanitizer_from_jobtype(jobtype: str) -> str:
 
 def _get_regressed_commits_url(description: str) -> Optional[str]:
     # almost all issues have urls to regression commits, except a handful of extremely old issues
-    pattern = re.compile(r'Regressed: (.+?)[\n$]')
-    match = pattern.search(description)
-    if match is not None:
-        regressed = match.group(1)
-    else: # no match
-        regressed = None
-    return regressed
+    url: str
+    if (url := capture(description, r'Regressed: (.+?)[\n$]', fail_gently=True)) is not None:
+        return url
+    elif (url := capture(description, r'Crash Revision: (.+?)[\n$]', fail_gently=True)) is not None:
+        return url
+    else:
+        return None
 
 
 def _get_fixed_commits_url(comments: Collection[Comment], id: int) -> Optional[str]:

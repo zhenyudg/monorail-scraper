@@ -207,3 +207,73 @@ Labels: ClusterFuzz-Verified
 ClusterFuzz testcase 5196721950031872 is verified as fixed in https://oss-fuzz.com/revisions?job=libfuzzer_asan_llvm&range=202005070415:202005080243
 
 If this is incorrect, please file a bug on https://github.com/google/oss-fuzz/issues/new"""
+
+# 24163 ###############################################################################################
+
+test_input_24163 = """Issue 24163: libevt:file_fuzzer: Timeout in file_fuzzer
+Reported by ClusterFuzz-External on Wed, Jul 15, 2020, 10:33 AM EDT Project Member
+link
+Code
+
+more_vert
+‹ Prev
+94 of 2057
+Next ›
+Back to list
+Detailed Report: https://oss-fuzz.com/testcase?key=5187211973361664
+
+Project: libevt
+Fuzzing Engine: libFuzzer
+Fuzz Target: file_fuzzer
+Job Type: libfuzzer_asan_i386_libevt
+Platform Id: linux
+
+Crash Type: Timeout (exceeds 60 secs)
+Crash Address: 
+Crash State:
+  file_fuzzer
+  
+Sanitizer: address (ASAN)
+
+Crash Revision: https://oss-fuzz.com/revisions?job=libfuzzer_asan_i386_libevt&revision=202007150438
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5187211973361664
+
+Issue filed automatically.
+
+See https://google.github.io/oss-fuzz/advanced-topics/reproducing for instructions to reproduce this bug locally.
+When you fix this bug, please
+  * mention the fix revision(s).
+  * state whether the bug was a short-lived regression or an old bug in any stable releases.
+  * add any other useful information.
+This information can help downstream consumers.
+
+If you need to contact the OSS-Fuzz team with a question, concern, or any other feedback, please file an issue at https://github.com/google/oss-fuzz/issues. Comments on individual Monorail issues are not monitored.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public.
+Comment 1 by joachim....@gmail.com on Wed, Jul 15, 2020, 3:59 PM EDT
+
+more_vert
+Related issue https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=24149
+
+Current version of the code allows record data to be wrapped indefinitely, changes to allow wrap only once in the record scan
+https://github.com/libyal/libevt/commit/4bbeb0e18ee3d4c1f74cf53f1643cff80a500baa
+Comment 2 by ClusterFuzz-External on Thu, Jul 16, 2020, 10:23 AM EDT Project Member
+
+more_vert
+Status: Verified (was: New)
+Labels: ClusterFuzz-Verified
+
+ClusterFuzz testcase 5187211973361664 is verified as fixed in https://oss-fuzz.com/revisions?job=libfuzzer_asan_i386_libevt&range=202007150438:202007160226
+
+If this is incorrect, please file a bug on https://github.com/google/oss-fuzz/issues/new
+Comment 3 by sheriffbot on Sat, Aug 15, 2020, 4:03 PM EDT Project Member
+
+more_vert
+Labels: -restrict-view-commit
+
+This bug has been fixed for 30 days. It has been opened to the public.
+
+- Your friendly Sheriffbot"""
