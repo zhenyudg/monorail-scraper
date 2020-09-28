@@ -60,7 +60,7 @@ def preprocess_crash_type(raw_crash_type: str) -> CrashType:
     return crash_type
 
 
-def group_by_crash_type(oss_fuzz_bugs: OSSFuzzBugReports) -> Dict[CrashType, Collection[Issue]]:
+def group_by_crash_type(oss_fuzz_bugs: OSSFuzzBugIssues) -> Dict[CrashType, Collection[Issue]]:
     return group_by(oss_fuzz_bugs,
                     lambda issue: preprocess_crash_type(issue.oss_fuzz_bug_report.crash_type))
 

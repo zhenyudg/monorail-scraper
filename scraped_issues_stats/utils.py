@@ -6,7 +6,7 @@ from typing import List, NewType, Collection, Callable, Dict
 from issue.issue import Issue
 
 AllScrapedIssues = NewType('AllScrapedIssues', Collection[Issue])
-OSSFuzzBugReports = NewType('OSSFuzzBugReports', Collection[Issue])
+OSSFuzzBugIssues = NewType('OSSFuzzBugIssues', Collection[Issue])
 
 
 def get_all_scraped_issues(scraped_issues_dir: str = '../scraped_issues') -> AllScrapedIssues:
@@ -25,9 +25,9 @@ def get_all_scraped_issues(scraped_issues_dir: str = '../scraped_issues') -> All
     return AllScrapedIssues(issues)
 
 
-def get_oss_fuzz_bug_reports(all_scraped_issues: AllScrapedIssues) -> OSSFuzzBugReports:
-    reports = list(filter(lambda issue: issue.oss_fuzz_bug_report is not None, all_scraped_issues))
-    return OSSFuzzBugReports(reports)
+def get_oss_fuzz_bug_reports(all_scraped_issues: AllScrapedIssues) -> OSSFuzzBugIssues:
+    oss_fuzz_issues = list(filter(lambda issue: issue.oss_fuzz_bug_report is not None, all_scraped_issues))
+    return OSSFuzzBugIssues(oss_fuzz_issues)
 
 
 Feature = any
