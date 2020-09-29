@@ -35,3 +35,14 @@ class Issue:
     comments: List[Comment]
 
     oss_fuzz_bug_report: Optional[OSSFuzzBugReport] = None
+
+
+    # An issue's unique identifiers are it's retrieved time, project, and id.
+    def __eq__(self, other):
+        return self.retrieved == other.retrieved \
+               and self.project == other.project \
+               and self.id == other.id
+
+    def __hash__(self):
+        return hash((self.retrieved, self.project, self.id))
+
