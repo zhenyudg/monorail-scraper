@@ -1,5 +1,6 @@
-import json
 import logging
+import ujson
+
 from pathlib import Path
 from typing import List, NewType, Collection, Callable, Dict
 
@@ -16,7 +17,7 @@ def get_all_scraped_issues(scraped_issues_dir: str = '../scraped_issues') -> All
         logging.warning(f'Loading {issues_filepath_i}')
 
         issues_file_i = open(issues_filepath_i)
-        issues_i = json.load(issues_file_i)
+        issues_i = ujson.load(issues_file_i)
         for issue_dict in issues_i:
             issue = Issue.from_dict(issue_dict)
             issues.append(issue)
