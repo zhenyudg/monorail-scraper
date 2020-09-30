@@ -58,6 +58,109 @@ Issue filed automatically.
 
 See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for more information."""
 
+# 6531 ################################################################################################
+
+test_input_6531 = """Issue 6531: spidermonkey: Null-dereference READ in js::jit::MaybeEnterJit
+Reported by ClusterFuzz-External on Fri, Feb 23, 2018, 3:17 PM EST Project Member
+link
+Code
+
+more_vert
+‹ Prev
+201 of 398
+Next ›
+Back to list
+Detailed report: https://oss-fuzz.com/testcase?key=5746168467292160
+
+Project: spidermonkey
+Fuzzer: js_fuzzer
+Job Type: asan_spidermonkey
+Platform Id: linux
+
+Crash Type: Null-dereference READ
+Crash Address: 0x000000000008
+Crash State:
+  js::jit::MaybeEnterJit
+  Interpret
+  js::RunScript
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_spidermonkey&range=201802210543:201802220553
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5746168467292160
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for more information.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public.
+
+When you fix this bug, please
+  * mention the fix revision(s).
+  * state whether the bug was a short-lived regression or an old bug in any stable releases.
+  * add any other useful information.
+This information can help downstream consumers.
+
+If you have questions for the OSS-Fuzz team, please file an issue at https://github.com/google/oss-fuzz/issues.
+Comment 1 by a_deleted_user on Fri, Feb 23, 2018, 3:17 PM EST
+
+more_vert
+Filed as https://bugzilla.mozilla.org/show_bug.cgi?id=1440762
+Comment 2 by ClusterFuzz-External on Fri, Feb 23, 2018, 3:19 PM EST Project Member
+
+more_vert
+Labels: OS-Linux
+
+Comment 3 by ClusterFuzz-External on Sat, Feb 24, 2018, 3:04 AM EST Project Member
+
+more_vert
+ClusterFuzz has detected this issue as fixed in range 201802230550:201802240548.
+
+Detailed report: https://oss-fuzz.com/testcase?key=5746168467292160
+
+Project: spidermonkey
+Fuzzer: js_fuzzer
+Job Type: asan_spidermonkey
+Platform Id: linux
+
+Crash Type: Null-dereference READ
+Crash Address: 0x000000000008
+Crash State:
+  js::jit::MaybeEnterJit
+  Interpret
+  js::RunScript
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_spidermonkey&range=201802210543:201802220553
+Fixed: https://oss-fuzz.com/revisions?job=asan_spidermonkey&range=201802230550:201802240548
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5746168467292160
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for more information.
+
+If you suspect that the result above is incorrect, try re-doing that job on the test case report page.
+Comment 4 by ClusterFuzz-External on Sat, Feb 24, 2018, 3:11 AM EST Project Member
+
+more_vert
+Status: Verified (was: New)
+Labels: ClusterFuzz-Verified
+
+ClusterFuzz testcase 5746168467292160 is verified as fixed, so closing issue as verified.
+
+If this is incorrect, please file a bug on https://github.com/google/oss-fuzz/issues/new
+Comment 5 by sheriffbot@chromium.org on Mon, Mar 26, 2018, 11:22 AM EDT Project Member
+
+more_vert
+Labels: -restrict-view-commit
+
+This bug has been fixed for 30 days. It has been opened to the public.
+
+- Your friendly Sheriffbot"""
+
 # 16307 ###############################################################################################
 
 test_input_16307 = """Issue 16307: lz4/compress_fuzzer: ASSERT: matchIndex < current

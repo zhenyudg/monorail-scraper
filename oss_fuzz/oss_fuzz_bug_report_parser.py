@@ -85,6 +85,9 @@ def _get_project(description: str, id: int) -> str:
 
 
 def _get_fuzzing_engine(description: str, id: int) -> str:
+    if 'Fuzzer: js_fuzzer' in description:
+        return 'js_fuzzer'  # https://chromium.googlesource.com/v8/v8/+/master/tools/clusterfuzz/js_fuzzer/README.md
+
     if id <= 16307:
         jobtype = _get_jobtype(description)
         if jobtype.startswith('afl'):
@@ -102,6 +105,9 @@ def _get_fuzzing_engine(description: str, id: int) -> str:
 
 
 def _get_fuzz_target_binary(description: str, id: int) -> str:
+    if 'Fuzzer: js_fuzzer' in description:
+        return 'js_fuzzer'  # https://chromium.googlesource.com/v8/v8/+/master/tools/clusterfuzz/js_fuzzer/README.md
+
     if id <= 251:
         fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
         fuzz_target_binary = fuzzer.split('_', maxsplit=1)[1]
