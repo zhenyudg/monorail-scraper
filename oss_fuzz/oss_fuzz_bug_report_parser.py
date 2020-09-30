@@ -121,7 +121,8 @@ def _get_platform_id(description: str) -> str:
 
 
 def _get_crash_type(description: str) -> str:
-    return capture(description, r'Crash Type: (.+?)[\n$]')
+    # There might not be an explicit crash type (e.g., OSS-Fuzz issue 17590); in that case, capture the empty string
+    return capture(description, r'Crash Type: (.*?)[\n$]')
 
 
 def _get_crash_address(description: str) -> str:

@@ -14,6 +14,10 @@ def preprocess_crash_type(raw_crash_type: str) -> CrashType:
         if last_part == '{*}' or last_part.isnumeric():
             crash_type = parts[0]
 
+    # empty string crash type is unknown
+    if crash_type == '':
+        return 'unknown'
+
     ambiguous_signal_crash_types = ['unknown signal', 'fatal signal']
     if crash_type in ambiguous_signal_crash_types:
         return f'signal: unknown'
