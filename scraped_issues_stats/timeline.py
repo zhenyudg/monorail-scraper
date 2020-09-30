@@ -136,7 +136,7 @@ def generate_fix_timeline_visual(oss_fuzz_issues: Iterable[Issue]):
     bugs_by_crash_type = group_by_crash_type(oss_fuzz_issues)
     crash_types = list(bugs_by_crash_type.keys())
     crash_types.sort(key=lambda ct: -1 * len(bugs_by_crash_type[ct]))
-    for i in range(N+1):
+    for i in range(N):
         crash_tp = crash_types[i]
         timedelta_lists.append(get_days_to_fix(bugs_by_crash_type[crash_tp]))
         labels.append(crash_tp)
