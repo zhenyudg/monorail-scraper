@@ -98,7 +98,7 @@ def _get_fuzzing_engine(description: str, id: int) -> str:
             # any fuzz engines that I missed
             return jobtype.split('_')[0]
     elif id >= 16308:
-        return capture(description, r'Fuzzing Engine: (.+?)[\n$]')
+        return capture(description, r'Fuzzing [Ee]ngine: (.+?)[\n$]')
 
 
 def _get_fuzz_target_binary(description: str, id: int) -> str:
