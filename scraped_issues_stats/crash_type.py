@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 from scraped_issues_stats.utils import *
 
 CrashType = str
@@ -65,14 +67,65 @@ def group_by_crash_type(oss_fuzz_bugs: OSSFuzzBugIssues) -> Dict[CrashType, Coll
                     lambda issue: preprocess_crash_type(issue.oss_fuzz_bug_report.crash_type))
 
 
-if __name__ == '__main__':
-    issues = get_all_scraped_issues()
-    oss_fuzz_bugs = get_oss_fuzz_bug_reports(issues)
-    num_oss_fuzz_bugs = len(oss_fuzz_bugs)
-    print(f'Num of OSS-Fuzz bugs analyzed: {num_oss_fuzz_bugs}')
+def generate_crash_type_visual(oss_fuzz_bugs: OSSFuzzBugIssues):
+    from scraped_issues_stats.timeline import get_fix_timeline_stats
+    nums_unfixed_bugs: List[int] = list()
+    nums_fixed_bugs: List[int] = list()
+    xlabels: List[str] = list()
+
     bugs_by_crash_type = group_by_crash_type(oss_fuzz_bugs)
     crash_types = list(bugs_by_crash_type.keys())
     crash_types.sort(key=lambda ct: -1 * len(bugs_by_crash_type[ct]))
-    for ct in crash_types:
-        num_bugs_ct = len(bugs_by_crash_type[ct])
-        print(ct, '|', num_bugs_ct, '|', percent(num_bugs_ct, num_oss_fuzz_bugs))
+
+    # keep the top N most common crash types, aggregate the rest
+    N = 15
+    other_crash_types = crash_types[N:]
+    bugs_with_other_ct: List[Issue] = list()
+    for other_ct in other_crash_types:
+        bugs_with_other_ct.extend(bugs_by_crash_type[other_ct])
+        del bugs_by_crash_type[other_ct]
+        crash_types.remove(other_ct)
+    bugs_by_crash_type['other'] = bugs_with_other_ct
+    crash_types.append('other')
+
+    for crash_tp in crash_types:
+        bugs = bugs_by_crash_type[crash_tp]
+        n_bugs = len(bugs)
+        unfixed_bugs = get_fix_timeline_stats(bugs)[1]
+        n_unfixed_bugs = len(unfixed_bugs)
+        n_fixed_bugs = n_bugs - n_unfixed_bugs
+        nums_unfixed_bugs.append(n_unfixed_bugs)
+        nums_fixed_bugs.append(n_fixed_bugs)
+        xlabels.append(crash_tp)
+
+    # make the bar graph
+    fixed_bars = plt.bar(xlabels, nums_fixed_bugs)
+    unfixed_bars = plt.bar(xlabels, nums_unfixed_bugs, bottom=nums_fixed_bugs)
+    plt.ylabel('Number of bugs')
+    plt.xticks(rotation=30, ha='right')
+    plt.legend((fixed_bars, unfixed_bars), ("Fixed", "Unfixed"))
+
+    # add exact numbers
+    # fixed bugs
+    for bar in fixed_bars:
+        bar_x = bar.get_x()
+        bar_ytop = bar.get_height()
+        num_fixed = bar_ytop
+        plt.text(bar_x, bar_ytop - 50, num_fixed, fontsize=8)
+    # total bugs (fixed + unfixed)
+    for bar in unfixed_bars:
+        bar_x = bar.get_x()
+        bar_ytop = bar.get_y() + bar.get_height()
+        num_total = bar_ytop
+        num_unfixed = bar.get_height()
+        plt.text(bar_x, bar_ytop + 20, num_total, fontsize=8)
+
+    plt.subplots_adjust(left=0.11, right=0.98, top=0.98, bottom=0.25)
+
+    plt.show()
+
+
+if __name__ == '__main__':
+    issues = get_all_scraped_issues()
+    oss_fuzz_bugs = get_oss_fuzz_bug_reports(issues)
+    generate_crash_type_visual(oss_fuzz_bugs)
