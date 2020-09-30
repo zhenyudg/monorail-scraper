@@ -142,9 +142,9 @@ class TestIssueParser(TestCase):
         assert fixed_22076 == 'https://oss-fuzz.com/revisions?job=libfuzzer_asan_llvm&range=202005070415:202005080243'
 
     def test_get_testcase_url(self):
-        tst_5 = _get_testcase_url(test_input_5, 5)
+        tst_5 = _get_testcase_url(test_input_5)
         assert tst_5 == 'https://clusterfuzz-external.appspot.com/download/AMIfv97UJ_XegpDWBsRbTqTw-2GXGnM9sFyyhbLgIpxY2I5jzNAiwJF8mF_cBinyVep976oB_sAB_UFxDc_pVduWNXhlHryizcDM7MctFvyTv_IRwGzOvsCkBGkK2xF-83gFeQsuAPS9cVpjOVLxuz3my3T6pEG0D3XyduSUqv6VnLTAKGvtp7E'
-        tst_126 = _get_testcase_url(test_input_126, 126)
+        tst_126 = _get_testcase_url(test_input_126)
         assert tst_126 == 'https://clusterfuzz-external.appspot.com/download/AMIfv94e2eucet3LDQplzG1u73sGldGgS5OJyDfv2uramuXF209jN8Ouy--5rjrrjmsStzerBsPvdYMW0Q4-HM-qvseSDZl1DEqVtGx8Ajwsuvt5Zcql9E42Jt_CACwxxvp0CTz4JeuLyfsdxJPcSop-TKtSb_PNT_X-ONwVEtErCSRsXlAdBg4?testcase_id=6544078783119360'
-        tst_22076 = _get_testcase_url(test_input_22076, 22076)
+        tst_22076 = _get_testcase_url(test_input_22076)
         assert tst_22076 == 'https://oss-fuzz.com/download?testcase_id=5196721950031872'

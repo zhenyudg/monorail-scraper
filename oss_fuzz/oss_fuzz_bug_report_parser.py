@@ -57,7 +57,7 @@ def parse_oss_fuzz_bug_report_details(issue: Issue) -> OSSFuzzBugReport:
     sanitizer = _get_sanitizer(description, id)
     regressed_commits_url = _get_regressed_commits_url(description)
     fixed_commits_url = _get_fixed_commits_url(comments, id)
-    testcase_url = _get_testcase_url(description, id)
+    testcase_url = _get_testcase_url(description)
 
     oss_fuzz_issue_details = OSSFuzzBugReport(project=project, fuzzing_engine=fuzzing_engine,
                                               fuzz_target_binary=fuzz_target_binary, job_type=job_type,
@@ -209,14 +209,15 @@ def _get_fixed_commits_url(comments: Collection[Comment], id: int) -> Optional[s
     return fixed_commits_url
 
 
-def _get_testcase_url(description: str, id: int) -> str:
-    # fixme Issues <=125 are not always consistant; some have Download, others have Minimized Test Case
-    if id <= 125:
+def _get_testcase_url(description: str) -> str:
+    if (url := capture(description, r'Reproducer Testcase: (.+?)[\n$]', fail_gently=True)) is not None:
+        return url
+    elif (url := capture(description, r'Minimized Testcase \(.+?\): (.+?)[\n$]', fail_gently=True)) is not None:
+        # only seen with id <= 500 (including id <= 125)
+        return url
+    else:
+        # only seen with id <= 125
         return capture(description, r'Download: (.+?)[\n$]')
-    elif 126 <= id <= 500:
-        return capture(description, r'Minimized Testcase \(.+?\): (.+?)[\n$]')
-    elif id >= 501:
-        return capture(description, r'Reproducer Testcase: (.+?)[\n$]')
 
 
 def _get_report_date(raw_text: str) -> str:
