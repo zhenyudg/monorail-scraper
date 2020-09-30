@@ -1,7 +1,7 @@
 datefinder~=0.7.1
 selenium~=3.141.0
 dataclasses_json~=0.5.2
-setuptools~=41.2.0
 numpy~=1.18.1
 matplotlib~=3.3.2
 ujson~=3.2.0
+setuptools~=49.2.1
