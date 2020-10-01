@@ -103,8 +103,11 @@ def generate_crash_type_visual(oss_fuzz_bugs: OSSFuzzBugIssues):
         xlabels.append(crash_tp)
 
     # make the bar graph
-    fixed_bars = plt.bar(xlabels, nums_fixed_bugs)
-    unfixed_bars = plt.bar(xlabels, nums_unfixed_bugs, bottom=nums_fixed_bugs)
+    bar_width=0.9
+    fixed_bars = plt.bar(xlabels, nums_fixed_bugs,
+                         width=bar_width, color="white", edgecolor="black")
+    unfixed_bars = plt.bar(xlabels, nums_unfixed_bugs, bottom=nums_fixed_bugs,
+                           width=bar_width, color="white", edgecolor="black", hatch="oo")
     plt.ylabel('Number of bugs')
     plt.xticks(rotation=30, ha='right')
     plt.legend((fixed_bars, unfixed_bars), ("Fixed", "Unfixed"))
@@ -115,7 +118,7 @@ def generate_crash_type_visual(oss_fuzz_bugs: OSSFuzzBugIssues):
         bar_x = bar.get_x()
         bar_ytop = bar.get_height()
         num_fixed = bar_ytop
-        plt.text(bar_x, bar_ytop - 50, num_fixed, fontsize=8)
+        plt.text(bar_x, bar_ytop - 90, num_fixed, fontsize=8)
     # total bugs (fixed + unfixed)
     for bar in unfixed_bars:
         bar_x = bar.get_x()
@@ -124,7 +127,7 @@ def generate_crash_type_visual(oss_fuzz_bugs: OSSFuzzBugIssues):
         num_unfixed = bar.get_height()
         plt.text(bar_x, bar_ytop + 20, num_total, fontsize=8)
 
-    plt.subplots_adjust(left=0.11, right=0.98, top=0.98, bottom=0.25)
+    plt.subplots_adjust(left=0.11, right=0.98, top=0.98, bottom=0.23)
 
     plt.show()
 
@@ -132,4 +135,5 @@ def generate_crash_type_visual(oss_fuzz_bugs: OSSFuzzBugIssues):
 if __name__ == '__main__':
     issues = get_all_scraped_issues()
     oss_fuzz_bugs = get_oss_fuzz_bug_reports(issues)
+    print(f"Total num of OSS-Fuzz bugs analyzed: {len(oss_fuzz_bugs)}")
     generate_crash_type_visual(oss_fuzz_bugs)
