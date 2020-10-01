@@ -129,7 +129,7 @@ def generate_crash_type_visual(oss_fuzz_bugs: OSSFuzzBugIssues):
 
     plt.subplots_adjust(left=0.11, right=0.98, top=0.98, bottom=0.23)
 
-    plt.show()
+    plt.savefig('crash_type.jpg', dpi=250)
 
 
 if __name__ == '__main__':

@@ -132,7 +132,7 @@ def generate_fix_timeline_visual(oss_fuzz_issues: Iterable[Issue]):
     labels.append('non-security bugs')
 
     # top N most common bug types
-    N = 12
+    N = 15
     bugs_by_crash_type = group_by_crash_type(oss_fuzz_issues)
     crash_types = list(bugs_by_crash_type.keys())
     crash_types.sort(key=lambda ct: -1 * len(bugs_by_crash_type[ct]))
@@ -142,10 +142,14 @@ def generate_fix_timeline_visual(oss_fuzz_issues: Iterable[Issue]):
         labels.append(crash_tp)
 
     plt.boxplot(timedelta_lists, labels=labels)
+
     plt.xticks(rotation=45, ha='right')
+    plt.ylabel("Days between bug reported and bug patched")
     plt.yscale("log")
 
-    plt.show()
+    plt.subplots_adjust(left=0.12, right=0.98, top=0.98, bottom=0.30)
+
+    plt.savefig('timeline.jpg', dpi=250)
 
 
 if __name__ == "__main__":
