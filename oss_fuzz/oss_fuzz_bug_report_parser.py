@@ -115,7 +115,7 @@ def _get_fuzz_target_binary(description: str, id: int) -> str:
     elif 252 <= id <= 16307:
         return capture(description, r'Fuzz target binary: (.+?)[\n$]')
     elif id >= 16308:
-        return capture(description, r'Fuzz Target: (.+?)[\n$]')
+        return capture(description, r'Fuzz [Tt]arget: (.+?)[\n$]')
 
 
 def _get_job_type(description: str) -> str:
