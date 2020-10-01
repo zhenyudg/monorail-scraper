@@ -2,3 +2,5 @@ chromedriver
 
 __pycache__/
 .idea/
+
+*.pickle

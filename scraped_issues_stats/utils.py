@@ -1,4 +1,7 @@
 import logging
+import os
+import pickle
+
 import ujson
 
 from pathlib import Path
@@ -6,13 +9,21 @@ from typing import List, NewType, Collection, Callable, Dict
 
 from issue.issue import Issue
 
-AllScrapedIssues = NewType('AllScrapedIssues', Collection[Issue])
-OSSFuzzBugIssues = NewType('OSSFuzzBugIssues', Collection[Issue])
+AllScrapedIssues = NewType('AllScrapedIssues', List[Issue])
+OSSFuzzBugIssues = NewType('OSSFuzzBugIssues', List[Issue])
 
 
 def get_all_scraped_issues(scraped_issues_dir: str = '../scraped_issues') -> AllScrapedIssues:
     issues: List[Issue] = list()
 
+    cached_issues_path = f'{scraped_issues_dir}/cache.pickle'
+    if os.path.isfile(cached_issues_path):
+        with open(cached_issues_path, 'rb') as f:
+            issues = pickle.load(f)
+            logging.warning('Done retrieving serialized issues from cache.')
+            return AllScrapedIssues(issues)
+
+    # no cached issues, load from json instead
     for issues_filepath_i in Path(scraped_issues_dir).rglob('*.json'):
         logging.warning(f'Loading {issues_filepath_i}')
 
@@ -21,6 +32,9 @@ def get_all_scraped_issues(scraped_issues_dir: str = '../scraped_issues') -> All
         for issue_dict in issues_i:
             issue = Issue.from_dict(issue_dict)
             issues.append(issue)
+
+    with open(cached_issues_path, 'wb') as f:
+        pickle.dump(issues, f)
 
     logging.warning('Done retrieving serialized issues.')
     return AllScrapedIssues(issues)
