@@ -4,19 +4,26 @@ from scraped_issues_stats.utils import *
 
 CrashType = str
 def preprocess_crash_type(raw_crash_type: str) -> CrashType:
-    # Normalize case and separator token (use spaces instead of dashes).
-    crash_type = raw_crash_type.lower().replace('-', ' ')
+    # Normalize case and separator token (use spaces instead of dashes)
+    crash_type = raw_crash_type.lower().replace('-', ' ').strip()
+    # Normalize whitespace (convert multiple spaces to single space)
+    crash_type = ' '.join(crash_type.split())
 
-    # remove numerical or '{*}' suffixes
+    # remove numerical (decimal or hex) or '{*}' suffixes
     parts = crash_type.rsplit(' ', 1)
     if len(parts) > 1:
         last_part = parts[-1]
-        if last_part == '{*}' or last_part.isnumeric():
+        if last_part == '{*}' or last_part.isnumeric() or last_part.startswith('0x'):
             crash_type = parts[0]
 
     # empty string crash type is unknown
     if crash_type == '':
         return 'unknown'
+
+    if crash_type == 'read' or crash_type == 'unknown crash read':
+        return 'unknown read'
+    if crash_type == 'write' or crash_type == 'unknown crash write':
+        return 'unknown write'
 
     ambiguous_signal_crash_types = ['unknown signal', 'fatal signal']
     if crash_type in ambiguous_signal_crash_types:
@@ -25,8 +32,10 @@ def preprocess_crash_type(raw_crash_type: str) -> CrashType:
     signal_crash_types = ['abrt', 'bus', 'ill']
     if crash_type in signal_crash_types:
         return f'signal: {crash_type}'
+    if crash_type == 'abrt on unknown address':
+        return 'signal: abrt'
 
-    if 'timeout' in crash_type:
+    if 'timeout' in crash_type or crash_type == 'hang':
         return 'timeout'
 
     if 'out of memory' in crash_type:
