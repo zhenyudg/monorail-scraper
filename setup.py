@@ -15,5 +15,5 @@ setup(
     author_email='go-file-an-issue@on-github.instead',
     url='https://github.com/zhenyudg/monorail-scraper',
     license=license,
-    packages=find_packages(exclude=('tests',))
+    packages=find_packages(exclude=('tests', 'scraped_issues_stats'))
 )
