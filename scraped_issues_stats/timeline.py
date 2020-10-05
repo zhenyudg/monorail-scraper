@@ -1,11 +1,10 @@
 import datetime
-from pprint import pprint
 from typing import Optional, Any, Tuple, Iterable
 
 import numpy as np
 import matplotlib.pyplot as plt
 
-from issue.issue import Comment
+from monorail_scraper.issue.issue import Issue, Comment
 from scraped_issues_stats.crash_type import group_by_crash_type
 from scraped_issues_stats.utils import *
 

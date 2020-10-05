@@ -1,8 +1,8 @@
 import traceback
 import unittest
 
-from issue.issue_scraper import IssueScraper, get_issue_url
-from oss_fuzz.oss_fuzz_bug_report_parser import attach_oss_fuzz_bug_report
+from monorail_scraper.issue.issue_scraper import IssueScraper, get_issue_url
+from monorail_scraper.oss_fuzz.oss_fuzz_bug_report_parser import attach_oss_fuzz_bug_report
 
 
 class StressTest(unittest.TestCase):

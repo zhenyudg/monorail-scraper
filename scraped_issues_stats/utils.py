@@ -7,7 +7,7 @@ import ujson
 from pathlib import Path
 from typing import List, NewType, Collection, Callable, Dict
 
-from issue.issue import Issue
+from monorail_scraper.issue.issue import Issue
 
 AllScrapedIssues = NewType('AllScrapedIssues', List[Issue])
 OSSFuzzBugIssues = NewType('OSSFuzzBugIssues', List[Issue])

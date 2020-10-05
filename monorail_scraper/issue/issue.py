@@ -4,7 +4,7 @@ from typing import List, Optional, Dict
 
 from dataclasses_json import dataclass_json
 
-from oss_fuzz.oss_fuzz_bug_report import OSSFuzzBugReport
+from monorail_scraper.oss_fuzz.oss_fuzz_bug_report import OSSFuzzBugReport
 
 
 @dataclass_json

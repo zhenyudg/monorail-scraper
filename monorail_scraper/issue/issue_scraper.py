@@ -8,9 +8,9 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium import webdriver
 
-from utils import string_util
-from issue.issue import Comment, Issue
-from utils.string_util import *
+from monorail_scraper.utils import string_util
+from monorail_scraper.issue.issue import Comment, Issue
+from monorail_scraper.utils.string_util import *
 
 
 class ScrapeException(Exception):

@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from utils.string_util import *
+from monorail_scraper.utils.string_util import *
 
 
 class Test(TestCase):
