@@ -127,7 +127,7 @@ def generate_crash_type_visual(oss_fuzz_bugs: OSSFuzzBugIssues):
         bar_x = bar.get_x()
         bar_ytop = bar.get_height()
         num_fixed = bar_ytop
-        plt.text(bar_x, bar_ytop - 90, num_fixed, fontsize=8)
+        plt.text(bar_x, bar_ytop - 135, num_fixed, fontsize=8)
     # total bugs (fixed + unfixed)
     for bar in unfixed_bars:
         bar_x = bar.get_x()
