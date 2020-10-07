@@ -37,6 +37,14 @@ class IssueDoesNotExistException(Exception):
         return repr(self.value)
 
 
+class IssueDeletedException(Exception):
+    def __init__(self, value = 'Issue is deleted.'):
+        self.value = value
+
+    def __str__(self):
+        return repr(self.value)
+
+
 def get_issue_url(project: str, issue_id: int) -> str:
     return 'https://bugs.chromium.org/p/{}/issues/detail?id={}'.format(project, issue_id)
 
@@ -159,6 +167,9 @@ class IssueScraper:
                     raise IssuePermissionDeniedException
                 elif almost_equal("The issue does not exist.", error_text):
                     raise IssueDoesNotExistException
+            deleted_elems = mr_issue_page_shadow.find_elements_by_id('deleted')
+            if len(deleted_elems) > 0:
+                raise IssueDeletedException
         except (NoSuchElementException, StaleElementReferenceException) as e:
             if 'accounts.google.com' in self.driver.current_url:
                 # issue page redirected to login screen => insufficient permissions

@@ -6,7 +6,7 @@ import traceback
 from typing import Tuple
 
 from monorail_scraper.issue.issue_scraper import get_issue_url, IssueScraper, IssuePermissionDeniedException, \
-    IssueDoesNotExistException
+    IssueDoesNotExistException, IssueDeletedException
 from monorail_scraper.oss_fuzz.oss_fuzz_bug_report_parser import attach_oss_fuzz_bug_report
 
 
@@ -62,6 +62,9 @@ def main():
                 first_try, repeat_try = False, False  # won't be successful, don't try again
             except IssueDoesNotExistException:
                 logging.warning(f"Does not exist: issue {i}")
+                first_try, repeat_try = False, False  # won't be successful, don't try again
+            except IssueDeletedException:
+                logging.warning(f"Deleted: issue {i}")
                 first_try, repeat_try = False, False  # won't be successful, don't try again
             except Exception as e:
                 # won't catch KeyboardInterrupt or SystemExit

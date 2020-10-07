@@ -29,6 +29,11 @@ class TestIssueScraper(TestCase):
         with self.assertRaises(IssuePermissionDeniedException):
             self.scraper.scrape(permission_denied_url)
 
+    def test_scrape_deleted_issue(self):
+        issue_deleted_url = 'https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=104'
+        with self.assertRaises(IssueDeletedException):
+            self.scraper.scrape(issue_deleted_url)
+
     def test_get_project(self):
         project_1 = self.scraper._get_project(test_url_1)
         self.assertEqual(project_1, 'oss-fuzz')
