@@ -215,6 +215,8 @@ def _get_testcase_url(description: str) -> str:
     elif (url := capture(description, r'Minimized Testcase \(.+?\): (.+?)[\n$]', fail_gently=True)) is not None:
         # only seen with id <= 500 (including id <= 125)
         return url
+    elif (url := capture(description, r'Unminimized Testcase: (.+?)[\n$]', fail_gently=True)) is not None:
+        return url
     else:
         # only seen with id <= 125
         return capture(description, r'Download: (.+?)[\n$]')
