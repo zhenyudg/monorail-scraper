@@ -1,0 +1,236 @@
+WARNING:root:Deleted: issue 78
+WARNING:root:Deleted: issue 83
+WARNING:root:Deleted: issue 100
+WARNING:root:Deleted: issue 103
+WARNING:root:Deleted: issue 104
+WARNING:root:Deleted: issue 106
+WARNING:root:Deleted: issue 108
+WARNING:root:Deleted: issue 131
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 1100
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 49, in parse_oss_fuzz_bug_report_details
+    project = _get_project(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 84, in _get_project
+    return capture(description, r'Project: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Project: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5023940269309952
+
+Job Type: test_vuln
+Crash Type: Heap-buffer-overflow WRITE 1
+Crash Address: 0x609000000085
+Crash State:
+  vuln
+  vuln
+  
+Sanitizer: address (ASAN)
+
+Reproducer Testcase: https://oss-fuzz.com/download/AMIfv95_rmKAKyQuvyAtpWttZGhxFpYMyVL5n0PINDhPZT2PV9HwNYEA6VCi9z1VinAhoYOtzq4mvi6PzBzL0cOLae9KgFOTEv2qOcamBuFYapPIqNC7Yaay8lvAnvbBA9-9pS7L6lX5eerhuUR37eIifHtMapTtnhlbBkltqqX4HpYs_-m3Lq_MDLcRJI9XEvMO1IgtZ4CYOsFzLUqSclJEthz7zyWZ6dgjzENXo-mvmAWBoo6oYR-nQjAcTxPmdOckWf6t3YN7u3MLWhotpL98Baw3hm7zDVRmOkNnL-YGQsbP5jX3OhcGi1kNE0oliUllAMLbu_pQNiig2G3nWJGx0Y0QIlwDYVUpYx65muWcoi6D37y7SEjqSluBcROzXZDDNxIGpnxh?testcase_id=5023940269309952
+
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for more information. at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 1100
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 49, in parse_oss_fuzz_bug_report_details
+    project = _get_project(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 84, in _get_project
+    return capture(description, r'Project: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Project: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5023940269309952
+
+Job Type: test_vuln
+Crash Type: Heap-buffer-overflow WRITE 1
+Crash Address: 0x609000000085
+Crash State:
+  vuln
+  vuln
+  
+Sanitizer: address (ASAN)
+
+Reproducer Testcase: https://oss-fuzz.com/download/AMIfv95_rmKAKyQuvyAtpWttZGhxFpYMyVL5n0PINDhPZT2PV9HwNYEA6VCi9z1VinAhoYOtzq4mvi6PzBzL0cOLae9KgFOTEv2qOcamBuFYapPIqNC7Yaay8lvAnvbBA9-9pS7L6lX5eerhuUR37eIifHtMapTtnhlbBkltqqX4HpYs_-m3Lq_MDLcRJI9XEvMO1IgtZ4CYOsFzLUqSclJEthz7zyWZ6dgjzENXo-mvmAWBoo6oYR-nQjAcTxPmdOckWf6t3YN7u3MLWhotpL98Baw3hm7zDVRmOkNnL-YGQsbP5jX3OhcGi1kNE0oliUllAMLbu_pQNiig2G3nWJGx0Y0QIlwDYVUpYx65muWcoi6D37y7SEjqSluBcROzXZDDNxIGpnxh?testcase_id=5023940269309952
+
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for more information. at group 1 failed.
+
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 3543
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 30, in scrape_issues
+    issue_i = issue_scraper.scrape(url_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 109, in scrape
+    summary = self._get_summary(header)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 285, in _get_summary
+    return capture(header_text, r'Issue [0-9]+?: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Issue [0-9]+?: (.+?)[\n$] on Issue 3543:
+Reported by 
+ 
+ 
+ ClusterFuzz-External
+ 
+ 
+ on 
+ Tue, Oct 3, 2017, 12:40 PM EDT
+ Project Member at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 3543
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 30, in scrape_issues
+    issue_i = issue_scraper.scrape(url_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 109, in scrape
+    summary = self._get_summary(header)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 285, in _get_summary
+    return capture(header_text, r'Issue [0-9]+?: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Issue [0-9]+?: (.+?)[\n$] on Issue 3543:
+Reported by 
+ 
+ 
+ ClusterFuzz-External
+ 
+ 
+ on 
+ Tue, Oct 3, 2017, 12:40 PM EDT
+ Project Member at group 1 failed.
+
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 3645
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 30, in scrape_issues
+    issue_i = issue_scraper.scrape(url_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 109, in scrape
+    summary = self._get_summary(header)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 285, in _get_summary
+    return capture(header_text, r'Issue [0-9]+?: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Issue [0-9]+?: (.+?)[\n$] on Issue 3645:
+Reported by 
+ 
+ 
+ ClusterFuzz-External
+ 
+ 
+ on 
+ Sat, Oct 14, 2017, 7:55 AM EDT
+ Project Member at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 3645
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 30, in scrape_issues
+    issue_i = issue_scraper.scrape(url_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 109, in scrape
+    summary = self._get_summary(header)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 285, in _get_summary
+    return capture(header_text, r'Issue [0-9]+?: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Issue [0-9]+?: (.+?)[\n$] on Issue 3645:
+Reported by 
+ 
+ 
+ ClusterFuzz-External
+ 
+ 
+ on 
+ Sat, Oct 14, 2017, 7:55 AM EDT
+ Project Member at group 1 failed.
+
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 3664
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 30, in scrape_issues
+    issue_i = issue_scraper.scrape(url_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 109, in scrape
+    summary = self._get_summary(header)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 285, in _get_summary
+    return capture(header_text, r'Issue [0-9]+?: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Issue [0-9]+?: (.+?)[\n$] on Issue 3664:
+Reported by 
+ 
+ 
+ ClusterFuzz-External
+ 
+ 
+ on 
+ Mon, Oct 16, 2017, 3:16 PM EDT
+ Project Member at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 3664
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 30, in scrape_issues
+    issue_i = issue_scraper.scrape(url_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 109, in scrape
+    summary = self._get_summary(header)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 285, in _get_summary
+    return capture(header_text, r'Issue [0-9]+?: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Issue [0-9]+?: (.+?)[\n$] on Issue 3664:
+Reported by 
+ 
+ 
+ ClusterFuzz-External
+ 
+ 
+ on 
+ Mon, Oct 16, 2017, 3:16 PM EDT
+ Project Member at group 1 failed.
+
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 3677
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 30, in scrape_issues
+    issue_i = issue_scraper.scrape(url_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 109, in scrape
+    summary = self._get_summary(header)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 285, in _get_summary
+    return capture(header_text, r'Issue [0-9]+?: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Issue [0-9]+?: (.+?)[\n$] on Issue 3677:
+Reported by 
+ 
+ 
+ ClusterFuzz-External
+ 
+ 
+ on 
+ Wed, Oct 18, 2017, 3:56 PM EDT
+ Project Member at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 3677
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 30, in scrape_issues
+    issue_i = issue_scraper.scrape(url_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 109, in scrape
+    summary = self._get_summary(header)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 285, in _get_summary
+    return capture(header_text, r'Issue [0-9]+?: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Issue [0-9]+?: (.+?)[\n$] on Issue 3677:
+Reported by 
+ 
+ 
+ ClusterFuzz-External
+ 
+ 
+ on 
+ Wed, Oct 18, 2017, 3:56 PM EDT
+ Project Member at group 1 failed.
+

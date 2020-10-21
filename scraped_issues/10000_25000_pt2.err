@@ -1,0 +1,1635 @@
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 13088
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5115584780435456
+
+Project: spidermonkey
+Job Type: asan_spidermonkey
+Platform Id: linux
+
+Crash Type: Null-dereference WRITE
+Crash Address: 0x000000000000
+Crash State:
+  InternalConstruct
+  js::Construct
+  js::ForwardingProxyHandler::construct
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_spidermonkey&range=201901110330:201901160338
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5115584780435456
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public.
+
+When you fix this bug, please
+  * mention the fix revision(s).
+  * state whether the bug was a short-lived regression or an old bug in any stable releases.
+  * add any other useful information.
+This information can help downstream consumers.
+
+If you need to contact the OSS-Fuzz team with a question, concern, or any other feedback, please file an issue at https://github.com/google/oss-fuzz/issues. at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 13088
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5115584780435456
+
+Project: spidermonkey
+Job Type: asan_spidermonkey
+Platform Id: linux
+
+Crash Type: Null-dereference WRITE
+Crash Address: 0x000000000000
+Crash State:
+  InternalConstruct
+  js::Construct
+  js::ForwardingProxyHandler::construct
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_spidermonkey&range=201901110330:201901160338
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5115584780435456
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public.
+
+When you fix this bug, please
+  * mention the fix revision(s).
+  * state whether the bug was a short-lived regression or an old bug in any stable releases.
+  * add any other useful information.
+This information can help downstream consumers.
+
+If you need to contact the OSS-Fuzz team with a question, concern, or any other feedback, please file an issue at https://github.com/google/oss-fuzz/issues. at group 1 failed.
+
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 13212
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5162499614179328
+
+Project: spidermonkey
+Job Type: asan_spidermonkey
+Platform Id: linux
+
+Crash Type: Null-dereference WRITE
+Crash Address: 0x000000000000
+Crash State:
+  JSStructuredCloneReader::readTransferMap
+  JSStructuredCloneReader::read
+  ReadStructuredClone
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_spidermonkey&range=201804190510:201804200505
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5162499614179328
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public.
+
+When you fix this bug, please
+  * mention the fix revision(s).
+  * state whether the bug was a short-lived regression or an old bug in any stable releases.
+  * add any other useful information.
+This information can help downstream consumers.
+
+If you need to contact the OSS-Fuzz team with a question, concern, or any other feedback, please file an issue at https://github.com/google/oss-fuzz/issues. at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 13212
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5162499614179328
+
+Project: spidermonkey
+Job Type: asan_spidermonkey
+Platform Id: linux
+
+Crash Type: Null-dereference WRITE
+Crash Address: 0x000000000000
+Crash State:
+  JSStructuredCloneReader::readTransferMap
+  JSStructuredCloneReader::read
+  ReadStructuredClone
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_spidermonkey&range=201804190510:201804200505
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5162499614179328
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public.
+
+When you fix this bug, please
+  * mention the fix revision(s).
+  * state whether the bug was a short-lived regression or an old bug in any stable releases.
+  * add any other useful information.
+This information can help downstream consumers.
+
+If you need to contact the OSS-Fuzz team with a question, concern, or any other feedback, please file an issue at https://github.com/google/oss-fuzz/issues. at group 1 failed.
+
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 13397
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5145177956548608
+
+Project: spidermonkey
+Job Type: asan_spidermonkey
+Platform Id: linux
+
+Crash Type: Null-dereference WRITE
+Crash Address: 0x000000000000
+Crash State:
+  JSAtom::asPropertyName
+  js::frontend::GeneralParser<js::frontend::FullParseHandler, char16_t>::fieldInit
+  js::frontend::GeneralParser<js::frontend::FullParseHandler, char16_t>::classDefi
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_spidermonkey&range=201902230221:201902240218
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5145177956548608
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public.
+
+When you fix this bug, please
+  * mention the fix revision(s).
+  * state whether the bug was a short-lived regression or an old bug in any stable releases.
+  * add any other useful information.
+This information can help downstream consumers.
+
+If you need to contact the OSS-Fuzz team with a question, concern, or any other feedback, please file an issue at https://github.com/google/oss-fuzz/issues. at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 13397
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5145177956548608
+
+Project: spidermonkey
+Job Type: asan_spidermonkey
+Platform Id: linux
+
+Crash Type: Null-dereference WRITE
+Crash Address: 0x000000000000
+Crash State:
+  JSAtom::asPropertyName
+  js::frontend::GeneralParser<js::frontend::FullParseHandler, char16_t>::fieldInit
+  js::frontend::GeneralParser<js::frontend::FullParseHandler, char16_t>::classDefi
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_spidermonkey&range=201902230221:201902240218
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5145177956548608
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public.
+
+When you fix this bug, please
+  * mention the fix revision(s).
+  * state whether the bug was a short-lived regression or an old bug in any stable releases.
+  * add any other useful information.
+This information can help downstream consumers.
+
+If you need to contact the OSS-Fuzz team with a question, concern, or any other feedback, please file an issue at https://github.com/google/oss-fuzz/issues. at group 1 failed.
+
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 13401
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=6325974256320512
+
+Project: spidermonkey
+Job Type: asan_spidermonkey
+Platform Id: linux
+
+Crash Type: Null-dereference WRITE
+Crash Address: 0x000000000000
+Crash State:
+  JSStructuredCloneWriter::parseTransferable
+  WriteStructuredClone
+  JS_WriteStructuredClone
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_spidermonkey&range=201808020436:201808192201
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=6325974256320512
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public.
+
+When you fix this bug, please
+  * mention the fix revision(s).
+  * state whether the bug was a short-lived regression or an old bug in any stable releases.
+  * add any other useful information.
+This information can help downstream consumers.
+
+If you need to contact the OSS-Fuzz team with a question, concern, or any other feedback, please file an issue at https://github.com/google/oss-fuzz/issues. at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 13401
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=6325974256320512
+
+Project: spidermonkey
+Job Type: asan_spidermonkey
+Platform Id: linux
+
+Crash Type: Null-dereference WRITE
+Crash Address: 0x000000000000
+Crash State:
+  JSStructuredCloneWriter::parseTransferable
+  WriteStructuredClone
+  JS_WriteStructuredClone
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_spidermonkey&range=201808020436:201808192201
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=6325974256320512
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public.
+
+When you fix this bug, please
+  * mention the fix revision(s).
+  * state whether the bug was a short-lived regression or an old bug in any stable releases.
+  * add any other useful information.
+This information can help downstream consumers.
+
+If you need to contact the OSS-Fuzz team with a question, concern, or any other feedback, please file an issue at https://github.com/google/oss-fuzz/issues. at group 1 failed.
+
+WARNING:root:Permission denied: issue 13949
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 15489
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5710840499535872
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: Abrt
+Crash Address: 0x053900000953
+Crash State:
+  long JSC::genericTypedArrayViewProtoFuncSlice<JSC::JSGenericTypedArrayView<JSC::
+  JSC::typedArrayViewProtoFuncSlice
+  jsc
+  
+Sanitizer: address (ASAN)
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5710840499535872
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 15489
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5710840499535872
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: Abrt
+Crash Address: 0x053900000953
+Crash State:
+  long JSC::genericTypedArrayViewProtoFuncSlice<JSC::JSGenericTypedArrayView<JSC::
+  JSC::typedArrayViewProtoFuncSlice
+  jsc
+  
+Sanitizer: address (ASAN)
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5710840499535872
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 15588
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5737996126519296
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: ASSERT
+Crash Address: 
+Crash State:
+  !isNuked(structureID)
+  JSC::StructureIDTable::get
+  bool JSC::JSObject::getPropertySlot<true>
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_jsc&range=201810290150:201810300151
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5737996126519296
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 15588
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5737996126519296
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: ASSERT
+Crash Address: 
+Crash State:
+  !isNuked(structureID)
+  JSC::StructureIDTable::get
+  bool JSC::JSObject::getPropertySlot<true>
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_jsc&range=201810290150:201810300151
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5737996126519296
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 15593
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5667677219061760
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: Null-dereference READ
+Crash Address: 0x000000000000
+Crash State:
+  jsc
+  jsc
+  jsc
+  
+Sanitizer: address (ASAN)
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5667677219061760
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 15593
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5667677219061760
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: Null-dereference READ
+Crash Address: 0x000000000000
+Crash State:
+  jsc
+  jsc
+  jsc
+  
+Sanitizer: address (ASAN)
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5667677219061760
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 15666
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=4816702556078080
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: UNKNOWN READ
+Crash Address: 0xfffffffffffffff0
+Crash State:
+  jsc
+  jsc
+  jsc
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_jsc&range=201905180151:201905261758
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=4816702556078080
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 15666
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=4816702556078080
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: UNKNOWN READ
+Crash Address: 0xfffffffffffffff0
+Crash State:
+  jsc
+  jsc
+  jsc
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_jsc&range=201905180151:201905261758
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=4816702556078080
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 15667
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=4862760845836288
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: Abrt
+Crash Address: 0x053900001246
+Crash State:
+  JSC::DFG::ArgumentsEliminationPhase::eliminateCandidatesThatInterfere
+  void JSC::DFG::forAllKilledNodesAtNodeIndex<void JSC::DFG::forAllKillsInBlock<JS
+  void JSC::DFG::AvailabilityMap::closeStartingWithLocal<void JSC::DFG::forAllKill
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_jsc&range=201907030139:201907040140
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=4862760845836288
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 15667
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=4862760845836288
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: Abrt
+Crash Address: 0x053900001246
+Crash State:
+  JSC::DFG::ArgumentsEliminationPhase::eliminateCandidatesThatInterfere
+  void JSC::DFG::forAllKilledNodesAtNodeIndex<void JSC::DFG::forAllKillsInBlock<JS
+  void JSC::DFG::AvailabilityMap::closeStartingWithLocal<void JSC::DFG::forAllKill
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_jsc&range=201907030139:201907040140
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=4862760845836288
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 15668
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=4800676657364992
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: Abrt
+Crash Address: 0x053900000d93
+Crash State:
+  jsc
+  JSC::JITCode::execute
+  JSC::Interpreter::executeProgram
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_jsc&range=201811240332:201811261824
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=4800676657364992
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 15668
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=4800676657364992
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: Abrt
+Crash Address: 0x053900000d93
+Crash State:
+  jsc
+  JSC::JITCode::execute
+  JSC::Interpreter::executeProgram
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_jsc&range=201811240332:201811261824
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=4800676657364992
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 15669
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=4874787526017024
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: Null-dereference READ
+Crash Address: 0x000000000005
+Crash State:
+  JSC::JSCell::isString
+  JSC::DFG::equalToSingleCharacter
+  JSC::DFG::CFGSimplificationPhase::run
+  
+Sanitizer: address (ASAN)
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=4874787526017024
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 15669
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=4874787526017024
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: Null-dereference READ
+Crash Address: 0x000000000005
+Crash State:
+  JSC::JSCell::isString
+  JSC::DFG::equalToSingleCharacter
+  JSC::DFG::CFGSimplificationPhase::run
+  
+Sanitizer: address (ASAN)
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=4874787526017024
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 15670
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5687735345479680
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: Null-dereference READ
+Crash Address: 0x000000000010
+Crash State:
+  std::__1::enable_if<IsSmartPtr<WTF::RefPtr<WTF::StringImpl, WTF::DumbPtrTraits<W
+  JSC::StringJumpTable::offsetForValue
+  llint_slow_path_switch_string
+  
+Sanitizer: address (ASAN)
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5687735345479680
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 15670
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5687735345479680
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: Null-dereference READ
+Crash Address: 0x000000000010
+Crash State:
+  std::__1::enable_if<IsSmartPtr<WTF::RefPtr<WTF::StringImpl, WTF::DumbPtrTraits<W
+  JSC::StringJumpTable::offsetForValue
+  llint_slow_path_switch_string
+  
+Sanitizer: address (ASAN)
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5687735345479680
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 15672
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5745560335679488
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: Null-dereference READ
+Crash Address: 0x000000000030
+Crash State:
+  JSC::DFG::Node::index
+  JSC::DFG::FlowIndexing::index
+  JSC::DFG::LivenessAnalysisPhase::processBlock
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_jsc&range=201904140145:201904190149
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5745560335679488
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 15672
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5745560335679488
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: Null-dereference READ
+Crash Address: 0x000000000030
+Crash State:
+  JSC::DFG::Node::index
+  JSC::DFG::FlowIndexing::index
+  JSC::DFG::LivenessAnalysisPhase::processBlock
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_jsc&range=201904140145:201904190149
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5745560335679488
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 15923
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5082970882310144
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: ASSERT
+Crash Address: 
+Crash State:
+  divot.offset >= divotStart.offset
+  JSC::BytecodeGenerator::emitExpressionInfo
+  JSC::InstanceOfNode::emitBytecode
+  
+Sanitizer: address (ASAN)
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5082970882310144
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 15923
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5082970882310144
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: ASSERT
+Crash Address: 
+Crash State:
+  divot.offset >= divotStart.offset
+  JSC::BytecodeGenerator::emitExpressionInfo
+  JSC::InstanceOfNode::emitBytecode
+  
+Sanitizer: address (ASAN)
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5082970882310144
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 16184
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5689363899351040
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: Null-dereference READ
+Crash Address: 0x000000000022
+Crash State:
+  JSC::MarkedBlock::Handle::isFreeListed
+  JSC::HeapCell::isLive
+  JSC::DFG::AdaptiveStructureWatchpoint::fireInternal
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_jsc&range=201903270141:201903280138
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5689363899351040
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 16184
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5689363899351040
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: Null-dereference READ
+Crash Address: 0x000000000022
+Crash State:
+  JSC::MarkedBlock::Handle::isFreeListed
+  JSC::HeapCell::isLive
+  JSC::DFG::AdaptiveStructureWatchpoint::fireInternal
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_jsc&range=201903270141:201903280138
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5689363899351040
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 16233
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5185892800528384
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: ASSERT
+Crash Address: 
+Crash State:
+  from.isCell() && from.asCell()->JSCell::inherits(*from.asCell()->vm(), std::remo
+  JSC::JSObject* JSC::jsCast<JSC::JSObject*>
+  operationPutToScope
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_jsc&range=201804090416:201804100418
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5185892800528384
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 16233
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 51, in parse_oss_fuzz_bug_report_details
+    fuzz_target_binary = _get_fuzz_target_binary(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 119, in _get_fuzz_target_binary
+    fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzer: (.+?)[\n$] on Detailed report: https://oss-fuzz.com/testcase?key=5185892800528384
+
+Project: jsc
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: ASSERT
+Crash Address: 
+Crash State:
+  from.isCell() && from.asCell()->JSCell::inherits(*from.asCell()->vm(), std::remo
+  JSC::JSObject* JSC::jsCast<JSC::JSObject*>
+  operationPutToScope
+  
+Sanitizer: address (ASAN)
+
+Regressed: https://oss-fuzz.com/revisions?job=asan_jsc&range=201804090416:201804100418
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5185892800528384
+
+Issue filed automatically.
+
+See https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:Permission denied: issue 16468
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 16582
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 50, in parse_oss_fuzz_bug_report_details
+    fuzzing_engine = _get_fuzzing_engine(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 104, in _get_fuzzing_engine
+    return capture(description, r'Fuzzing [Ee]ngine: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzing [Ee]ngine: (.+?)[\n$] on Detailed Report: https://oss-fuzz.com/testcase?key=5164825132400640
+
+Project: jsc
+Fuzzer: 
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: Null-dereference READ
+Crash Address: 0x000000000000
+Crash State:
+  NULL
+Sanitizer: address (ASAN)
+
+Crash Revision: https://oss-fuzz.com/revisions?job=asan_jsc&revision=201906250138
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5164825132400640
+
+Issue filed automatically.
+
+See https://google.github.io/oss-fuzz/advanced-topics/reproducing for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue 16582
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 31, in scrape_issues
+    attach_oss_fuzz_bug_report(issue_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 30, in attach_oss_fuzz_bug_report
+    report = parse_oss_fuzz_bug_report_details(issue)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 50, in parse_oss_fuzz_bug_report_details
+    fuzzing_engine = _get_fuzzing_engine(description, id)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/oss_fuzz/oss_fuzz_bug_report_parser.py", line 104, in _get_fuzzing_engine
+    return capture(description, r'Fuzzing [Ee]ngine: (.+?)[\n$]')
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/string_util.py", line 9, in capture
+    raise Warning(f'Attempt to match {regex} on {input} at group {groupnum} failed.')
+Warning: Attempt to match Fuzzing [Ee]ngine: (.+?)[\n$] on Detailed Report: https://oss-fuzz.com/testcase?key=5164825132400640
+
+Project: jsc
+Fuzzer: 
+Job Type: asan_jsc
+Platform Id: linux
+
+Crash Type: Null-dereference READ
+Crash Address: 0x000000000000
+Crash State:
+  NULL
+Sanitizer: address (ASAN)
+
+Crash Revision: https://oss-fuzz.com/revisions?job=asan_jsc&revision=201906250138
+
+Reproducer Testcase: https://oss-fuzz.com/download?testcase_id=5164825132400640
+
+Issue filed automatically.
+
+See https://google.github.io/oss-fuzz/advanced-topics/reproducing for instructions to reproduce this bug locally.
+
+This bug is subject to a 90 day disclosure deadline. If 90 days elapse
+without an upstream patch, then the bug report will automatically
+become visible to the public. at group 1 failed.
+
+WARNING:root:Permission denied: issue 21218
+WARNING:root:Permission denied: issue 22304
+WARNING:root:Permission denied: issue 23835
+WARNING:root:Permission denied: issue 24223
+WARNING:root:Permission denied: issue 24312
+WARNING:root:Permission denied: issue 24358
+WARNING:root:Permission denied: issue 24359
+WARNING:root:Permission denied: issue 24362
+WARNING:root:Permission denied: issue 24372
+WARNING:root:Permission denied: issue 24373
+WARNING:root:Permission denied: issue 24378
+WARNING:root:Permission denied: issue 24383
+WARNING:root:Permission denied: issue 24386
+WARNING:root:Permission denied: issue 24389
+WARNING:root:Permission denied: issue 24391
+WARNING:root:Permission denied: issue 24392
+WARNING:root:Permission denied: issue 24397
+WARNING:root:Permission denied: issue 24399
+WARNING:root:Permission denied: issue 24400
+WARNING:root:Permission denied: issue 24402
+WARNING:root:Permission denied: issue 24406
+WARNING:root:Permission denied: issue 24407
+WARNING:root:Permission denied: issue 24418
+WARNING:root:Permission denied: issue 24421
+WARNING:root:Permission denied: issue 24422
+WARNING:root:Permission denied: issue 24424
+WARNING:root:Permission denied: issue 24429
+WARNING:root:Permission denied: issue 24432
+WARNING:root:Permission denied: issue 24435
+WARNING:root:Permission denied: issue 24437
+WARNING:root:Permission denied: issue 24440
+WARNING:root:Permission denied: issue 24450
+WARNING:root:Permission denied: issue 24452
+WARNING:root:Permission denied: issue 24458
+WARNING:root:Permission denied: issue 24460
+WARNING:root:Permission denied: issue 24461
+WARNING:root:Permission denied: issue 24462
+WARNING:root:Permission denied: issue 24463
+WARNING:root:Permission denied: issue 24464
+WARNING:root:Permission denied: issue 24465
+WARNING:root:Permission denied: issue 24468
+WARNING:root:Permission denied: issue 24469
+WARNING:root:Permission denied: issue 24470
+WARNING:root:Permission denied: issue 24472
+WARNING:root:Permission denied: issue 24473
+WARNING:root:Permission denied: issue 24474
+WARNING:root:Permission denied: issue 24475
+WARNING:root:Permission denied: issue 24476
+WARNING:root:Permission denied: issue 24488
+WARNING:root:Permission denied: issue 24490
+WARNING:root:Permission denied: issue 24494
+WARNING:root:Permission denied: issue 24502
+WARNING:root:Permission denied: issue 24506
+WARNING:root:Permission denied: issue 24508
+WARNING:root:Permission denied: issue 24510
+WARNING:root:Permission denied: issue 24512
+WARNING:root:Permission denied: issue 24514
+WARNING:root:Permission denied: issue 24517
+WARNING:root:Permission denied: issue 24518
+WARNING:root:Permission denied: issue 24530
+WARNING:root:Permission denied: issue 24531
+WARNING:root:Permission denied: issue 24534
+WARNING:root:Permission denied: issue 24537
+WARNING:root:Permission denied: issue 24539
+WARNING:root:Permission denied: issue 24540
+WARNING:root:Permission denied: issue 24543
+WARNING:root:Permission denied: issue 24549
+WARNING:root:Permission denied: issue 24550
+WARNING:root:Permission denied: issue 24551
+WARNING:root:Permission denied: issue 24553
+WARNING:root:Permission denied: issue 24555
+WARNING:root:Permission denied: issue 24559
+WARNING:root:Permission denied: issue 24561
+WARNING:root:Permission denied: issue 24576
+WARNING:root:Permission denied: issue 24578
+WARNING:root:Permission denied: issue 24587
+WARNING:root:Permission denied: issue 24589
+WARNING:root:Permission denied: issue 24591
+WARNING:root:Permission denied: issue 24594
+WARNING:root:Permission denied: issue 24596
+WARNING:root:Permission denied: issue 24599
+WARNING:root:Permission denied: issue 24601
+WARNING:root:Permission denied: issue 24602
+WARNING:root:Permission denied: issue 24603
+WARNING:root:Permission denied: issue 24605
+WARNING:root:Permission denied: issue 24606
+WARNING:root:Permission denied: issue 24607
+WARNING:root:Permission denied: issue 24608
+WARNING:root:Permission denied: issue 24609
+WARNING:root:Permission denied: issue 24610
+WARNING:root:Permission denied: issue 24614
+WARNING:root:Permission denied: issue 24615
+WARNING:root:Permission denied: issue 24618
+WARNING:root:Permission denied: issue 24622
+WARNING:root:Permission denied: issue 24623
+WARNING:root:Permission denied: issue 24624
+WARNING:root:Permission denied: issue 24626
+WARNING:root:Permission denied: issue 24632
+WARNING:root:Permission denied: issue 24635
+WARNING:root:Permission denied: issue 24642
+WARNING:root:Permission denied: issue 24643
+WARNING:root:Permission denied: issue 24644
+WARNING:root:Permission denied: issue 24651
+WARNING:root:Permission denied: issue 24654
+WARNING:root:Permission denied: issue 24656
+WARNING:root:Permission denied: issue 24658
+WARNING:root:Permission denied: issue 24660
+WARNING:root:Permission denied: issue 24663
+WARNING:root:Permission denied: issue 24664
+WARNING:root:Permission denied: issue 24665
+WARNING:root:Permission denied: issue 24667
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 24669
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 84, in scrape
+    issue_elem = self._get_issue_elem(issue_url, loading_delay)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 196, in _get_issue_elem
+    raise e
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 188, in _get_issue_elem
+    issue_elem = mr_issue_page_shadow.find_element_by_id('issue')
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 176, in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 658, in find_element
+    return self._execute(Command.FIND_CHILD_ELEMENT,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[id="issue"]"}
+  (Session info: chrome=86.0.4240.111)
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 30, in scrape_issues
+    issue_i = issue_scraper.scrape(url_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 86, in scrape
+    raise ScrapeException(f"Unable to scrape issue at {issue_url}. "
+monorail_scraper.issue.issue_scraper.ScrapeException: 'Unable to scrape issue at https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=24669. Check whether issue exists and is publically available.'
+
+WARNING:root:Permission denied: issue 24669
+WARNING:root:Permission denied: issue 24679
+WARNING:root:Permission denied: issue 24680
+WARNING:root:Permission denied: issue 24682
+WARNING:root:Permission denied: issue 24688
+WARNING:root:Permission denied: issue 24697
+WARNING:root:Permission denied: issue 24698
+WARNING:root:Permission denied: issue 24700
+WARNING:root:Permission denied: issue 24711
+WARNING:root:Permission denied: issue 24712
+WARNING:root:Permission denied: issue 24713
+WARNING:root:Permission denied: issue 24717
+WARNING:root:Permission denied: issue 24721
+WARNING:root:Permission denied: issue 24735
+WARNING:root:Permission denied: issue 24741
+WARNING:root:Permission denied: issue 24742
+WARNING:root:Permission denied: issue 24743
+WARNING:root:Permission denied: issue 24750
+WARNING:root:Permission denied: issue 24756
+WARNING:root:Permission denied: issue 24761
+WARNING:root:Permission denied: issue 24763
+WARNING:root:Permission denied: issue 24765
+WARNING:root:Permission denied: issue 24768
+WARNING:root:Permission denied: issue 24771
+WARNING:root:Permission denied: issue 24773
+WARNING:root:Permission denied: issue 24774
+WARNING:root:Permission denied: issue 24775
+WARNING:root:Permission denied: issue 24778
+WARNING:root:Permission denied: issue 24783
+WARNING:root:Permission denied: issue 24787
+WARNING:root:Permission denied: issue 24788
+WARNING:root:Permission denied: issue 24792
+WARNING:root:Permission denied: issue 24793
+WARNING:root:Permission denied: issue 24799
+WARNING:root:Permission denied: issue 24800
+WARNING:root:Permission denied: issue 24801
+WARNING:root:Permission denied: issue 24802
+WARNING:root:Permission denied: issue 24803
+WARNING:root:Permission denied: issue 24805
+WARNING:root:Permission denied: issue 24808
+WARNING:root:Permission denied: issue 24812
+WARNING:root:Permission denied: issue 24813
+WARNING:root:Permission denied: issue 24827
+WARNING:root:Permission denied: issue 24832
+WARNING:root:Permission denied: issue 24841
+WARNING:root:Permission denied: issue 24842
+WARNING:root:Permission denied: issue 24847
+WARNING:root:Permission denied: issue 24849
+WARNING:root:Permission denied: issue 24850
+WARNING:root:Permission denied: issue 24858
+WARNING:root:Permission denied: issue 24860
+WARNING:root:Permission denied: issue 24862
+WARNING:root:Permission denied: issue 24867
+WARNING:root:Permission denied: issue 24869
+WARNING:root:Permission denied: issue 24876
+WARNING:root:Permission denied: issue 24886
+WARNING:root:Permission denied: issue 24887
+WARNING:root:Permission denied: issue 24890
+WARNING:root:Permission denied: issue 24892
+WARNING:root:Permission denied: issue 24893
+WARNING:root:Permission denied: issue 24894
+WARNING:root:Permission denied: issue 24895
+WARNING:root:Permission denied: issue 24899
+WARNING:root:Permission denied: issue 24902
+WARNING:root:Permission denied: issue 24903
+WARNING:root:Permission denied: issue 24906
+WARNING:root:Permission denied: issue 24907
+WARNING:root:Permission denied: issue 24908
+WARNING:root:Permission denied: issue 24909
+WARNING:root:Permission denied: issue 24910
+WARNING:root:Permission denied: issue 24912
+WARNING:root:Permission denied: issue 24913
+WARNING:root:Permission denied: issue 24914
+WARNING:root:Permission denied: issue 24916
+WARNING:root:Permission denied: issue 24917
+WARNING:root:Permission denied: issue 24918
+WARNING:root:Permission denied: issue 24919
+WARNING:root:Permission denied: issue 24920
+WARNING:root:Permission denied: issue 24921
+WARNING:root:Permission denied: issue 24923
+WARNING:root:Permission denied: issue 24924
+WARNING:root:Permission denied: issue 24926
+WARNING:root:Permission denied: issue 24928
+WARNING:root:Permission denied: issue 24929
+WARNING:root:Permission denied: issue 24930
+WARNING:root:Permission denied: issue 24931
+WARNING:root:Permission denied: issue 24932
+WARNING:root:Permission denied: issue 24935
+WARNING:root:Permission denied: issue 24937
+WARNING:root:Permission denied: issue 24938
+WARNING:root:Permission denied: issue 24939
+WARNING:root:Permission denied: issue 24941
+WARNING:root:Permission denied: issue 24947
+WARNING:root:Permission denied: issue 24949
+WARNING:root:Permission denied: issue 24951
+WARNING:root:Permission denied: issue 24952
+WARNING:root:Permission denied: issue 24953
+WARNING:root:Permission denied: issue 24955
+WARNING:root:Permission denied: issue 24957
+WARNING:root:Permission denied: issue 24961
+WARNING:root:Permission denied: issue 24962
+WARNING:root:Permission denied: issue 24963
+WARNING:root:Permission denied: issue 24965
+WARNING:root:Permission denied: issue 24966
+WARNING:root:Permission denied: issue 24967
+WARNING:root:Permission denied: issue 24968
+WARNING:root:Permission denied: issue 24972
+WARNING:root:Permission denied: issue 24975
+WARNING:root:Permission denied: issue 24976
+WARNING:root:Permission denied: issue 24977
+WARNING:root:Permission denied: issue 24979
+WARNING:root:Permission denied: issue 24980
+WARNING:root:Permission denied: issue 24982
+WARNING:root:Permission denied: issue 24984
+WARNING:root:Permission denied: issue 24985
+WARNING:root:Permission denied: issue 24986
+WARNING:root:Permission denied: issue 24987
+WARNING:root:Permission denied: issue 24989
+WARNING:root:Permission denied: issue 24991
+WARNING:root:Permission denied: issue 24992
+WARNING:root:Permission denied: issue 24994
+WARNING:root:Permission denied: issue 24995
+WARNING:root:Permission denied: issue 24996
+WARNING:root:Permission denied: issue 24999
+WARNING:root:Permission denied: issue 25000
