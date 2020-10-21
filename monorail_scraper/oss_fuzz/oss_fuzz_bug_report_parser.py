@@ -110,7 +110,11 @@ def _get_fuzz_target_binary(description: str, id: int) -> str:
 
     if id <= 251:
         fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
-        fuzz_target_binary = fuzzer.split('_', maxsplit=1)[1]
+        tokens = fuzzer.split('_', maxsplit=1)
+        if len(tokens) <= 1:
+            fuzz_target_binary = ''  # unknown fuzz target
+        else:
+            fuzz_target_binary = fuzzer.split('_', maxsplit=1)[1]
         return fuzz_target_binary
     elif 252 <= id <= 16307:
         return capture(description, r'Fuzz target binary: (.+?)[\n$]')
