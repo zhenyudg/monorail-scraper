@@ -131,7 +131,10 @@ def _get_job_type(description: str) -> str:
 
 
 def _get_platform_id(description: str) -> str:
-    return capture(description, r'Platform Id: (.+?)[\n$]')
+    if (platform := capture(description, r'Platform Id: (.+?)[\n$]', fail_gently=True)) is not None:
+        return platform
+    else:
+        return ''  # sometimes the platform isn't specified (e.g., issue 213)
 
 
 def _get_crash_type(description: str) -> str:
