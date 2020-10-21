@@ -104,10 +104,9 @@ def _get_fuzzing_engine(description: str, id: int) -> str:
         return capture(description, r'Fuzzing [Ee]ngine: (.+?)[\n$]')
 
 
+special_fuzzers = ['js_fuzzer', 'ftfuzzer', 'magic_fuzzer', 'guetzli_fuzzer']
+# https://chromium.googlesource.com/v8/v8/+/master/tools/clusterfuzz/js_fuzzer/README.md
 def _get_fuzz_target_binary(description: str, id: int) -> str:
-    if 'Fuzzer: js_fuzzer' in description:
-        return 'js_fuzzer'  # https://chromium.googlesource.com/v8/v8/+/master/tools/clusterfuzz/js_fuzzer/README.md
-
     if (fuzz_target_binary := capture(description, r'Fuzz [Tt]arget: (.+?)[\n$]', fail_gently=True)) is not None:
         # only observed with id >= 16308
         return fuzz_target_binary
@@ -118,6 +117,11 @@ def _get_fuzz_target_binary(description: str, id: int) -> str:
         return fuzz_target_binary
     else:
         fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
+
+        # special cases
+        if fuzzer in special_fuzzers:
+            return fuzzer
+
         tokens = fuzzer.split('_', maxsplit=1)
         if len(tokens) <= 1:
             fuzz_target_binary = ''  # unknown fuzz target
