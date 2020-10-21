@@ -108,7 +108,15 @@ def _get_fuzz_target_binary(description: str, id: int) -> str:
     if 'Fuzzer: js_fuzzer' in description:
         return 'js_fuzzer'  # https://chromium.googlesource.com/v8/v8/+/master/tools/clusterfuzz/js_fuzzer/README.md
 
-    if id <= 251:
+    if (fuzz_target_binary := capture(description, r'Fuzz [Tt]arget: (.+?)[\n$]', fail_gently=True)) is not None:
+        # only observed with id >= 16308
+        return fuzz_target_binary
+    elif (fuzz_target_binary := capture(description, r'Fuzz target binary: (.+?)[\n$]', fail_gently=True)) is not None:
+        # only observed with 252 <= id <= 16307:
+        return fuzz_target_binary
+    elif (fuzz_target_binary := capture(description, r'Fuzzer binary: (.+?)[\n$]', fail_gently=True)) is not None:
+        return fuzz_target_binary
+    else:
         fuzzer = capture(description, r'Fuzzer: (.+?)[\n$]')
         tokens = fuzzer.split('_', maxsplit=1)
         if len(tokens) <= 1:
@@ -116,10 +124,6 @@ def _get_fuzz_target_binary(description: str, id: int) -> str:
         else:
             fuzz_target_binary = fuzzer.split('_', maxsplit=1)[1]
         return fuzz_target_binary
-    elif 252 <= id <= 16307:
-        return capture(description, r'Fuzz target binary: (.+?)[\n$]')
-    elif id >= 16308:
-        return capture(description, r'Fuzz [Tt]arget: (.+?)[\n$]')
 
 
 def _get_job_type(description: str) -> str:
