@@ -142,7 +142,7 @@ def _get_crash_address(description: str) -> str:
 
 def _get_crash_state(description: str) -> Tuple[str]:
     # The . qualifier doesn't match \n by default
-    raw_crash_state = capture(description, r'Crash State:\n(.*?)\n(?:Sanitizer|  \n)', pattern_flags=re.DOTALL)
+    raw_crash_state = capture(description, r'Crash State:\n(.*?)\n(?:Sanitizer|\s*\n)', pattern_flags=re.DOTALL)
 
     lines = raw_crash_state.split('\n')
     crash_state = list()
