@@ -33,8 +33,12 @@ def attach_oss_fuzz_bug_report(issue: Issue) -> bool:
 
 
 def is_oss_fuzz_bug_report(issue: Issue) -> bool:
+    from monorail_scraper.issue.issue_scraper import ScrapeException
+
     is_oss_fuzz = almost_equal("oss-fuzz", issue.project)
     authored_by_clusterfuzz = almost_equal("ClusterFuzz-External", issue.author)
+    if is_oss_fuzz and 'Type' not in issue.metadata:
+        raise ScrapeException('Missing Type metadata')
     is_nonsecurity_bug_report = almost_equal("Bug", issue.metadata.get('Type', ''))
     is_security_bug_report = almost_equal("Bug-Security", issue.metadata.get('Type', ''))
 
