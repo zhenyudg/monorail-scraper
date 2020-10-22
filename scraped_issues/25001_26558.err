@@ -1,0 +1,1209 @@
+WARNING:root:Permission denied: issue 25001
+WARNING:root:Permission denied: issue 25005
+WARNING:root:Permission denied: issue 25006
+WARNING:root:Permission denied: issue 25007
+WARNING:root:Permission denied: issue 25022
+WARNING:root:Permission denied: issue 25025
+WARNING:root:Permission denied: issue 25028
+WARNING:root:Permission denied: issue 25029
+WARNING:root:Permission denied: issue 25030
+WARNING:root:Permission denied: issue 25031
+WARNING:root:Permission denied: issue 25038
+WARNING:root:Permission denied: issue 25039
+WARNING:root:Permission denied: issue 25040
+WARNING:root:Permission denied: issue 25042
+WARNING:root:Permission denied: issue 25043
+WARNING:root:Permission denied: issue 25044
+WARNING:root:Permission denied: issue 25045
+WARNING:root:Permission denied: issue 25046
+WARNING:root:Permission denied: issue 25048
+WARNING:root:Permission denied: issue 25049
+WARNING:root:Permission denied: issue 25053
+WARNING:root:Permission denied: issue 25054
+WARNING:root:Permission denied: issue 25058
+WARNING:root:Permission denied: issue 25066
+WARNING:root:Permission denied: issue 25074
+WARNING:root:Permission denied: issue 25075
+WARNING:root:Permission denied: issue 25076
+WARNING:root:Permission denied: issue 25077
+WARNING:root:Permission denied: issue 25079
+WARNING:root:Permission denied: issue 25080
+WARNING:root:Permission denied: issue 25081
+WARNING:root:Permission denied: issue 25083
+WARNING:root:Permission denied: issue 25104
+WARNING:root:Permission denied: issue 25105
+WARNING:root:Permission denied: issue 25107
+WARNING:root:Permission denied: issue 25108
+WARNING:root:Permission denied: issue 25119
+WARNING:root:Permission denied: issue 25122
+WARNING:root:Permission denied: issue 25124
+WARNING:root:Permission denied: issue 25126
+WARNING:root:Permission denied: issue 25127
+WARNING:root:Permission denied: issue 25128
+WARNING:root:Permission denied: issue 25131
+WARNING:root:Permission denied: issue 25132
+WARNING:root:Permission denied: issue 25134
+WARNING:root:Permission denied: issue 25139
+WARNING:root:Permission denied: issue 25140
+WARNING:root:Permission denied: issue 25146
+WARNING:root:Permission denied: issue 25147
+WARNING:root:Permission denied: issue 25151
+WARNING:root:Permission denied: issue 25153
+WARNING:root:Permission denied: issue 25154
+WARNING:root:Permission denied: issue 25157
+WARNING:root:Permission denied: issue 25160
+WARNING:root:Permission denied: issue 25173
+WARNING:root:Permission denied: issue 25178
+WARNING:root:Permission denied: issue 25180
+WARNING:root:Permission denied: issue 25181
+WARNING:root:Permission denied: issue 25187
+WARNING:root:Permission denied: issue 25188
+WARNING:root:Permission denied: issue 25193
+WARNING:root:Permission denied: issue 25194
+WARNING:root:Permission denied: issue 25195
+WARNING:root:Permission denied: issue 25198
+WARNING:root:Permission denied: issue 25200
+WARNING:root:Permission denied: issue 25207
+WARNING:root:Permission denied: issue 25218
+WARNING:root:Permission denied: issue 25220
+WARNING:root:Permission denied: issue 25224
+WARNING:root:Permission denied: issue 25225
+WARNING:root:Permission denied: issue 25227
+WARNING:root:Permission denied: issue 25228
+WARNING:root:Permission denied: issue 25229
+WARNING:root:Permission denied: issue 25232
+WARNING:root:Permission denied: issue 25237
+WARNING:root:Permission denied: issue 25239
+WARNING:root:Permission denied: issue 25240
+WARNING:root:Permission denied: issue 25241
+WARNING:root:Permission denied: issue 25243
+WARNING:root:Permission denied: issue 25246
+WARNING:root:Permission denied: issue 25247
+WARNING:root:Permission denied: issue 25248
+WARNING:root:Permission denied: issue 25250
+WARNING:root:Permission denied: issue 25251
+WARNING:root:Permission denied: issue 25252
+WARNING:root:Permission denied: issue 25253
+WARNING:root:Permission denied: issue 25254
+WARNING:root:Permission denied: issue 25261
+WARNING:root:Permission denied: issue 25263
+WARNING:root:Permission denied: issue 25264
+WARNING:root:Permission denied: issue 25265
+WARNING:root:Permission denied: issue 25267
+WARNING:root:Permission denied: issue 25269
+WARNING:root:Permission denied: issue 25270
+WARNING:root:Permission denied: issue 25274
+WARNING:root:Permission denied: issue 25276
+WARNING:root:Permission denied: issue 25281
+WARNING:root:Permission denied: issue 25284
+WARNING:root:Permission denied: issue 25286
+WARNING:root:Permission denied: issue 25287
+WARNING:root:Permission denied: issue 25288
+WARNING:root:Permission denied: issue 25293
+WARNING:root:Permission denied: issue 25298
+WARNING:root:Permission denied: issue 25303
+WARNING:root:Permission denied: issue 25305
+WARNING:root:Permission denied: issue 25307
+WARNING:root:Permission denied: issue 25309
+WARNING:root:Permission denied: issue 25310
+WARNING:root:Permission denied: issue 25312
+WARNING:root:Permission denied: issue 25314
+WARNING:root:Permission denied: issue 25318
+WARNING:root:Permission denied: issue 25320
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 25324
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 84, in scrape
+    issue_elem = self._get_issue_elem(issue_url, loading_delay)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 196, in _get_issue_elem
+    raise e
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 188, in _get_issue_elem
+    issue_elem = mr_issue_page_shadow.find_element_by_id('issue')
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 176, in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 658, in find_element
+    return self._execute(Command.FIND_CHILD_ELEMENT,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[id="issue"]"}
+  (Session info: chrome=86.0.4240.111)
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 30, in scrape_issues
+    issue_i = issue_scraper.scrape(url_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 86, in scrape
+    raise ScrapeException(f"Unable to scrape issue at {issue_url}. "
+monorail_scraper.issue.issue_scraper.ScrapeException: 'Unable to scrape issue at https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=25324. Check whether issue exists and is publically available.'
+
+WARNING:root:Permission denied: issue 25324
+WARNING:root:Permission denied: issue 25327
+WARNING:root:Permission denied: issue 25329
+WARNING:root:Permission denied: issue 25330
+WARNING:root:Permission denied: issue 25336
+WARNING:root:Permission denied: issue 25339
+WARNING:root:Permission denied: issue 25341
+WARNING:root:Permission denied: issue 25348
+WARNING:root:Permission denied: issue 25349
+WARNING:root:Permission denied: issue 25353
+WARNING:root:Permission denied: issue 25356
+WARNING:root:Permission denied: issue 25357
+WARNING:root:Permission denied: issue 25358
+WARNING:root:Permission denied: issue 25359
+WARNING:root:Permission denied: issue 25364
+WARNING:root:Permission denied: issue 25366
+WARNING:root:Permission denied: issue 25367
+WARNING:root:Permission denied: issue 25368
+WARNING:root:Permission denied: issue 25372
+WARNING:root:Permission denied: issue 25374
+WARNING:root:Permission denied: issue 25375
+WARNING:root:Permission denied: issue 25379
+WARNING:root:Permission denied: issue 25382
+WARNING:root:Permission denied: issue 25385
+WARNING:root:Permission denied: issue 25389
+WARNING:root:Permission denied: issue 25391
+WARNING:root:Permission denied: issue 25393
+WARNING:root:Permission denied: issue 25394
+WARNING:root:Permission denied: issue 25396
+WARNING:root:Permission denied: issue 25398
+WARNING:root:Permission denied: issue 25401
+WARNING:root:Permission denied: issue 25404
+WARNING:root:Permission denied: issue 25405
+WARNING:root:Permission denied: issue 25406
+WARNING:root:Permission denied: issue 25412
+WARNING:root:Permission denied: issue 25413
+WARNING:root:Permission denied: issue 25414
+WARNING:root:Permission denied: issue 25415
+WARNING:root:Permission denied: issue 25416
+WARNING:root:Permission denied: issue 25417
+WARNING:root:Permission denied: issue 25418
+WARNING:root:Permission denied: issue 25419
+WARNING:root:Permission denied: issue 25420
+WARNING:root:Permission denied: issue 25421
+WARNING:root:Permission denied: issue 25423
+WARNING:root:Permission denied: issue 25424
+WARNING:root:Permission denied: issue 25427
+WARNING:root:Permission denied: issue 25428
+WARNING:root:Permission denied: issue 25431
+WARNING:root:Permission denied: issue 25433
+WARNING:root:Permission denied: issue 25434
+WARNING:root:Permission denied: issue 25438
+WARNING:root:Permission denied: issue 25439
+WARNING:root:Permission denied: issue 25440
+WARNING:root:Permission denied: issue 25441
+WARNING:root:Permission denied: issue 25442
+WARNING:root:Permission denied: issue 25443
+WARNING:root:Permission denied: issue 25445
+WARNING:root:Permission denied: issue 25448
+WARNING:root:Permission denied: issue 25449
+WARNING:root:Permission denied: issue 25450
+WARNING:root:Permission denied: issue 25451
+WARNING:root:Permission denied: issue 25453
+WARNING:root:Permission denied: issue 25454
+WARNING:root:Permission denied: issue 25455
+WARNING:root:Permission denied: issue 25456
+WARNING:root:Permission denied: issue 25457
+WARNING:root:Permission denied: issue 25458
+WARNING:root:Permission denied: issue 25460
+WARNING:root:Permission denied: issue 25463
+WARNING:root:Permission denied: issue 25465
+WARNING:root:Permission denied: issue 25468
+WARNING:root:Permission denied: issue 25469
+WARNING:root:Permission denied: issue 25471
+WARNING:root:Permission denied: issue 25472
+WARNING:root:Permission denied: issue 25477
+WARNING:root:Permission denied: issue 25481
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 25482
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 30, in scrape_issues
+    issue_i = issue_scraper.scrape(url_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 84, in scrape
+    issue_elem = self._get_issue_elem(issue_url, loading_delay)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 151, in _get_issue_elem
+    self.driver.get(url)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 333, in get
+    self.execute(Command.GET, {'url': url})
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: cannot determine loading status
+from unknown error: unhandled inspector error: {"code":-32000,"message":"Inspected target navigated or closed"}
+  (Session info: chrome=86.0.4240.111)
+
+
+WARNING:root:Permission denied: issue 25482
+WARNING:root:Permission denied: issue 25483
+WARNING:root:Permission denied: issue 25484
+WARNING:root:Permission denied: issue 25487
+WARNING:root:Permission denied: issue 25488
+WARNING:root:Permission denied: issue 25489
+WARNING:root:Permission denied: issue 25491
+WARNING:root:Permission denied: issue 25492
+WARNING:root:Permission denied: issue 25499
+WARNING:root:Permission denied: issue 25502
+WARNING:root:Permission denied: issue 25503
+WARNING:root:Permission denied: issue 25504
+WARNING:root:Permission denied: issue 25506
+WARNING:root:Permission denied: issue 25509
+WARNING:root:Permission denied: issue 25510
+WARNING:root:Permission denied: issue 25511
+WARNING:root:Permission denied: issue 25512
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 25520
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 84, in scrape
+    issue_elem = self._get_issue_elem(issue_url, loading_delay)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 196, in _get_issue_elem
+    raise e
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 188, in _get_issue_elem
+    issue_elem = mr_issue_page_shadow.find_element_by_id('issue')
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 176, in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 658, in find_element
+    return self._execute(Command.FIND_CHILD_ELEMENT,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[id="issue"]"}
+  (Session info: chrome=86.0.4240.111)
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 30, in scrape_issues
+    issue_i = issue_scraper.scrape(url_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 86, in scrape
+    raise ScrapeException(f"Unable to scrape issue at {issue_url}. "
+monorail_scraper.issue.issue_scraper.ScrapeException: 'Unable to scrape issue at https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=25520. Check whether issue exists and is publically available.'
+
+WARNING:root:Permission denied: issue 25520
+WARNING:root:Permission denied: issue 25522
+WARNING:root:Permission denied: issue 25523
+WARNING:root:Permission denied: issue 25524
+WARNING:root:Permission denied: issue 25527
+WARNING:root:Permission denied: issue 25528
+WARNING:root:Permission denied: issue 25529
+WARNING:root:Permission denied: issue 25530
+WARNING:root:Permission denied: issue 25531
+WARNING:root:Permission denied: issue 25532
+WARNING:root:Permission denied: issue 25535
+WARNING:root:Permission denied: issue 25537
+WARNING:root:Permission denied: issue 25547
+WARNING:root:Permission denied: issue 25552
+WARNING:root:Permission denied: issue 25557
+WARNING:root:Permission denied: issue 25558
+WARNING:root:Permission denied: issue 25559
+WARNING:root:Permission denied: issue 25561
+WARNING:root:Permission denied: issue 25564
+WARNING:root:Permission denied: issue 25568
+WARNING:root:Permission denied: issue 25569
+WARNING:root:Permission denied: issue 25570
+WARNING:root:Permission denied: issue 25571
+WARNING:root:Permission denied: issue 25572
+WARNING:root:Permission denied: issue 25573
+WARNING:root:Permission denied: issue 25574
+WARNING:root:Permission denied: issue 25575
+WARNING:root:Permission denied: issue 25577
+WARNING:root:Permission denied: issue 25579
+WARNING:root:Permission denied: issue 25580
+WARNING:root:Permission denied: issue 25582
+WARNING:root:Permission denied: issue 25588
+WARNING:root:Permission denied: issue 25589
+WARNING:root:Permission denied: issue 25590
+WARNING:root:Permission denied: issue 25591
+WARNING:root:Permission denied: issue 25592
+WARNING:root:Permission denied: issue 25593
+WARNING:root:Permission denied: issue 25594
+WARNING:root:Permission denied: issue 25595
+WARNING:root:Permission denied: issue 25596
+WARNING:root:Permission denied: issue 25598
+WARNING:root:Permission denied: issue 25601
+WARNING:root:Permission denied: issue 25603
+WARNING:root:Permission denied: issue 25604
+WARNING:root:Permission denied: issue 25605
+WARNING:root:Permission denied: issue 25607
+WARNING:root:Permission denied: issue 25608
+WARNING:root:Permission denied: issue 25609
+WARNING:root:Permission denied: issue 25610
+WARNING:root:Permission denied: issue 25616
+WARNING:root:Permission denied: issue 25617
+WARNING:root:Permission denied: issue 25618
+WARNING:root:Permission denied: issue 25619
+WARNING:root:Permission denied: issue 25620
+WARNING:root:Permission denied: issue 25621
+WARNING:root:Permission denied: issue 25622
+WARNING:root:Permission denied: issue 25624
+WARNING:root:Permission denied: issue 25625
+WARNING:root:Permission denied: issue 25626
+WARNING:root:Permission denied: issue 25627
+WARNING:root:Permission denied: issue 25628
+WARNING:root:Permission denied: issue 25629
+WARNING:root:Permission denied: issue 25630
+WARNING:root:Permission denied: issue 25631
+WARNING:root:Permission denied: issue 25633
+WARNING:root:Permission denied: issue 25635
+WARNING:root:Permission denied: issue 25637
+WARNING:root:Permission denied: issue 25639
+WARNING:root:Permission denied: issue 25640
+WARNING:root:Permission denied: issue 25642
+WARNING:root:Permission denied: issue 25643
+WARNING:root:Permission denied: issue 25644
+WARNING:root:Permission denied: issue 25645
+WARNING:root:Permission denied: issue 25648
+WARNING:root:Permission denied: issue 25650
+WARNING:root:Permission denied: issue 25652
+WARNING:root:Permission denied: issue 25653
+WARNING:root:Permission denied: issue 25654
+WARNING:root:Permission denied: issue 25656
+WARNING:root:Permission denied: issue 25657
+WARNING:root:Permission denied: issue 25660
+WARNING:root:Permission denied: issue 25661
+WARNING:root:Permission denied: issue 25662
+WARNING:root:Permission denied: issue 25664
+WARNING:root:Permission denied: issue 25665
+WARNING:root:Permission denied: issue 25666
+WARNING:root:Permission denied: issue 25667
+WARNING:root:Permission denied: issue 25674
+WARNING:root:Permission denied: issue 25675
+WARNING:root:Permission denied: issue 25679
+WARNING:root:Permission denied: issue 25680
+WARNING:root:Permission denied: issue 25681
+WARNING:root:Permission denied: issue 25682
+WARNING:root:Permission denied: issue 25683
+WARNING:root:Permission denied: issue 25687
+WARNING:root:Permission denied: issue 25688
+WARNING:root:Permission denied: issue 25690
+WARNING:root:Permission denied: issue 25692
+WARNING:root:Permission denied: issue 25693
+WARNING:root:Permission denied: issue 25695
+WARNING:root:Permission denied: issue 25697
+WARNING:root:Permission denied: issue 25698
+WARNING:root:Permission denied: issue 25699
+WARNING:root:Permission denied: issue 25700
+WARNING:root:Permission denied: issue 25704
+WARNING:root:Permission denied: issue 25707
+WARNING:root:Permission denied: issue 25708
+WARNING:root:Permission denied: issue 25710
+WARNING:root:Permission denied: issue 25711
+WARNING:root:Permission denied: issue 25712
+WARNING:root:Permission denied: issue 25713
+WARNING:root:Permission denied: issue 25714
+WARNING:root:Permission denied: issue 25715
+WARNING:root:Permission denied: issue 25716
+WARNING:root:Permission denied: issue 25718
+WARNING:root:Permission denied: issue 25719
+WARNING:root:Permission denied: issue 25720
+WARNING:root:Permission denied: issue 25721
+WARNING:root:Permission denied: issue 25722
+WARNING:root:Permission denied: issue 25723
+WARNING:root:Permission denied: issue 25725
+WARNING:root:Permission denied: issue 25726
+WARNING:root:Permission denied: issue 25727
+WARNING:root:Permission denied: issue 25728
+WARNING:root:Permission denied: issue 25729
+WARNING:root:Permission denied: issue 25730
+WARNING:root:Permission denied: issue 25731
+WARNING:root:Permission denied: issue 25732
+WARNING:root:Permission denied: issue 25733
+WARNING:root:Permission denied: issue 25734
+WARNING:root:Permission denied: issue 25735
+WARNING:root:Permission denied: issue 25736
+WARNING:root:Permission denied: issue 25737
+WARNING:root:Permission denied: issue 25738
+WARNING:root:Permission denied: issue 25739
+WARNING:root:Permission denied: issue 25740
+WARNING:root:Permission denied: issue 25741
+WARNING:root:Permission denied: issue 25742
+WARNING:root:Permission denied: issue 25743
+WARNING:root:Permission denied: issue 25744
+WARNING:root:Permission denied: issue 25745
+WARNING:root:Permission denied: issue 25746
+WARNING:root:Permission denied: issue 25747
+WARNING:root:Permission denied: issue 25748
+WARNING:root:Permission denied: issue 25749
+WARNING:root:Permission denied: issue 25750
+WARNING:root:Permission denied: issue 25753
+WARNING:root:Permission denied: issue 25754
+WARNING:root:Permission denied: issue 25755
+WARNING:root:Permission denied: issue 25756
+WARNING:root:Permission denied: issue 25757
+WARNING:root:Permission denied: issue 25758
+WARNING:root:Permission denied: issue 25759
+WARNING:root:Permission denied: issue 25761
+WARNING:root:Permission denied: issue 25762
+WARNING:root:Permission denied: issue 25765
+WARNING:root:Permission denied: issue 25766
+WARNING:root:Permission denied: issue 25768
+WARNING:root:Permission denied: issue 25769
+WARNING:root:Permission denied: issue 25770
+WARNING:root:Permission denied: issue 25771
+WARNING:root:Permission denied: issue 25772
+WARNING:root:Permission denied: issue 25773
+WARNING:root:Permission denied: issue 25776
+WARNING:root:Permission denied: issue 25777
+WARNING:root:Permission denied: issue 25778
+WARNING:root:Permission denied: issue 25779
+WARNING:root:Permission denied: issue 25780
+WARNING:root:Permission denied: issue 25781
+WARNING:root:Permission denied: issue 25783
+WARNING:root:Permission denied: issue 25784
+WARNING:root:Permission denied: issue 25785
+WARNING:root:Permission denied: issue 25786
+WARNING:root:Permission denied: issue 25787
+WARNING:root:Permission denied: issue 25788
+WARNING:root:Permission denied: issue 25789
+WARNING:root:Permission denied: issue 25790
+WARNING:root:Permission denied: issue 25791
+WARNING:root:Permission denied: issue 25795
+WARNING:root:Permission denied: issue 25797
+WARNING:root:Permission denied: issue 25799
+WARNING:root:Permission denied: issue 25801
+WARNING:root:Permission denied: issue 25802
+WARNING:root:Permission denied: issue 25803
+WARNING:root:Permission denied: issue 25806
+WARNING:root:Permission denied: issue 25807
+WARNING:root:Permission denied: issue 25810
+WARNING:root:Permission denied: issue 25811
+WARNING:root:Permission denied: issue 25812
+WARNING:root:Permission denied: issue 25813
+WARNING:root:Permission denied: issue 25814
+WARNING:root:Permission denied: issue 25815
+WARNING:root:Permission denied: issue 25816
+WARNING:root:Permission denied: issue 25817
+WARNING:root:Permission denied: issue 25818
+WARNING:root:Permission denied: issue 25819
+WARNING:root:Permission denied: issue 25820
+WARNING:root:Permission denied: issue 25821
+WARNING:root:Permission denied: issue 25823
+WARNING:root:Permission denied: issue 25824
+WARNING:root:Permission denied: issue 25825
+WARNING:root:Permission denied: issue 25826
+WARNING:root:Permission denied: issue 25828
+WARNING:root:Permission denied: issue 25829
+WARNING:root:Permission denied: issue 25830
+WARNING:root:Permission denied: issue 25831
+WARNING:root:Permission denied: issue 25833
+WARNING:root:Permission denied: issue 25834
+WARNING:root:Permission denied: issue 25835
+WARNING:root:Permission denied: issue 25836
+WARNING:root:Permission denied: issue 25837
+WARNING:root:Permission denied: issue 25838
+WARNING:root:Permission denied: issue 25839
+WARNING:root:Permission denied: issue 25840
+WARNING:root:Permission denied: issue 25841
+WARNING:root:Permission denied: issue 25842
+WARNING:root:Permission denied: issue 25844
+WARNING:root:Permission denied: issue 25845
+WARNING:root:Permission denied: issue 25846
+WARNING:root:Permission denied: issue 25847
+WARNING:root:Permission denied: issue 25848
+WARNING:root:Permission denied: issue 25849
+WARNING:root:Permission denied: issue 25850
+WARNING:root:Permission denied: issue 25851
+WARNING:root:Permission denied: issue 25852
+WARNING:root:Permission denied: issue 25853
+WARNING:root:Permission denied: issue 25854
+WARNING:root:Permission denied: issue 25855
+WARNING:root:Permission denied: issue 25856
+WARNING:root:Permission denied: issue 25857
+WARNING:root:Permission denied: issue 25858
+WARNING:root:Permission denied: issue 25859
+WARNING:root:Permission denied: issue 25861
+WARNING:root:Permission denied: issue 25862
+WARNING:root:Permission denied: issue 25863
+WARNING:root:Permission denied: issue 25864
+WARNING:root:Permission denied: issue 25865
+WARNING:root:Permission denied: issue 25867
+WARNING:root:Permission denied: issue 25868
+WARNING:root:Permission denied: issue 25869
+WARNING:root:Permission denied: issue 25871
+WARNING:root:Permission denied: issue 25872
+WARNING:root:Permission denied: issue 25873
+WARNING:root:Permission denied: issue 25874
+WARNING:root:Permission denied: issue 25875
+WARNING:root:Permission denied: issue 25876
+WARNING:root:Permission denied: issue 25881
+WARNING:root:Permission denied: issue 25882
+WARNING:root:Permission denied: issue 25884
+WARNING:root:Permission denied: issue 25885
+WARNING:root:Permission denied: issue 25886
+WARNING:root:Permission denied: issue 25887
+WARNING:root:Permission denied: issue 25888
+WARNING:root:Permission denied: issue 25889
+WARNING:root:Permission denied: issue 25891
+WARNING:root:Permission denied: issue 25892
+WARNING:root:Permission denied: issue 25893
+WARNING:root:Permission denied: issue 25894
+WARNING:root:Permission denied: issue 25895
+WARNING:root:Permission denied: issue 25896
+WARNING:root:Permission denied: issue 25897
+WARNING:root:Permission denied: issue 25898
+WARNING:root:Permission denied: issue 25899
+WARNING:root:Permission denied: issue 25900
+WARNING:root:Permission denied: issue 25901
+WARNING:root:Permission denied: issue 25903
+WARNING:root:Permission denied: issue 25904
+WARNING:root:Permission denied: issue 25906
+WARNING:root:Permission denied: issue 25907
+WARNING:root:Permission denied: issue 25908
+WARNING:root:Permission denied: issue 25909
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 25910
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 84, in scrape
+    issue_elem = self._get_issue_elem(issue_url, loading_delay)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 188, in _get_issue_elem
+    issue_elem = mr_issue_page_shadow.find_element_by_id('issue')
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 176, in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 658, in find_element
+    return self._execute(Command.FIND_CHILD_ELEMENT,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.StaleElementReferenceException: Message: stale element reference: element is not attached to the page document
+  (Session info: chrome=86.0.4240.111)
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 30, in scrape_issues
+    issue_i = issue_scraper.scrape(url_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 86, in scrape
+    raise ScrapeException(f"Unable to scrape issue at {issue_url}. "
+monorail_scraper.issue.issue_scraper.ScrapeException: 'Unable to scrape issue at https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=25910. Check whether issue exists and is publically available.'
+
+WARNING:root:Permission denied: issue 25910
+WARNING:root:Permission denied: issue 25911
+WARNING:root:Permission denied: issue 25912
+WARNING:root:Permission denied: issue 25913
+WARNING:root:Permission denied: issue 25915
+WARNING:root:Permission denied: issue 25918
+WARNING:root:Permission denied: issue 25919
+WARNING:root:Permission denied: issue 25920
+WARNING:root:Permission denied: issue 25921
+WARNING:root:Permission denied: issue 25922
+WARNING:root:Permission denied: issue 25923
+WARNING:root:Permission denied: issue 25924
+WARNING:root:Permission denied: issue 25925
+WARNING:root:Permission denied: issue 25926
+WARNING:root:Permission denied: issue 25927
+WARNING:root:Permission denied: issue 25928
+WARNING:root:Permission denied: issue 25929
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 25932
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 84, in scrape
+    issue_elem = self._get_issue_elem(issue_url, loading_delay)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 188, in _get_issue_elem
+    issue_elem = mr_issue_page_shadow.find_element_by_id('issue')
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 176, in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 658, in find_element
+    return self._execute(Command.FIND_CHILD_ELEMENT,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.StaleElementReferenceException: Message: stale element reference: element is not attached to the page document
+  (Session info: chrome=86.0.4240.111)
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 30, in scrape_issues
+    issue_i = issue_scraper.scrape(url_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 86, in scrape
+    raise ScrapeException(f"Unable to scrape issue at {issue_url}. "
+monorail_scraper.issue.issue_scraper.ScrapeException: 'Unable to scrape issue at https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=25932. Check whether issue exists and is publically available.'
+
+WARNING:root:Permission denied: issue 25932
+WARNING:root:Permission denied: issue 25933
+WARNING:root:Permission denied: issue 25934
+WARNING:root:Permission denied: issue 25935
+WARNING:root:Permission denied: issue 25936
+WARNING:root:Permission denied: issue 25937
+WARNING:root:Permission denied: issue 25938
+WARNING:root:Permission denied: issue 25939
+WARNING:root:Permission denied: issue 25940
+WARNING:root:Permission denied: issue 25941
+WARNING:root:Permission denied: issue 25942
+WARNING:root:Permission denied: issue 25943
+WARNING:root:Permission denied: issue 25944
+WARNING:root:Permission denied: issue 25945
+WARNING:root:Permission denied: issue 25946
+WARNING:root:Permission denied: issue 25947
+WARNING:root:Permission denied: issue 25948
+WARNING:root:Permission denied: issue 25949
+WARNING:root:Permission denied: issue 25950
+WARNING:root:Permission denied: issue 25951
+WARNING:root:Permission denied: issue 25952
+WARNING:root:Permission denied: issue 25953
+WARNING:root:Permission denied: issue 25955
+WARNING:root:Permission denied: issue 25956
+WARNING:root:Permission denied: issue 25957
+WARNING:root:Permission denied: issue 25958
+WARNING:root:Permission denied: issue 25959
+WARNING:root:Permission denied: issue 25960
+WARNING:root:Permission denied: issue 25961
+WARNING:root:Permission denied: issue 25962
+WARNING:root:Permission denied: issue 25963
+WARNING:root:Permission denied: issue 25964
+WARNING:root:Permission denied: issue 25965
+WARNING:root:Permission denied: issue 25966
+WARNING:root:Permission denied: issue 25967
+WARNING:root:Permission denied: issue 25968
+WARNING:root:Permission denied: issue 25970
+WARNING:root:Permission denied: issue 25971
+WARNING:root:Permission denied: issue 25972
+WARNING:root:Permission denied: issue 25973
+WARNING:root:Permission denied: issue 25974
+WARNING:root:Permission denied: issue 25975
+WARNING:root:Permission denied: issue 25976
+WARNING:root:Permission denied: issue 25977
+WARNING:root:Permission denied: issue 25978
+WARNING:root:Permission denied: issue 25979
+WARNING:root:Permission denied: issue 25981
+WARNING:root:Permission denied: issue 25982
+WARNING:root:Permission denied: issue 25986
+WARNING:root:Permission denied: issue 25988
+WARNING:root:Permission denied: issue 25989
+WARNING:root:Permission denied: issue 25993
+WARNING:root:Permission denied: issue 25994
+WARNING:root:Permission denied: issue 25995
+WARNING:root:Permission denied: issue 25996
+WARNING:root:Permission denied: issue 25998
+WARNING:root:Permission denied: issue 25999
+WARNING:root:Permission denied: issue 26000
+WARNING:root:Permission denied: issue 26002
+WARNING:root:Permission denied: issue 26003
+WARNING:root:Permission denied: issue 26004
+WARNING:root:Permission denied: issue 26005
+WARNING:root:Permission denied: issue 26007
+WARNING:root:Permission denied: issue 26008
+WARNING:root:Permission denied: issue 26009
+WARNING:root:Permission denied: issue 26010
+WARNING:root:Permission denied: issue 26012
+WARNING:root:Permission denied: issue 26013
+WARNING:root:Permission denied: issue 26014
+WARNING:root:Permission denied: issue 26015
+WARNING:root:Permission denied: issue 26016
+WARNING:root:Permission denied: issue 26019
+WARNING:root:Permission denied: issue 26020
+WARNING:root:Permission denied: issue 26021
+WARNING:root:Permission denied: issue 26022
+WARNING:root:Permission denied: issue 26023
+WARNING:root:Permission denied: issue 26024
+WARNING:root:Permission denied: issue 26025
+WARNING:root:Permission denied: issue 26026
+WARNING:root:Permission denied: issue 26027
+WARNING:root:Permission denied: issue 26028
+WARNING:root:Permission denied: issue 26029
+WARNING:root:Permission denied: issue 26030
+WARNING:root:Permission denied: issue 26031
+WARNING:root:Permission denied: issue 26032
+WARNING:root:Permission denied: issue 26033
+WARNING:root:Permission denied: issue 26034
+WARNING:root:Permission denied: issue 26035
+WARNING:root:Permission denied: issue 26036
+WARNING:root:Permission denied: issue 26037
+WARNING:root:Permission denied: issue 26038
+WARNING:root:Permission denied: issue 26039
+WARNING:root:Permission denied: issue 26040
+WARNING:root:Permission denied: issue 26042
+WARNING:root:Permission denied: issue 26043
+WARNING:root:Permission denied: issue 26044
+WARNING:root:Permission denied: issue 26045
+WARNING:root:Permission denied: issue 26046
+WARNING:root:Permission denied: issue 26047
+WARNING:root:Permission denied: issue 26048
+WARNING:root:Permission denied: issue 26050
+WARNING:root:Permission denied: issue 26051
+WARNING:root:Permission denied: issue 26052
+WARNING:root:Permission denied: issue 26055
+WARNING:root:Permission denied: issue 26056
+WARNING:root:Permission denied: issue 26057
+WARNING:root:Permission denied: issue 26058
+WARNING:root:Permission denied: issue 26059
+WARNING:root:Permission denied: issue 26060
+WARNING:root:Permission denied: issue 26061
+WARNING:root:Permission denied: issue 26062
+WARNING:root:Permission denied: issue 26063
+WARNING:root:Permission denied: issue 26064
+WARNING:root:Permission denied: issue 26065
+WARNING:root:Permission denied: issue 26066
+WARNING:root:Permission denied: issue 26067
+WARNING:root:Permission denied: issue 26068
+WARNING:root:Permission denied: issue 26069
+WARNING:root:Permission denied: issue 26070
+WARNING:root:Permission denied: issue 26071
+WARNING:root:Permission denied: issue 26072
+WARNING:root:Permission denied: issue 26073
+WARNING:root:Permission denied: issue 26074
+WARNING:root:Permission denied: issue 26075
+WARNING:root:Permission denied: issue 26076
+WARNING:root:Permission denied: issue 26077
+WARNING:root:Permission denied: issue 26078
+WARNING:root:Permission denied: issue 26079
+WARNING:root:Permission denied: issue 26080
+WARNING:root:Permission denied: issue 26081
+WARNING:root:Permission denied: issue 26082
+WARNING:root:Permission denied: issue 26083
+WARNING:root:Permission denied: issue 26084
+WARNING:root:Permission denied: issue 26085
+WARNING:root:Permission denied: issue 26086
+WARNING:root:Permission denied: issue 26087
+WARNING:root:Permission denied: issue 26088
+WARNING:root:Permission denied: issue 26089
+WARNING:root:Permission denied: issue 26091
+WARNING:root:Permission denied: issue 26092
+WARNING:root:Permission denied: issue 26095
+WARNING:root:Permission denied: issue 26096
+WARNING:root:Permission denied: issue 26097
+WARNING:root:Permission denied: issue 26098
+WARNING:root:Permission denied: issue 26099
+WARNING:root:Permission denied: issue 26100
+WARNING:root:Permission denied: issue 26101
+WARNING:root:Permission denied: issue 26102
+WARNING:root:Permission denied: issue 26103
+WARNING:root:Permission denied: issue 26104
+WARNING:root:Permission denied: issue 26105
+WARNING:root:Permission denied: issue 26106
+WARNING:root:Permission denied: issue 26107
+WARNING:root:Permission denied: issue 26108
+WARNING:root:Permission denied: issue 26109
+WARNING:root:Permission denied: issue 26110
+WARNING:root:Permission denied: issue 26113
+WARNING:root:Permission denied: issue 26114
+WARNING:root:Permission denied: issue 26115
+WARNING:root:Permission denied: issue 26116
+WARNING:root:Permission denied: issue 26119
+WARNING:root:1st attempt failed: Exception encountered when parsing OSS-Fuzz issue 26120
+WARNING:root:Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 84, in scrape
+    issue_elem = self._get_issue_elem(issue_url, loading_delay)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 188, in _get_issue_elem
+    issue_elem = mr_issue_page_shadow.find_element_by_id('issue')
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 176, in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 658, in find_element
+    return self._execute(Command.FIND_CHILD_ELEMENT,
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.StaleElementReferenceException: Message: stale element reference: element is not attached to the page document
+  (Session info: chrome=86.0.4240.111)
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/utils/scrape_util.py", line 30, in scrape_issues
+    issue_i = issue_scraper.scrape(url_i)
+  File "/Users/zhendeveloper/Desktop/LabBox/oss-fuzz-mining/oss-fuzz-bugs/monorail-scraper/monorail_scraper/issue/issue_scraper.py", line 86, in scrape
+    raise ScrapeException(f"Unable to scrape issue at {issue_url}. "
+monorail_scraper.issue.issue_scraper.ScrapeException: 'Unable to scrape issue at https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=26120. Check whether issue exists and is publically available.'
+
+WARNING:root:Permission denied: issue 26120
+WARNING:root:Permission denied: issue 26121
+WARNING:root:Permission denied: issue 26122
+WARNING:root:Permission denied: issue 26123
+WARNING:root:Permission denied: issue 26124
+WARNING:root:Permission denied: issue 26125
+WARNING:root:Permission denied: issue 26126
+WARNING:root:Permission denied: issue 26128
+WARNING:root:Permission denied: issue 26131
+WARNING:root:Permission denied: issue 26132
+WARNING:root:Permission denied: issue 26133
+WARNING:root:Permission denied: issue 26136
+WARNING:root:Permission denied: issue 26137
+WARNING:root:Permission denied: issue 26138
+WARNING:root:Permission denied: issue 26139
+WARNING:root:Permission denied: issue 26140
+WARNING:root:Permission denied: issue 26141
+WARNING:root:Permission denied: issue 26142
+WARNING:root:Permission denied: issue 26143
+WARNING:root:Permission denied: issue 26144
+WARNING:root:Permission denied: issue 26145
+WARNING:root:Permission denied: issue 26146
+WARNING:root:Permission denied: issue 26147
+WARNING:root:Permission denied: issue 26148
+WARNING:root:Permission denied: issue 26149
+WARNING:root:Permission denied: issue 26150
+WARNING:root:Permission denied: issue 26151
+WARNING:root:Permission denied: issue 26152
+WARNING:root:Permission denied: issue 26153
+WARNING:root:Permission denied: issue 26154
+WARNING:root:Permission denied: issue 26155
+WARNING:root:Permission denied: issue 26158
+WARNING:root:Permission denied: issue 26159
+WARNING:root:Permission denied: issue 26160
+WARNING:root:Permission denied: issue 26161
+WARNING:root:Permission denied: issue 26162
+WARNING:root:Permission denied: issue 26163
+WARNING:root:Permission denied: issue 26164
+WARNING:root:Permission denied: issue 26165
+WARNING:root:Permission denied: issue 26166
+WARNING:root:Permission denied: issue 26167
+WARNING:root:Permission denied: issue 26168
+WARNING:root:Permission denied: issue 26169
+WARNING:root:Permission denied: issue 26170
+WARNING:root:Permission denied: issue 26171
+WARNING:root:Permission denied: issue 26172
+WARNING:root:Permission denied: issue 26173
+WARNING:root:Permission denied: issue 26175
+WARNING:root:Permission denied: issue 26177
+WARNING:root:Permission denied: issue 26178
+WARNING:root:Permission denied: issue 26179
+WARNING:root:Permission denied: issue 26180
+WARNING:root:Permission denied: issue 26181
+WARNING:root:Permission denied: issue 26182
+WARNING:root:Permission denied: issue 26183
+WARNING:root:Permission denied: issue 26184
+WARNING:root:Permission denied: issue 26185
+WARNING:root:Permission denied: issue 26186
+WARNING:root:Permission denied: issue 26187
+WARNING:root:Permission denied: issue 26188
+WARNING:root:Permission denied: issue 26189
+WARNING:root:Permission denied: issue 26190
+WARNING:root:Permission denied: issue 26193
+WARNING:root:Permission denied: issue 26194
+WARNING:root:Permission denied: issue 26196
+WARNING:root:Permission denied: issue 26197
+WARNING:root:Permission denied: issue 26198
+WARNING:root:Permission denied: issue 26199
+WARNING:root:Permission denied: issue 26201
+WARNING:root:Permission denied: issue 26202
+WARNING:root:Permission denied: issue 26203
+WARNING:root:Permission denied: issue 26206
+WARNING:root:Permission denied: issue 26207
+WARNING:root:Permission denied: issue 26208
+WARNING:root:Permission denied: issue 26209
+WARNING:root:Permission denied: issue 26210
+WARNING:root:Permission denied: issue 26213
+WARNING:root:Permission denied: issue 26214
+WARNING:root:Permission denied: issue 26215
+WARNING:root:Permission denied: issue 26217
+WARNING:root:Permission denied: issue 26218
+WARNING:root:Permission denied: issue 26219
+WARNING:root:Permission denied: issue 26220
+WARNING:root:Permission denied: issue 26221
+WARNING:root:Permission denied: issue 26223
+WARNING:root:Permission denied: issue 26224
+WARNING:root:Permission denied: issue 26225
+WARNING:root:Permission denied: issue 26226
+WARNING:root:Permission denied: issue 26227
+WARNING:root:Permission denied: issue 26228
+WARNING:root:Permission denied: issue 26229
+WARNING:root:Permission denied: issue 26230
+WARNING:root:Permission denied: issue 26231
+WARNING:root:Permission denied: issue 26232
+WARNING:root:Permission denied: issue 26233
+WARNING:root:Permission denied: issue 26234
+WARNING:root:Permission denied: issue 26237
+WARNING:root:Permission denied: issue 26238
+WARNING:root:Permission denied: issue 26239
+WARNING:root:Permission denied: issue 26240
+WARNING:root:Permission denied: issue 26241
+WARNING:root:Permission denied: issue 26242
+WARNING:root:Permission denied: issue 26243
+WARNING:root:Permission denied: issue 26244
+WARNING:root:Permission denied: issue 26245
+WARNING:root:Permission denied: issue 26246
+WARNING:root:Permission denied: issue 26247
+WARNING:root:Permission denied: issue 26248
+WARNING:root:Permission denied: issue 26249
+WARNING:root:Permission denied: issue 26250
+WARNING:root:Permission denied: issue 26251
+WARNING:root:Permission denied: issue 26252
+WARNING:root:Permission denied: issue 26253
+WARNING:root:Permission denied: issue 26254
+WARNING:root:Permission denied: issue 26255
+WARNING:root:Permission denied: issue 26257
+WARNING:root:Permission denied: issue 26258
+WARNING:root:Permission denied: issue 26259
+WARNING:root:Permission denied: issue 26260
+WARNING:root:Permission denied: issue 26261
+WARNING:root:Permission denied: issue 26262
+WARNING:root:Permission denied: issue 26263
+WARNING:root:Permission denied: issue 26264
+WARNING:root:Permission denied: issue 26266
+WARNING:root:Permission denied: issue 26267
+WARNING:root:Permission denied: issue 26268
+WARNING:root:Permission denied: issue 26269
+WARNING:root:Permission denied: issue 26270
+WARNING:root:Permission denied: issue 26271
+WARNING:root:Permission denied: issue 26272
+WARNING:root:Permission denied: issue 26274
+WARNING:root:Permission denied: issue 26275
+WARNING:root:Permission denied: issue 26276
+WARNING:root:Permission denied: issue 26277
+WARNING:root:Permission denied: issue 26278
+WARNING:root:Permission denied: issue 26279
+WARNING:root:Permission denied: issue 26280
+WARNING:root:Permission denied: issue 26281
+WARNING:root:Permission denied: issue 26282
+WARNING:root:Permission denied: issue 26284
+WARNING:root:Permission denied: issue 26285
+WARNING:root:Permission denied: issue 26288
+WARNING:root:Permission denied: issue 26289
+WARNING:root:Permission denied: issue 26290
+WARNING:root:Permission denied: issue 26291
+WARNING:root:Permission denied: issue 26292
+WARNING:root:Permission denied: issue 26293
+WARNING:root:Permission denied: issue 26294
+WARNING:root:Permission denied: issue 26295
+WARNING:root:Permission denied: issue 26296
+WARNING:root:Permission denied: issue 26297
+WARNING:root:Permission denied: issue 26298
+WARNING:root:Permission denied: issue 26299
+WARNING:root:Permission denied: issue 26300
+WARNING:root:Permission denied: issue 26301
+WARNING:root:Permission denied: issue 26302
+WARNING:root:Permission denied: issue 26303
+WARNING:root:Permission denied: issue 26304
+WARNING:root:Permission denied: issue 26305
+WARNING:root:Permission denied: issue 26308
+WARNING:root:Permission denied: issue 26309
+WARNING:root:Permission denied: issue 26310
+WARNING:root:Permission denied: issue 26311
+WARNING:root:Permission denied: issue 26313
+WARNING:root:Permission denied: issue 26314
+WARNING:root:Permission denied: issue 26315
+WARNING:root:Permission denied: issue 26317
+WARNING:root:Permission denied: issue 26318
+WARNING:root:Permission denied: issue 26319
+WARNING:root:Permission denied: issue 26320
+WARNING:root:Permission denied: issue 26321
+WARNING:root:Permission denied: issue 26322
+WARNING:root:Permission denied: issue 26323
+WARNING:root:Permission denied: issue 26324
+WARNING:root:Permission denied: issue 26325
+WARNING:root:Permission denied: issue 26326
+WARNING:root:Permission denied: issue 26327
+WARNING:root:Permission denied: issue 26328
+WARNING:root:Permission denied: issue 26329
+WARNING:root:Permission denied: issue 26330
+WARNING:root:Permission denied: issue 26331
+WARNING:root:Permission denied: issue 26332
+WARNING:root:Permission denied: issue 26333
+WARNING:root:Permission denied: issue 26336
+WARNING:root:Permission denied: issue 26337
+WARNING:root:Permission denied: issue 26338
+WARNING:root:Permission denied: issue 26339
+WARNING:root:Permission denied: issue 26340
+WARNING:root:Permission denied: issue 26341
+WARNING:root:Permission denied: issue 26342
+WARNING:root:Permission denied: issue 26343
+WARNING:root:Permission denied: issue 26344
+WARNING:root:Permission denied: issue 26345
+WARNING:root:Permission denied: issue 26346
+WARNING:root:Permission denied: issue 26347
+WARNING:root:Permission denied: issue 26348
+WARNING:root:Permission denied: issue 26349
+WARNING:root:Permission denied: issue 26350
+WARNING:root:Permission denied: issue 26351
+WARNING:root:Permission denied: issue 26352
+WARNING:root:Permission denied: issue 26353
+WARNING:root:Permission denied: issue 26354
+WARNING:root:Permission denied: issue 26355
+WARNING:root:Permission denied: issue 26356
+WARNING:root:Permission denied: issue 26357
+WARNING:root:Permission denied: issue 26358
+WARNING:root:Permission denied: issue 26360
+WARNING:root:Permission denied: issue 26363
+WARNING:root:Permission denied: issue 26364
+WARNING:root:Permission denied: issue 26365
+WARNING:root:Permission denied: issue 26366
+WARNING:root:Permission denied: issue 26367
+WARNING:root:Permission denied: issue 26368
+WARNING:root:Permission denied: issue 26369
+WARNING:root:Permission denied: issue 26370
+WARNING:root:Permission denied: issue 26371
+WARNING:root:Permission denied: issue 26372
+WARNING:root:Permission denied: issue 26374
+WARNING:root:Permission denied: issue 26375
+WARNING:root:Permission denied: issue 26376
+WARNING:root:Permission denied: issue 26377
+WARNING:root:Permission denied: issue 26378
+WARNING:root:Permission denied: issue 26379
+WARNING:root:Permission denied: issue 26380
+WARNING:root:Permission denied: issue 26381
+WARNING:root:Permission denied: issue 26382
+WARNING:root:Permission denied: issue 26383
+WARNING:root:Permission denied: issue 26384
+WARNING:root:Permission denied: issue 26386
+WARNING:root:Permission denied: issue 26387
+WARNING:root:Permission denied: issue 26388
+WARNING:root:Permission denied: issue 26389
+WARNING:root:Permission denied: issue 26390
+WARNING:root:Permission denied: issue 26391
+WARNING:root:Permission denied: issue 26392
+WARNING:root:Permission denied: issue 26393
+WARNING:root:Permission denied: issue 26396
+WARNING:root:Permission denied: issue 26397
+WARNING:root:Permission denied: issue 26398
+WARNING:root:Permission denied: issue 26399
+WARNING:root:Permission denied: issue 26400
+WARNING:root:Permission denied: issue 26401
+WARNING:root:Permission denied: issue 26402
+WARNING:root:Permission denied: issue 26403
+WARNING:root:Permission denied: issue 26404
+WARNING:root:Permission denied: issue 26405
+WARNING:root:Permission denied: issue 26406
+WARNING:root:Permission denied: issue 26407
+WARNING:root:Permission denied: issue 26408
+WARNING:root:Permission denied: issue 26409
+WARNING:root:Permission denied: issue 26411
+WARNING:root:Permission denied: issue 26412
+WARNING:root:Permission denied: issue 26413
+WARNING:root:Permission denied: issue 26414
+WARNING:root:Permission denied: issue 26415
+WARNING:root:Permission denied: issue 26416
+WARNING:root:Permission denied: issue 26417
+WARNING:root:Permission denied: issue 26418
+WARNING:root:Permission denied: issue 26419
+WARNING:root:Permission denied: issue 26420
+WARNING:root:Permission denied: issue 26421
+WARNING:root:Permission denied: issue 26422
+WARNING:root:Permission denied: issue 26423
+WARNING:root:Permission denied: issue 26424
+WARNING:root:Permission denied: issue 26425
+WARNING:root:Permission denied: issue 26427
+WARNING:root:Permission denied: issue 26428
+WARNING:root:Permission denied: issue 26429
+WARNING:root:Permission denied: issue 26430
+WARNING:root:Permission denied: issue 26431
+WARNING:root:Permission denied: issue 26432
+WARNING:root:Permission denied: issue 26434
+WARNING:root:Permission denied: issue 26435
+WARNING:root:Permission denied: issue 26436
+WARNING:root:Permission denied: issue 26437
+WARNING:root:Permission denied: issue 26438
+WARNING:root:Permission denied: issue 26439
+WARNING:root:Permission denied: issue 26440
+WARNING:root:Permission denied: issue 26441
+WARNING:root:Permission denied: issue 26442
+WARNING:root:Permission denied: issue 26444
+WARNING:root:Permission denied: issue 26445
+WARNING:root:Permission denied: issue 26446
+WARNING:root:Permission denied: issue 26447
+WARNING:root:Permission denied: issue 26448
+WARNING:root:Permission denied: issue 26449
+WARNING:root:Permission denied: issue 26450
+WARNING:root:Permission denied: issue 26451
+WARNING:root:Permission denied: issue 26452
+WARNING:root:Permission denied: issue 26453
+WARNING:root:Permission denied: issue 26454
+WARNING:root:Permission denied: issue 26455
+WARNING:root:Permission denied: issue 26456
+WARNING:root:Permission denied: issue 26457
+WARNING:root:Permission denied: issue 26458
+WARNING:root:Permission denied: issue 26459
+WARNING:root:Permission denied: issue 26460
+WARNING:root:Permission denied: issue 26461
+WARNING:root:Permission denied: issue 26462
+WARNING:root:Permission denied: issue 26463
+WARNING:root:Permission denied: issue 26464
+WARNING:root:Permission denied: issue 26465
+WARNING:root:Permission denied: issue 26466
+WARNING:root:Permission denied: issue 26467
+WARNING:root:Permission denied: issue 26468
+WARNING:root:Permission denied: issue 26469
+WARNING:root:Permission denied: issue 26470
+WARNING:root:Permission denied: issue 26471
+WARNING:root:Permission denied: issue 26472
+WARNING:root:Permission denied: issue 26473
+WARNING:root:Permission denied: issue 26474
+WARNING:root:Permission denied: issue 26475
+WARNING:root:Permission denied: issue 26477
+WARNING:root:Permission denied: issue 26478
+WARNING:root:Permission denied: issue 26479
+WARNING:root:Permission denied: issue 26480
+WARNING:root:Permission denied: issue 26481
+WARNING:root:Permission denied: issue 26482
+WARNING:root:Permission denied: issue 26483
+WARNING:root:Permission denied: issue 26484
+WARNING:root:Permission denied: issue 26485
+WARNING:root:Permission denied: issue 26486
+WARNING:root:Permission denied: issue 26487
+WARNING:root:Permission denied: issue 26488
+WARNING:root:Permission denied: issue 26489
+WARNING:root:Permission denied: issue 26490
+WARNING:root:Permission denied: issue 26491
+WARNING:root:Permission denied: issue 26492
+WARNING:root:Permission denied: issue 26493
+WARNING:root:Permission denied: issue 26494
+WARNING:root:Permission denied: issue 26495
+WARNING:root:Permission denied: issue 26496
+WARNING:root:Permission denied: issue 26497
+WARNING:root:Permission denied: issue 26498
+WARNING:root:Permission denied: issue 26499
+WARNING:root:Permission denied: issue 26500
+WARNING:root:Permission denied: issue 26501
+WARNING:root:Permission denied: issue 26502
+WARNING:root:Permission denied: issue 26503
+WARNING:root:Permission denied: issue 26504
+WARNING:root:Permission denied: issue 26505
+WARNING:root:Permission denied: issue 26506
+WARNING:root:Permission denied: issue 26507
+WARNING:root:Permission denied: issue 26508
+WARNING:root:Permission denied: issue 26510
+WARNING:root:Permission denied: issue 26511
+WARNING:root:Permission denied: issue 26512
+WARNING:root:Permission denied: issue 26513
+WARNING:root:Permission denied: issue 26514
+WARNING:root:Permission denied: issue 26515
+WARNING:root:Permission denied: issue 26516
+WARNING:root:Permission denied: issue 26517
+WARNING:root:Permission denied: issue 26518
+WARNING:root:Permission denied: issue 26519
+WARNING:root:Permission denied: issue 26520
+WARNING:root:Permission denied: issue 26521
+WARNING:root:Permission denied: issue 26522
+WARNING:root:Permission denied: issue 26523
+WARNING:root:Permission denied: issue 26524
+WARNING:root:Permission denied: issue 26525
+WARNING:root:Permission denied: issue 26526
+WARNING:root:Permission denied: issue 26527
+WARNING:root:Permission denied: issue 26528
+WARNING:root:Permission denied: issue 26529
+WARNING:root:Permission denied: issue 26530
+WARNING:root:Permission denied: issue 26531
+WARNING:root:Permission denied: issue 26532
+WARNING:root:Permission denied: issue 26533
+WARNING:root:Permission denied: issue 26534
+WARNING:root:Permission denied: issue 26535
+WARNING:root:Permission denied: issue 26536
+WARNING:root:Permission denied: issue 26537
+WARNING:root:Permission denied: issue 26538
+WARNING:root:Permission denied: issue 26540
+WARNING:root:Permission denied: issue 26541
+WARNING:root:Permission denied: issue 26543
+WARNING:root:Permission denied: issue 26546
+WARNING:root:Permission denied: issue 26547
+WARNING:root:Permission denied: issue 26548
+WARNING:root:Permission denied: issue 26549
+WARNING:root:Permission denied: issue 26550
+WARNING:root:Permission denied: issue 26551
+WARNING:root:Permission denied: issue 26552
+WARNING:root:Permission denied: issue 26554
+WARNING:root:Permission denied: issue 26555
+WARNING:root:Permission denied: issue 26556
