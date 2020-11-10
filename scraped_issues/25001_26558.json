@@ -28317,7 +28317,7 @@
     }
 ,
     {
-        "retrieved": 1603320592.367852,
+        "retrieved": 1605034680.24973,
         "project": "oss-fuzz",
         "id": 25663,
         "summary": "c-ares: Fuzzing build failure",
@@ -28338,8 +28338,27 @@
         "labels": [
             "Proj-c-ares"
         ],
-        "description": "",
-        "comments": [],
+        "description": "The last 2 builds for c-ares have been failing.\nBuild log: https://oss-fuzz-build-logs.storage.googleapis.com/log-1dc57e2f-8601-46d7-9e28-2fe0d5efcc59.txt\nBuild type: fuzzing\n\nTo reproduce locally, please see: https://google.github.io/oss-fuzz/advanced-topics/reproducing#reproducing-build-failures\n\nThis bug tracker is not being monitored by OSS-Fuzz team. If you have any questions, please create an issue at https://github.com/google/oss-fuzz/issues/new.\n\n**This bug will be automatically closed within a day once it is fixed.**",
+        "comments": [
+            {
+                "index": 1,
+                "author": "drysdale@google.com",
+                "author_roles": [],
+                "published": 1600084140.0,
+                "issue_diff": null,
+                "body": "This should hopefully get fixed by https://github.com/c-ares/c-ares/commit/535763a5e2ac5085113a06882337242d75893fd3"
+            },
+            {
+                "index": 2,
+                "author": "ClusterFuzz-External",
+                "author_roles": [
+                    "Project Member"
+                ],
+                "published": 1600164600.0,
+                "issue_diff": "Status: Verified (was: New)",
+                "body": "The latest build has succeeded, closing this issue."
+            }
+        ],
         "oss_fuzz_bug_report": null
     }
 ,
