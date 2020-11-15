@@ -14423,7 +14423,7 @@
         ],
         "oss_fuzz_bug_report": {
             "project": "gdal",
-            "fuzzing_engine": "gdal",
+            "fuzzing_engine": "libFuzzer",
             "fuzz_target_binary": "gdal_cad_fuzzer",
             "job_type": "gdal_experimental",
             "platform_id": "linux",
