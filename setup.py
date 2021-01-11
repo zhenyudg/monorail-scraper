@@ -11,9 +11,9 @@ setup(
     version='0.1.0',
     description='A tool to scrape and retrieve data from Monorail',
     long_description=readme,
-    author='Zhen Yu Ding',
+    author='Redacted for blind review',
     author_email='go-file-an-issue@on-github.instead',
-    url='https://github.com/zhenyudg/monorail-scraper',
+    url='Redacted for blind review',
     license=license,
     packages=find_packages(exclude=('tests', 'scraped_issues_stats'))
 )
