@@ -9,6 +9,11 @@ issue tracking tool.
 Monorail Scraper includes a tool specifically for scraping 
 ClusterFuzz-generated OSS-Fuzz issues.
 
+## Prerequisites
+
+Google Chrome needs to be installed, and `chromedriver` needs to be in `PATH`.
+Get `chromedriver` here: https://chromedriver.chromium.org/downloads
+
 ## Usage
 
 `scrape_one_issue.py` scrapes one single issue from any Monorail project.
