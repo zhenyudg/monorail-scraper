@@ -16,7 +16,7 @@ class StressTest(unittest.TestCase):
 
         for i in range(iterations):
             try:
-                issue = scraper.scrape(url, loading_delay=0)
+                issue = scraper.scrape(url)
                 attach_oss_fuzz_bug_report(issue)
             except Exception as e:
                 print(f"Iteration {i} failed:")

@@ -21,11 +21,6 @@ def scrape_issues(project: str, issues: Iterable[int]):
         while first_try or repeat_try:
             assert not (first_try and repeat_try)
 
-            if first_try:
-                page_loading_delay = 0.5
-            else:
-                page_loading_delay = 8
-
             try:
                 issue_i = issue_scraper.scrape(url_i)
                 attach_oss_fuzz_bug_report(issue_i)
@@ -55,7 +50,7 @@ def scrape_issues(project: str, issues: Iterable[int]):
                     logging.warning(traceback.format_exc())
 
                     first_try = False
-                    repeat_try = True  # try again, with a longer loading delay
+                    repeat_try = True  # try again
                 else:
                     logging.warning(f"2nd attempt failed: Exception encountered when parsing OSS-Fuzz issue {i}")
                     logging.warning(traceback.format_exc())

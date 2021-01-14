@@ -70,7 +70,7 @@ class IssueScraper:
         if self.driver is not None:
             self.driver.close()
 
-    def scrape(self, issue_url: str, loading_delay: float = 1) -> Issue:
+    def scrape(self, issue_url: str, loading_delay: float = 10) -> Issue:
         # Default value of loading_delay specified here is intended for user-facing scripts.
 
         """
